@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
     public static LevelManager instance;
 
+    public GameObject loadingScreen;
+    public Slider slider;
+
+
     public UnityEvent WonTheGame;
+    public UnityEvent OpenPopUp;
     public UnityEvent RestartGame;
 
     private static int IndexOfLastLoadedScene = -1;
@@ -34,7 +40,7 @@ public class LevelManager : MonoBehaviour {
 
     //FADEEFFEKT
     private void OnGUI()
-    {      
+    {
         // fade out/in the alpha value using a direction, a speed and time.deltatime 
         alpha += fadedir * fadeSpeed * Time.deltaTime;
         // force clamp the number bewteen 0, 1 because of GUIColor
@@ -44,10 +50,10 @@ public class LevelManager : MonoBehaviour {
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);            // Set alpha value
         GUI.depth = drawDeath;                                                          // render Texture
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);   // Let fir Texture to Screen
-        
+
     }
 
-    public float BeginFade (int direction)
+    public float BeginFade(int direction)
     {
         //Debug.Log("Begin Fade");
         fadedir = direction;
@@ -64,6 +70,7 @@ public class LevelManager : MonoBehaviour {
     {
         WonTheGame.AddListener(IfGameHasWon);
         RestartGame.AddListener(IfLevelHasToReload);
+        OpenPopUp.AddListener(IfPopUpHasToOpen);
     }
 
     public void FadeIn()
@@ -86,7 +93,7 @@ public class LevelManager : MonoBehaviour {
         //Debug.Log("Fade OUT Change");
         float fadeTime = BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
-        if(sceneIndex >= 0)
+        if (sceneIndex >= 0)
         {
             SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
         }
@@ -112,7 +119,7 @@ public class LevelManager : MonoBehaviour {
     {
         FadeOut(sceneIndex);
         IfLevelIsOver();
-        Invoke("FadeIn",1);
+        Invoke("FadeIn", 1);
         IndexOfLastLoadedScene = sceneIndex;
     }
 
@@ -123,9 +130,34 @@ public class LevelManager : MonoBehaviour {
         StringOfLastLoadedScene = sceneString;
     }
 
+    /// <summary>
+    /// Load Scene with Loading Bar
+    /// </summary>
+
+    public void LoadLevel (int sceneIndex)
+    {
+        SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
+        
+    }
+    public IEnumerator LoadAsynchonusly (int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            //Debug.Log(slider.value);
+            yield return null;         
+        }
+        loadingScreen.SetActive(false);
+    }
+
     public void IfLevelIsOver()
     {
-        if(IndexOfLastLoadedScene >= 0)
+        if (IndexOfLastLoadedScene >= 0)
         {
             try
             {
@@ -149,7 +181,7 @@ public class LevelManager : MonoBehaviour {
             }
         }
     }
-     
+
     public void IfLevelHasToReload()
     {
         LoadByIndex(GetIndexOfCurrentScene());
@@ -161,8 +193,21 @@ public class LevelManager : MonoBehaviour {
         WonTheGame.RemoveListener(IfGameHasWon);
         UIController.WinMenuisActive = true;
     }
+
+    public void IfPopUpHasToOpen(string PopUpName)
+    {
+        Time.timeScale = 0f;
+        UIController.PopUpMenuIsActive = true;
+
+    }
+    public void IfPopUpHasToOpen()
+    {
+        Time.timeScale = 0f;
+        UIController.PopUpMenuIsActive = true;
+    }
     /// CallBack bei Scene Loaded ? / 
     /// LadeBalken 
     /// SceneFader
+
 
 }

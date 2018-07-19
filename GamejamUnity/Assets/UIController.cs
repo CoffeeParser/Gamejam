@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
-    
-
     [Header("MAIN MENU")]
     public GameObject MainMenu;
     public Button OpenMenu;
@@ -48,19 +46,46 @@ public class UIController : MonoBehaviour {
     public Button RestartBtn;
     public Button WinQuit;
 
+    [Header("PopUpMenu 1")]
+    public GameObject PopUpMenu;
+    public GameObject PopUpText;
+    public Button SkipPopUp;
+
+    [Header("HealthBar")]
+    public Image currentHealthBar;
+    public Text ratioText;
+    public float health;
+    public bool isDamaging;
+    public float damage = 10;
+    private float hitPoint = 150;
+    private float maxHitPoint = 150;
 
 
-    private static bool MenuisActive = false;
-    private bool OptionsisActive = false;
-    private bool PauseMenuisActive = false;
 
+    public static bool MenuisActive = false;
+    public static bool OptionsisActive = false;
+    public static bool PauseMenuisActive = false;
+    public static bool PopUpMenuIsActive = false;
     public static bool GameIsPaused = false;
     public static bool WinMenuisActive = false;
 
+    public static HealthBarUpdate TakeDamageEvent;
+    public static HealthBarUpdate TakeHealEvent;
 
+    private void Awake()
+    {
+        TakeDamageEvent = new HealthBarUpdate();
+        TakeHealEvent = new HealthBarUpdate();
+    }
 
     // Use this for initialization
     void Start () {
+
+        currentHealthBar.rectTransform.localScale = new Vector3(1, 1, 1);
+        ratioText.text = "100%";
+
+        TakeDamageEvent.AddListener(TakeDamage);
+        TakeHealEvent.AddListener(TakeHeal);
 
         MenuisActive = true;
 
@@ -68,6 +93,7 @@ public class UIController : MonoBehaviour {
         OptionsMenu.SetActive(OptionsisActive);
         PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
+        PopUpMenu.SetActive(PopUpMenuIsActive);
 
         // Main 
         OpenMenu.onClick.AddListener(OpenTheMenu);
@@ -76,6 +102,9 @@ public class UIController : MonoBehaviour {
         HighScore.onClick.AddListener(OpenHighScore);
         MenuBackButton.onClick.AddListener(CloseMenu);
         Quit.onClick.AddListener(QuitGame);
+
+        //PopUpMenu
+        SkipPopUp.onClick.AddListener(SkipPopUpMenu);
 
         //PauseMenu
         PauseBtn.onClick.AddListener(OpenPauseMenu);
@@ -116,9 +145,45 @@ public class UIController : MonoBehaviour {
         OptionsMenu.SetActive(OptionsisActive);
         PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
+        PopUpMenu.SetActive(PopUpMenuIsActive);
 
         // Audio
         SetMasterVolume();
+    }
+
+
+
+    ///HealthBar
+    ///
+
+    public void UpdateHealthBar()
+    {
+        float ratio = hitPoint / maxHitPoint;
+        currentHealthBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
+        ratioText.text = (ratio * 100).ToString() + '%';
+        
+    }
+
+    private void TakeDamage(float damage)
+    {
+        hitPoint -= damage;
+        if(hitPoint < 0)
+        {
+            hitPoint = 0;
+            Debug.Log("Dead!");
+        }
+        UpdateHealthBar();
+    }
+
+    private void TakeHeal(float heal)
+    {
+        hitPoint += heal;
+        if (hitPoint > maxHitPoint)
+        {
+            hitPoint = maxHitPoint;
+            Debug.Log("Heal!");
+        }
+        UpdateHealthBar();
     }
 
 
@@ -152,19 +217,14 @@ public class UIController : MonoBehaviour {
         PauseMenuisActive = false;
         WinMenuisActive = false;
 
-        LevelManager.instance.LoadByIndex(2);
+
+        //With FadeScreen
+        //LevelManager.instance.LoadByIndex(2);
+
+        // With LoadingScreen
+        StartCoroutine(LevelManager.instance.LoadAsynchonusly(2));
+
         MenuisActive = false;
-        //GetComponent<LevelManager>().LoadByIndex(0);
-        /*
-        try
-        {
-            GetComponent<LevelManager>().LoadByIndex(0);
-        }
-        catch (Exception e)
-        {
-            Debug.Log("Cant Load Scene");
-        }
-        */
     }
     
 
@@ -291,5 +351,48 @@ public class UIController : MonoBehaviour {
         }
     }
 
+
+    // PopUpMenu
+    public void OpenPopUpMenu()
+    {
+        MenuisActive = false;
+        OptionsisActive = false;
+        PauseMenuisActive = false;
+        WinMenuisActive = false;
+
+        if (!PopUpMenuIsActive)
+        {
+            PopUpMenuIsActive = true;
+        }
+        else
+        {
+            PopUpMenuIsActive = false;
+        }
+    }
+
+    public void SkipPopUpMenu()
+    {
+        Time.timeScale = 1f;
+        PopUpMenuIsActive = false;
+
+    }
+
+
+
+    /// <summary>
+    /// Hier Eventuell noch eien Json oder csv. importer Implementerien und die PopUps automatisch erzeugen!!!
+    /// </summary>
+    public struct PopUp
+    {
+        public string name;
+        public string headLine;
+        public string text1;
+        public string text2;
+    }
+
+}
+
+public class HealthBarUpdate : UnityEvent<float>
+{
 
 }

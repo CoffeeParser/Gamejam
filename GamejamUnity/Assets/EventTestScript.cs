@@ -13,7 +13,11 @@ public class EventTestScript : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.Space))
         {
-            LevelManager.instance.WonTheGame.Invoke();
+            //LevelManager.instance.WonTheGame.Invoke();
+            //LevelManager.instance.OpenPopUp.Invoke();
+            //StartCoroutine( LevelManager.instance.LoadAsynchonusly(1));
+            UIController.TakeDamageEvent.Invoke(10);
+
         }
-	}
+    }
 }
