@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
+    
 
     [Header("MAIN MENU")]
     public GameObject MainMenu;
@@ -15,6 +16,7 @@ public class UIController : MonoBehaviour {
     public Button StartButton;
     public Button Options;
     public Button HighScore;
+    public Button MenuBackButton;
     public Button Quit;
 
     [Header("Options Menu")]
@@ -36,25 +38,51 @@ public class UIController : MonoBehaviour {
     public Button OptionsBack;
 
 
+    [Header("PauseMenu")]
+    public GameObject PauseMenu;
+    public Button PauseBtn;
+
+
+    [Header("WinMenu")]
+    public GameObject WinMenu;
+    public Button RestartBtn;
+    public Button WinQuit;
 
 
 
-    private bool MenuisActive = false;
+    private static bool MenuisActive = false;
     private bool OptionsisActive = false;
+    private bool PauseMenuisActive = false;
+
+    public static bool GameIsPaused = false;
+    public static bool WinMenuisActive = false;
 
 
 
     // Use this for initialization
     void Start () {
+
+        MenuisActive = true;
+
         MainMenu.SetActive(MenuisActive);
         OptionsMenu.SetActive(OptionsisActive);
+        PauseMenu.SetActive(PauseMenuisActive);
+        WinMenu.SetActive(WinMenuisActive);
 
         // Main 
         OpenMenu.onClick.AddListener(OpenTheMenu);
         StartButton.onClick.AddListener(StartTheGame);
         Options.onClick.AddListener(OpenTheOptions);
         HighScore.onClick.AddListener(OpenHighScore);
+        MenuBackButton.onClick.AddListener(CloseMenu);
         Quit.onClick.AddListener(QuitGame);
+
+        //PauseMenu
+        PauseBtn.onClick.AddListener(OpenPauseMenu);
+
+        //WinMenu
+        RestartBtn.onClick.AddListener(StartTheGame);
+        WinQuit.onClick.AddListener(QuitGame);
 
         // Options
         // Audio
@@ -76,15 +104,21 @@ public class UIController : MonoBehaviour {
         ShakeSensitivity.value = 1;
 
 
-        LevelManager.instance.LoadByIndex(1);
+        //LevelManager.instance.LoadByIndex(1);
     }
 
 
     // Update is called once per frame
     void Update()
     {     
+        // MenuActicity
         MainMenu.SetActive(MenuisActive);
         OptionsMenu.SetActive(OptionsisActive);
+        PauseMenu.SetActive(PauseMenuisActive);
+        WinMenu.SetActive(WinMenuisActive);
+
+        // Audio
+        SetMasterVolume();
     }
 
 
@@ -93,7 +127,9 @@ public class UIController : MonoBehaviour {
     /// </summary>
     public void OpenTheMenu()
     {
+        
         OptionsisActive = false;
+        PauseMenuisActive = false;
 
         if (!MenuisActive)
         {
@@ -109,12 +145,15 @@ public class UIController : MonoBehaviour {
 
     private void StartTheGame()
     {
+        Time.timeScale = 1f;
         // LoadLevel
-        MenuisActive = false;
+        MenuisActive = true;
         OptionsisActive = false;
-        
-        LevelManager.instance.LoadByIndex(0);
+        PauseMenuisActive = false;
+        WinMenuisActive = false;
 
+        LevelManager.instance.LoadByIndex(2);
+        MenuisActive = false;
         //GetComponent<LevelManager>().LoadByIndex(0);
         /*
         try
@@ -132,6 +171,8 @@ public class UIController : MonoBehaviour {
     private void OpenTheOptions()
     {
         MenuisActive = false;
+        PauseMenuisActive = false;
+        WinMenuisActive = false;
         if (!OptionsisActive)
         {
             OptionsisActive = true;
@@ -148,7 +189,15 @@ public class UIController : MonoBehaviour {
     {
         MenuisActive = false;
         OptionsisActive = false;
+        PauseMenuisActive = false;
+        WinMenuisActive = false;
         Debug.Log("HighScore Menu is Not Implemetet");
+    }
+
+    private void CloseMenu()
+    {
+        MenuisActive = false;
+        OptionsisActive = false;
     }
 
     private void QuitGame()
@@ -165,6 +214,12 @@ public class UIController : MonoBehaviour {
     /// </summary>
 
     // Audio
+    public void SetMasterVolume()
+    {
+        AudioListener.volume = GetMasterVolumeValue();
+        //Debug.Log(AudioListener.volume);
+    }
+
     public float GetMasterVolumeValue()
     {
         return MasterVolume.value;
@@ -200,6 +255,41 @@ public class UIController : MonoBehaviour {
         return ShakeSensitivity.value;
     }
 
+    //PauseMenu
+    public void OpenPauseMenu()
+    {
+        //Debug.Log("Paused");
+        if (!GameIsPaused)
+        {
+            PauseMenuisActive = true;
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
+        else
+        {
+            PauseMenuisActive = false;
+            GameIsPaused = false;
+            Time.timeScale = 1f;
+        }
+    }
+
+    //WinMenu
+
+    public void OpenWinMenu()
+    {
+        MenuisActive = false;
+        OptionsisActive = false;
+        PauseMenuisActive = false;
+
+        if (!WinMenuisActive)
+        {
+            WinMenuisActive = true;
+        }
+        else
+        {
+            WinMenuisActive = false;
+        }
+    }
 
 
 }

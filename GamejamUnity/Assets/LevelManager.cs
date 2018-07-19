@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour {
 
     public static LevelManager instance;
 
+    public UnityEvent WonTheGame;
+    public UnityEvent RestartGame;
+
     private static int IndexOfLastLoadedScene = -1;
     private static string StringOfLastLoadedScene = "";
 
@@ -46,23 +49,21 @@ public class LevelManager : MonoBehaviour {
 
     public float BeginFade (int direction)
     {
-        Debug.Log("Begin Fade");
+        //Debug.Log("Begin Fade");
         fadedir = direction;
         return (fadeSpeed); // return for applicationen LoadLevel
     }
 
     private void Start()
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         BeginFade(-1);
     }
 
-
-    private void OnLevelWasLoaded(int level)
+    private void Update()
     {
-
-        //alpha = 1;
-        //BeginFade(-1);
+        WonTheGame.AddListener(IfGameHasWon);
+        RestartGame.AddListener(IfLevelHasToReload);
     }
 
     public void FadeIn()
@@ -71,7 +72,7 @@ public class LevelManager : MonoBehaviour {
     }
     public IEnumerator IEFadeIn()
     {
-        Debug.Log("Fade IN Change");
+        //Debug.Log("Fade IN Change");
         float fadeTime = BeginFade(-1);
         yield return new WaitForSeconds(fadeTime);
     }
@@ -82,7 +83,7 @@ public class LevelManager : MonoBehaviour {
     }
     public IEnumerator IEFadeOut(int sceneIndex = -1)
     {
-        Debug.Log("Fade OUT Change");
+        //Debug.Log("Fade OUT Change");
         float fadeTime = BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         if(sceneIndex >= 0)
@@ -151,7 +152,14 @@ public class LevelManager : MonoBehaviour {
      
     public void IfLevelHasToReload()
     {
+        LoadByIndex(GetIndexOfCurrentScene());
+    }
 
+    public void IfGameHasWon()
+    {
+        Time.timeScale = 0f;
+        WonTheGame.RemoveListener(IfGameHasWon);
+        UIController.WinMenuisActive = true;
     }
     /// CallBack bei Scene Loaded ? / 
     /// LadeBalken 
