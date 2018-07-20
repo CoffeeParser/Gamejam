@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
 
 
     public UnityEvent WonTheGame;
+    public UnityEvent LooseTheGame;
     public UnityEvent OpenPopUp;
     public UnityEvent RestartGame;
 
@@ -184,7 +185,8 @@ public class LevelManager : MonoBehaviour {
 
     public void IfLevelHasToReload()
     {
-        LoadByIndex(GetIndexOfCurrentScene());
+        LoadAsynchonusly(GetIndexOfCurrentScene());
+        //LoadByIndex(GetIndexOfCurrentScene());
     }
 
     public void IfGameHasWon()
@@ -205,9 +207,12 @@ public class LevelManager : MonoBehaviour {
         Time.timeScale = 0f;
         UIController.PopUpMenuIsActive = true;
     }
+
+
+
     /// CallBack bei Scene Loaded ? / 
-    /// LadeBalken 
-    /// SceneFader
+
+
 
 
 }

@@ -17,6 +17,7 @@ public class EventTestScript : MonoBehaviour {
             //LevelManager.instance.OpenPopUp.Invoke();
             //StartCoroutine( LevelManager.instance.LoadAsynchonusly(1));
             UIController.TakeDamageEvent.Invoke(10);
+            
 
         }
     }

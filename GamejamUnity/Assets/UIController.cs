@@ -23,7 +23,6 @@ public class UIController : MonoBehaviour {
     public Slider MasterVolume;
     public Slider MusicVolume;
     public Slider SFXVolume;
-
     [Header("Video")]
     public Slider Bightness;
     public Toggle Antialiasing;
@@ -61,6 +60,11 @@ public class UIController : MonoBehaviour {
     private float maxHitPoint = 150;
 
 
+    [Header("LooseMenu")]
+    public GameObject LooseMenu;
+    public Button LooseRestart;
+    public Button LooseQuit;
+
 
     public static bool MenuisActive = false;
     public static bool OptionsisActive = false;
@@ -68,9 +72,13 @@ public class UIController : MonoBehaviour {
     public static bool PopUpMenuIsActive = false;
     public static bool GameIsPaused = false;
     public static bool WinMenuisActive = false;
+    public static bool LooseMenuisActive = false;
 
     public static HealthBarUpdate TakeDamageEvent;
     public static HealthBarUpdate TakeHealEvent;
+
+
+    
 
     private void Awake()
     {
@@ -93,6 +101,7 @@ public class UIController : MonoBehaviour {
         OptionsMenu.SetActive(OptionsisActive);
         PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
+        LooseMenu.SetActive(LooseMenuisActive);
         PopUpMenu.SetActive(PopUpMenuIsActive);
 
         // Main 
@@ -112,6 +121,11 @@ public class UIController : MonoBehaviour {
         //WinMenu
         RestartBtn.onClick.AddListener(StartTheGame);
         WinQuit.onClick.AddListener(QuitGame);
+
+        //LooseMenu
+        LooseQuit.onClick.AddListener(QuitGame);
+        LooseRestart.onClick.AddListener(StartTheGame);
+
 
         // Options
         // Audio
@@ -146,6 +160,8 @@ public class UIController : MonoBehaviour {
         PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
         PopUpMenu.SetActive(PopUpMenuIsActive);
+        LooseMenu.SetActive(LooseMenuisActive);
+
 
         // Audio
         SetMasterVolume();
@@ -161,27 +177,33 @@ public class UIController : MonoBehaviour {
         float ratio = hitPoint / maxHitPoint;
         currentHealthBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
         ratioText.text = (ratio * 100).ToString() + '%';
-        
     }
 
-    private void TakeDamage(float damage)
+    private void TakeDamage(int damage)
     {
         hitPoint -= damage;
         if(hitPoint < 0)
         {
             hitPoint = 0;
-            Debug.Log("Dead!");
+            //Debug.Log("Dead!");
+            IfGameHasLoose();
         }
         UpdateHealthBar();
     }
 
-    private void TakeHeal(float heal)
+    public void IfGameHasLoose()
+    {
+        LooseMenuisActive = true;
+        Time.timeScale = 0f;
+    }
+
+    private void TakeHeal(int heal)
     {
         hitPoint += heal;
         if (hitPoint > maxHitPoint)
         {
             hitPoint = maxHitPoint;
-            Debug.Log("Heal!");
+            //Debug.Log("Heal!");
         }
         UpdateHealthBar();
     }
@@ -210,13 +232,15 @@ public class UIController : MonoBehaviour {
 
     private void StartTheGame()
     {
+        TakeHeal(500);
+
         Time.timeScale = 1f;
         // LoadLevel
         MenuisActive = true;
         OptionsisActive = false;
         PauseMenuisActive = false;
         WinMenuisActive = false;
-
+        LooseMenuisActive = false;
 
         //With FadeScreen
         //LevelManager.instance.LoadByIndex(2);
@@ -277,8 +301,27 @@ public class UIController : MonoBehaviour {
     public void SetMasterVolume()
     {
         AudioListener.volume = GetMasterVolumeValue();
+        if (GetMasterVolumeValue() < GetMusicVolumeValue() || GetMasterVolumeValue() < GetMusicVolumeValue())
+        {
+            MusicVolume.value = GetMasterVolumeValue();
+            SFXVolume.value = GetMasterVolumeValue();
+        } 
         //Debug.Log(AudioListener.volume);
     }
+
+    public void SetMusicVolume()
+    {
+        AudioListener.volume = GetMusicVolumeValue();
+        //Debug.Log(AudioListener.volume);
+    }
+
+    public void SetSFXVolume()
+    {
+        AudioListener.volume = GetSFXVolumeValue();
+        //Debug.Log(AudioListener.volume);
+    }
+
+    
 
     public float GetMasterVolumeValue()
     {
@@ -286,11 +329,11 @@ public class UIController : MonoBehaviour {
     }
     public float GetMusicVolumeValue()
     {
-        return MasterVolume.value;
+        return MusicVolume.value;
     }
     public float GetSFXVolumeValue()
     {
-        return MasterVolume.value;
+        return SFXVolume.value;
     }
 
     // Video
@@ -392,7 +435,7 @@ public class UIController : MonoBehaviour {
 
 }
 
-public class HealthBarUpdate : UnityEvent<float>
+public class HealthBarUpdate : UnityEvent<int>
 {
 
 }
