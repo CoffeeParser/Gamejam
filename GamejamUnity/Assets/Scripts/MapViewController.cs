@@ -49,15 +49,15 @@ public class MapViewController : MonoBehaviour {
         {
             if (_gamestate.CurrentWorld.Persons[i].Finished) // first state: the level is already finished
             {
-                _allButtons[i].enabled = false;
+                _allButtons[i].interactable = false;
             }
             else if (_gamestate.CurrentWorld.Persons[i].Unlocked) // second state: this is the next possible level!
             {
-                _allButtons[i].enabled = true;
+                _allButtons[i].interactable = true;
             }
             else // third state: not finished and locked = can't visit yet
             {
-                _allButtons[i].enabled = false;
+                _allButtons[i].interactable = false;
             }
         }
     }
