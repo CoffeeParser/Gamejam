@@ -106,6 +106,162 @@
             "Message": "Helfen Sie mir bitte."
           }
         ]
+      },
+	  {
+        "Name": "Paul",
+        "Alias": "Kriegsveteran",
+        "Age": 28,
+		"Finished": false,
+		"Unlocked": false,
+        "EvilAction": [
+          {
+            "ActionType": "Sound",
+            "Peaks": 3,
+            "Decibel": 60
+          },
+          {
+            "ActionType": "Grab",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
+          }
+        ],
+        "SolvedActions": [],
+        "TherapyStory": [
+          {
+            "DialogeType": "Story",
+            "Message": "Ich kann den Krieg nicht vergessen."
+          },
+          {
+            "DialogeType": "Story",
+            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
+          },
+          {
+            "DialogeType": "Action",
+            "ActionType": "Sound",
+            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
+          }
+        ],
+        "ReviewStory": [
+          {
+            "DialogType": "Story",
+            "Message": "Wo soll ich nur anfangen?"
+          },
+          {
+            "DialogType": "ActionStatus",
+            "ActionType": "Sound",
+            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+          },
+          {
+            "DialogType": "Story",
+            "Message": "Helfen Sie mir bitte."
+          }
+        ]
+      },
+	  {
+        "Name": "Paul",
+        "Alias": "Kriegsveteran",
+        "Age": 28,
+		"Finished": false,
+		"Unlocked": false,
+        "EvilAction": [
+          {
+            "ActionType": "Sound",
+            "Peaks": 3,
+            "Decibel": 60
+          },
+          {
+            "ActionType": "Grab",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
+          }
+        ],
+        "SolvedActions": [],
+        "TherapyStory": [
+          {
+            "DialogeType": "Story",
+            "Message": "Ich kann den Krieg nicht vergessen."
+          },
+          {
+            "DialogeType": "Story",
+            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
+          },
+          {
+            "DialogeType": "Action",
+            "ActionType": "Sound",
+            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
+          }
+        ],
+        "ReviewStory": [
+          {
+            "DialogType": "Story",
+            "Message": "Wo soll ich nur anfangen?"
+          },
+          {
+            "DialogType": "ActionStatus",
+            "ActionType": "Sound",
+            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+          },
+          {
+            "DialogType": "Story",
+            "Message": "Helfen Sie mir bitte."
+          }
+        ]
+      },
+	  {
+        "Name": "Paul",
+        "Alias": "Kriegsveteran",
+        "Age": 28,
+		"Finished": false,
+		"Unlocked": false,
+        "EvilAction": [
+          {
+            "ActionType": "Sound",
+            "Peaks": 3,
+            "Decibel": 60
+          },
+          {
+            "ActionType": "Grab",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
+          }
+        ],
+        "SolvedActions": [],
+        "TherapyStory": [
+          {
+            "DialogeType": "Story",
+            "Message": "Ich kann den Krieg nicht vergessen."
+          },
+          {
+            "DialogeType": "Story",
+            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
+          },
+          {
+            "DialogeType": "Action",
+            "ActionType": "Sound",
+            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
+          }
+        ],
+        "ReviewStory": [
+          {
+            "DialogType": "Story",
+            "Message": "Wo soll ich nur anfangen?"
+          },
+          {
+            "DialogType": "ActionStatus",
+            "ActionType": "Sound",
+            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+          },
+          {
+            "DialogType": "Story",
+            "Message": "Helfen Sie mir bitte."
+          }
+        ]
       }
 
     ]

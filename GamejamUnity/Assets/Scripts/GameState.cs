@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour {
     public Person CurrentPerson;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         var rootObject = JsonConvert.DeserializeObject<RootObject>(InputFileTextAsset.text);
         CurrentWorld = rootObject.Worlds[0];
@@ -32,9 +32,11 @@ public class GameState : MonoBehaviour {
 
     public bool SelectNewPerson(Person newPerson)
     {
-        if (newPerson.Unlocked && !newPerson.Finished)
+        if (newPerson.Unlocked && !newPerson.Finished && newPerson != CurrentPerson)
         {
             CurrentPerson = newPerson;
+            Debug.Log($"newPersonSelected name{CurrentPerson.Name}");
+            BroadcastMessage("PersonChanged");
             return true;
         }
         return false;
