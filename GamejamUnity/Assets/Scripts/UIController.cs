@@ -60,18 +60,12 @@ public class UIController : MonoBehaviour {
     public static bool WinMenuisActive = false;
     public static bool LooseMenuisActive = false;
 
-    public static HealthBarUpdate TakeDamageEvent;
-    public static HealthBarUpdate TakeHealEvent;
+    public static UnityEvent DialogHasEnded;
 
 
-    
 
-    private void Awake()
-    {
-        TakeDamageEvent = new HealthBarUpdate();
-        TakeHealEvent = new HealthBarUpdate();
-    }
 
+   
     // Use this for initialization
     void Start () {
 
@@ -346,10 +340,5 @@ public class UIController : MonoBehaviour {
         public string text1;
         public string text2;
     }
-
-}
-
-public class HealthBarUpdate : UnityEvent<int>
-{
 
 }
