@@ -11,7 +11,13 @@ public class MapViewController : MonoBehaviour
     public Button Level2Button;
     public Button Level3Button;
     public Button Level4Button;
-    public Button Level5Button;
+
+    public Sprite Level_1Sprite_InActive, Level_1Sprite_Active;
+    public Sprite Level_2Sprite_InActive, Level_2Sprite_Active;
+    public Sprite Level_3Sprite_InActive, Level_3Sprite_Active;
+    public Sprite Level_4Sprite_InActive, Level_4Sprite_Active;
+    private Sprite[] _activeLevelSprites;
+    private Sprite[] _inactiveLevelSprites;
 
     private bool _levelButtonsInitialized = false;
 
@@ -28,7 +34,9 @@ public class MapViewController : MonoBehaviour
         if (!_levelButtonsInitialized)
         {
             _allButtons = new[]
-                {Level1Button, Level2Button, Level3Button, Level4Button, Level5Button};
+                {Level1Button, Level2Button, Level3Button, Level4Button};
+            _activeLevelSprites = new[] { Level_1Sprite_Active, Level_2Sprite_Active , Level_3Sprite_Active , Level_4Sprite_Active };
+            _inactiveLevelSprites = new[] { Level_1Sprite_InActive, Level_2Sprite_InActive, Level_3Sprite_InActive, Level_4Sprite_InActive };
 
             if (_allButtons.Length != _gamestate.CurrentWorld.Persons.Count) // zur sicherheit
             {
@@ -51,14 +59,17 @@ public class MapViewController : MonoBehaviour
             if (_gamestate.CurrentWorld.Persons[i].Finished) // first state: the level is already finished
             {
                 _allButtons[i].interactable = false;
+                _allButtons[i].gameObject.GetComponent<Image>().sprite = _inactiveLevelSprites[i];
             }
             else if (_gamestate.CurrentWorld.Persons[i].Unlocked) // second state: this is the next possible level!
             {
                 _allButtons[i].interactable = true;
+                _allButtons[i].gameObject.GetComponent<Image>().sprite = _activeLevelSprites[i];
             }
             else // third state: not finished and locked = can't visit yet
             {
                 _allButtons[i].interactable = false;
+                _allButtons[i].gameObject.GetComponent<Image>().sprite = _inactiveLevelSprites[i];
             }
         }
     }

@@ -11,7 +11,14 @@ public class ScreenViewHandler : MonoBehaviour {
     public GameObject MapViewGameObject;
     public GameObject EvilScreenGameObject;
 
-    void Start () {
+    public GameObject DialogField;
+    public Text dialogFieldtext;
+
+    private GameState _gameState;
+
+    void Awake () {
+        _gameState = GameObject.FindGameObjectWithTag("GlobalLifeTime").GetComponent<GameState>();
+
         StartScreen.SetActive(true);
         EnterMapMenu.onClick.AddListener(() =>
         {
@@ -29,5 +36,12 @@ public class ScreenViewHandler : MonoBehaviour {
     {
         MapViewGameObject.SetActive(false);
         EvilScreenGameObject.SetActive(true);
+      
+        dialogFieldtext.text = _gameState.Begruessung;
+    }
+
+    public void SetDialogText()
+    {
+        
     }
 }

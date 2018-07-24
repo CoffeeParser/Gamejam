@@ -9,12 +9,14 @@ public class GameState : MonoBehaviour {
 
     public World CurrentWorld;
     public Person CurrentPerson;
+    public string Begruessung;
 
     // Use this for initialization
     void Awake()
     {
         var rootObject = JsonConvert.DeserializeObject<RootObject>(InputFileTextAsset.text);
         CurrentWorld = rootObject.Worlds[0];
+        Begruessung = rootObject.Begruessung;
     }
 
     /// <summary>
