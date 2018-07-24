@@ -50,5 +50,6 @@ public class RootObject
 {
     public string Game { get; set; }
     public int Revision { get; set; }
+    public string Begruessung { get; set; }
     public List<World> Worlds { get; set; }
 }
