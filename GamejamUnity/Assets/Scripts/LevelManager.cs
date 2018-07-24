@@ -140,7 +140,7 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
         
     }
-    public IEnumerator LoadAsynchonusly (int sceneIndex)
+    public IEnumerator LoadAsynchonusly(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
@@ -151,7 +151,22 @@ public class LevelManager : MonoBehaviour {
             float progress = Mathf.Clamp01(operation.progress / .9f);
             slider.value = progress;
             //Debug.Log(slider.value);
-            yield return null;         
+            yield return null;
+        }
+        loadingScreen.SetActive(false);
+    }
+    public IEnumerator LoadAsynchonusly(string sceneString)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            //Debug.Log(slider.value);
+            yield return null;
         }
         loadingScreen.SetActive(false);
     }
