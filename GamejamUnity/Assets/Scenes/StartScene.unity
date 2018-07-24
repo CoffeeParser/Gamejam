@@ -5128,6 +5128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textfieldGO: {fileID: 1299727740}
+  backGroundImage: {fileID: 0}
   skipDialog: {fileID: 0}
 --- !u!1 &1623176095
 GameObject:
