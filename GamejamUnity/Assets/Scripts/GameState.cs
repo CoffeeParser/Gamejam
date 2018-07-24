@@ -35,7 +35,8 @@ public class GameState : MonoBehaviour {
         if (newPerson.Unlocked && !newPerson.Finished && newPerson != CurrentPerson)
         {
             CurrentPerson = newPerson;
-            Debug.Log($"Selected new Level / Person with name {CurrentPerson.Name}");
+            Debug.Log($"newPersonSelected name{CurrentPerson.Name}");
+            BroadcastMessage("PersonChanged");
             return true;
         }
         return false;

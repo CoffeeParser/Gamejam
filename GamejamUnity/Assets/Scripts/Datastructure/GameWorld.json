@@ -8,8 +8,8 @@
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
-        "Finished": false,
-        "Unlocked": true,
+		"Finished": false,
+		"Unlocked": true,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -20,7 +20,7 @@
             "ActionType": "Grab",
             "ObjectOfInterest": "Picture",
             "PlacementTarget": "Floor",
-            "details": "whatever"
+            "details": "whatever" 
           }
         ],
         "SolvedActions": [],
@@ -60,8 +60,8 @@
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
-        "Finished": false,
-        "Unlocked": false,
+		"Finished": false,
+		"Unlocked": false,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -107,13 +107,12 @@
           }
         ]
       },
-
-      {
+	  {
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
-        "Finished": false,
-        "Unlocked": false,
+		"Finished": false,
+		"Unlocked": false,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -123,7 +122,8 @@
           {
             "ActionType": "Grab",
             "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor"
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
           }
         ],
         "SolvedActions": [],
@@ -151,7 +151,7 @@
             "DialogType": "ActionStatus",
             "ActionType": "Sound",
             "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört."
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
           },
           {
             "DialogType": "Story",
@@ -159,13 +159,12 @@
           }
         ]
       },
-
-      {
+	  {
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
-        "Finished": false,
-        "Unlocked": false,
+		"Finished": false,
+		"Unlocked": false,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -175,7 +174,8 @@
           {
             "ActionType": "Grab",
             "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor"
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
           }
         ],
         "SolvedActions": [],
@@ -203,7 +203,7 @@
             "DialogType": "ActionStatus",
             "ActionType": "Sound",
             "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört."
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
           },
           {
             "DialogType": "Story",
@@ -211,13 +211,12 @@
           }
         ]
       },
-
-      {
+	  {
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
-        "Finished": false,
-        "Unlocked": false,
+		"Finished": false,
+		"Unlocked": false,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -227,7 +226,8 @@
           {
             "ActionType": "Grab",
             "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor"
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
           }
         ],
         "SolvedActions": [],
@@ -255,7 +255,7 @@
             "DialogType": "ActionStatus",
             "ActionType": "Sound",
             "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört."
+            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
           },
           {
             "DialogType": "Story",
