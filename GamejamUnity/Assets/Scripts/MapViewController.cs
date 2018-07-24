@@ -29,6 +29,21 @@ public class MapViewController : MonoBehaviour
         EnterMiniMap();
     }
 
+    /// <summary>
+    /// EnterMiniMap is called on consecutive Activations of MapViewController GameObject.
+    /// </summary>
+    private void OnEnable()
+    {
+        if (_levelButtonsInitialized)
+        {
+            Debug.Log("EnterMiniMap called!");
+            EnterMiniMap();
+        }
+    }
+
+    /// <summary>
+    /// Initialize all Level Buttons and corresponding sprites once
+    /// </summary>
     private void InitializeLevelButtons()
     {
         if (!_levelButtonsInitialized)
@@ -52,6 +67,9 @@ public class MapViewController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update all Level Button States and Visual Effects / Sprites
+    /// </summary>
     private void RefreshLevelButtonStates()
     {
         for (int i = 0; i < _gamestate.CurrentWorld.Persons.Count; i++)
@@ -77,9 +95,11 @@ public class MapViewController : MonoBehaviour
     /// <summary>
     /// Call this whenever the minimap is entered to refresh level button states
     /// </summary>
-    public void EnterMiniMap()
+    private void EnterMiniMap()
     {
         InitializeLevelButtons();
         RefreshLevelButtonStates();
     }
+
+    
 }
