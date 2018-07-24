@@ -23,10 +23,7 @@ public class UIController : MonoBehaviour {
     public Slider MasterVolume;
     public Slider MusicVolume;
     public Slider SFXVolume;
-    [Header("Video")]
-    public Slider Bightness;
-    public Toggle Antialiasing;
-    public Toggle Toggel;
+
 
     [Header("GamePlay")]
     public Slider ShakeSensitivity;
@@ -34,10 +31,6 @@ public class UIController : MonoBehaviour {
     [Header("OptionsBack")]
     public Button OptionsBack;
 
-
-    [Header("PauseMenu")]
-    public GameObject PauseMenu;
-    public Button PauseBtn;
 
 
     [Header("WinMenu")]
@@ -50,14 +43,7 @@ public class UIController : MonoBehaviour {
     public GameObject PopUpText;
     public Button SkipPopUp;
 
-    [Header("HealthBar")]
-    public Image currentHealthBar;
-    public Text ratioText;
-    public float health;
-    public bool isDamaging;
-    public float damage = 10;
-    private float hitPoint = 150;
-    private float maxHitPoint = 150;
+
 
 
     [Header("LooseMenu")]
@@ -89,17 +75,10 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        currentHealthBar.rectTransform.localScale = new Vector3(1, 1, 1);
-        ratioText.text = "100%";
-
-        TakeDamageEvent.AddListener(TakeDamage);
-        TakeHealEvent.AddListener(TakeHeal);
-
         MenuisActive = true;
 
         MainMenu.SetActive(MenuisActive);
         OptionsMenu.SetActive(OptionsisActive);
-        PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
         LooseMenu.SetActive(LooseMenuisActive);
         PopUpMenu.SetActive(PopUpMenuIsActive);
@@ -115,9 +94,6 @@ public class UIController : MonoBehaviour {
         //PopUpMenu
         SkipPopUp.onClick.AddListener(SkipPopUpMenu);
 
-        //PauseMenu
-        PauseBtn.onClick.AddListener(OpenPauseMenu);
-
         //WinMenu
         RestartBtn.onClick.AddListener(StartTheGame);
         WinQuit.onClick.AddListener(QuitGame);
@@ -132,20 +108,6 @@ public class UIController : MonoBehaviour {
         MasterVolume.value = 1;
         MusicVolume.value = 1;
         SFXVolume.value = 1;
-        // Video
-        Bightness.value = 50;
-
-        Antialiasing.isOn = false;
-        Antialiasing.onValueChanged.AddListener(delegate
-        {
-            AntialiasingToggleHasChanges(Antialiasing);
-        });
-        OptionsBack.onClick.AddListener(OpenTheMenu);
-
-        Toggel.isOn = false;
-        // GamePlay
-        ShakeSensitivity.value = 1;
-
 
         //LevelManager.instance.LoadByIndex(1);
     }
@@ -157,7 +119,6 @@ public class UIController : MonoBehaviour {
         // MenuActicity
         MainMenu.SetActive(MenuisActive);
         OptionsMenu.SetActive(OptionsisActive);
-        PauseMenu.SetActive(PauseMenuisActive);
         WinMenu.SetActive(WinMenuisActive);
         PopUpMenu.SetActive(PopUpMenuIsActive);
         LooseMenu.SetActive(LooseMenuisActive);
@@ -169,27 +130,6 @@ public class UIController : MonoBehaviour {
 
 
 
-    ///HealthBar
-    ///
-
-    public void UpdateHealthBar()
-    {
-        float ratio = hitPoint / maxHitPoint;
-        currentHealthBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
-        ratioText.text = (ratio * 100).ToString() + '%';
-    }
-
-    private void TakeDamage(int damage)
-    {
-        hitPoint -= damage;
-        if(hitPoint < 0)
-        {
-            hitPoint = 0;
-            //Debug.Log("Dead!");
-            IfGameHasLoose();
-        }
-        UpdateHealthBar();
-    }
 
     public void IfGameHasLoose()
     {
@@ -197,16 +137,6 @@ public class UIController : MonoBehaviour {
         Time.timeScale = 0f;
     }
 
-    private void TakeHeal(int heal)
-    {
-        hitPoint += heal;
-        if (hitPoint > maxHitPoint)
-        {
-            hitPoint = maxHitPoint;
-            //Debug.Log("Heal!");
-        }
-        UpdateHealthBar();
-    }
 
 
     /// <summary>
@@ -232,7 +162,6 @@ public class UIController : MonoBehaviour {
 
     private void StartTheGame()
     {
-        TakeHeal(500);
 
         Time.timeScale = 1f;
         // LoadLevel
@@ -246,7 +175,7 @@ public class UIController : MonoBehaviour {
         //LevelManager.instance.LoadByIndex(2);
 
         // With LoadingScreen
-        StartCoroutine(LevelManager.instance.LoadAsynchonusly(2));
+        StartCoroutine(LevelManager.instance.LoadAsynchonusly(0));
 
         MenuisActive = false;
     }
@@ -336,21 +265,6 @@ public class UIController : MonoBehaviour {
         return SFXVolume.value;
     }
 
-    // Video
-    public float GetBightnessValue()
-    {
-        return Bightness.value;
-    }
-
-    public bool AntialiasingValue()
-    {
-        return Antialiasing.isOn;
-    }
-
-    private void AntialiasingToggleHasChanges(Toggle antialiasing)
-    {
-        Debug.Log(Antialiasing.isOn);
-    }
 
     // GamePlay 
     public float GetShakeSensitivity()
