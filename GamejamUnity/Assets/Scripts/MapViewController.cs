@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MapViewController : MonoBehaviour {
+public class MapViewController : MonoBehaviour
+{
 
     private GameState _gamestate;
     private Button[] _allButtons;
@@ -18,7 +19,7 @@ public class MapViewController : MonoBehaviour {
     {
         var go = GameObject.FindGameObjectWithTag("GlobalLifeTime");
         _gamestate = go.GetComponent<GameState>();
-        
+
         EnterMiniMap();
     }
 

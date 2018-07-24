@@ -165,7 +165,7 @@ public class LevelManager : MonoBehaviour {
                 //Debug.Log("Current SceneNumber: " + IndexOfLastLoadedScene);
                 SceneManager.UnloadSceneAsync(IndexOfLastLoadedScene);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Debug.Log("Scene was not Found");
             }
@@ -176,7 +176,7 @@ public class LevelManager : MonoBehaviour {
             {
                 SceneManager.UnloadSceneAsync(StringOfLastLoadedScene);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Debug.Log("Scene was not Found");
             }
