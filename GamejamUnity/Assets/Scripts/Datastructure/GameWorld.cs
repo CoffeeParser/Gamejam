@@ -32,6 +32,8 @@ public class Person
     public string Name { get; set; }
     public string Alias { get; set; }
     public int Age { get; set; }
+    public bool Finished { get; set; }
+    public bool Unlocked { get; set; }
     public List<EvilAction> EvilAction { get; set; }
     public List<object> SolvedActions { get; set; }
     public List<TherapyStory> TherapyStory { get; set; }

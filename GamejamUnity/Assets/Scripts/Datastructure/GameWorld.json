@@ -8,6 +8,8 @@
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
+		"Finished": false,
+		"Unlocked": true,
         "EvilAction": [
           {
             "ActionType": "Sound",
@@ -58,6 +60,8 @@
         "Name": "Paul",
         "Alias": "Kriegsveteran",
         "Age": 28,
+		"Finished": false,
+		"Unlocked": false,
         "EvilAction": [
           {
             "ActionType": "Sound",
