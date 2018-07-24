@@ -11,7 +11,6 @@ public class ScreenViewController : MonoBehaviour {
     private GameState _gamestate;
 
     public GameObject textfieldGO;
-    public GameObject backGroundImage; // Later to switch bakcground
 
     private Sprite backGround;
 
@@ -26,7 +25,6 @@ public class ScreenViewController : MonoBehaviour {
         _gamestate = go.GetComponent<GameState>();
         _gamestate.SelectNewPerson(_gamestate.CurrentWorld.Persons[0]); // temp, remove me later
         dialogtext = textfieldGO.GetComponent<Text>();
-        backGround = backGroundImage.GetComponent<Sprite>();
 
         skipDialog.onClick.AddListener(SkipDialogMessage);
 

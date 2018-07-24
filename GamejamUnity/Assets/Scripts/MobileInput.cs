@@ -31,7 +31,6 @@ namespace MobileSensors
                 yield return new WaitForSeconds(1);
             }
 #endif
-            yield return null;
             OnUnityRemoteStarted.Invoke();
         }
 

@@ -169,7 +169,7 @@ public class UIController : MonoBehaviour {
         //LevelManager.instance.LoadByIndex(2);
 
         // With LoadingScreen
-        StartCoroutine(LevelManager.instance.LoadAsynchonusly(0));
+        StartCoroutine(LevelManager.instance.LoadAsynchonusly(1));
 
         MenuisActive = false;
     }
