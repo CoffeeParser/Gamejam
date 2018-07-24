@@ -1805,6 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputFileTextAsset: {fileID: 4900000, guid: c53b8577582cb82449f48ab62073badd, type: 3}
+  Begruessung: 
 --- !u!1 &418595333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2635,10 @@ MonoBehaviour:
   EnterMapMenu: {fileID: 17117403}
   MapViewGameObject: {fileID: 1237184157}
   EvilScreenGameObject: {fileID: 2073851952}
+  PatientScreenGameObject: {fileID: 1598138293}
+  DialogField: {fileID: 1901619593}
+  dialogFieldtext: {fileID: 2036853856}
+  SkipEvilDialogBtn: {fileID: 127193433}
 --- !u!1 &641377808
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,7 +6567,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901619593}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b477bae17dc7474aae852fb76e4087e, type: 3}
   m_Name: 
