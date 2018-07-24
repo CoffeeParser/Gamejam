@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour {
     public UnityEvent OpenPopUp;
     public UnityEvent RestartGame;
 
+
     private static int IndexOfLastLoadedScene = -1;
     private static string StringOfLastLoadedScene = "";
 

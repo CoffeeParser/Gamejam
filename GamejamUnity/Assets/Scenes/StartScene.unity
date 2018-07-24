@@ -6905,7 +6905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b477bae17dc7474aae852fb76e4087e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gamestate: {fileID: 0}
   textfieldGO: {fileID: 2036853854}
+  backGround: {fileID: 0}
+  dialogtext: {fileID: 0}
+  dialogIndex: 0
   skipDialog: {fileID: 127193433}
 --- !u!222 &1901619596
 CanvasRenderer:

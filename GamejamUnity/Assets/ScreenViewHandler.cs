@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
-public class ScreenViewHandler : MonoBehaviour {
+public class ScreenViewHandler : MonoBehaviour
+{
+    public static ScreenViewHandler instance;
 
     public GameObject StartScreen;
     public Button EnterMapMenu;
@@ -15,7 +18,7 @@ public class ScreenViewHandler : MonoBehaviour {
     public GameObject EvilScreenGameObject;
     public GameObject PatientScreenGameObject;
     public GameObject NightScreen;
-    
+
 
     public GameObject DialogField;
     public Text dialogFieldtext;
@@ -26,17 +29,14 @@ public class ScreenViewHandler : MonoBehaviour {
     public Button SkipNightScreenBtn;
 
     public string LoadLevelString = "GyroTestScene";
-    
-    
-
-
     private int dialogIndex = 0;
 
+    private bool acc;
 
-
-    void Awake () {
-
-        
+    void Awake()
+    {
+        if(instance == null)
+            instance = this;
 
         dialogIndex = 0;
 
@@ -53,7 +53,6 @@ public class ScreenViewHandler : MonoBehaviour {
         SkipNightScreenBtn.onClick.AddListener(SkipNightScreen);
     }
 
-
     private void SkipEvilDialogScreen()
     {
         EvilScreenGameObject.SetActive(false);
@@ -61,10 +60,6 @@ public class ScreenViewHandler : MonoBehaviour {
         SetPatientDialogText();
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
 
     void PersonChanged()
     {
@@ -102,13 +97,14 @@ public class ScreenViewHandler : MonoBehaviour {
         // Set MainMenu Activity false
         UIController.MenuisActive = false;
         // Load Level And wait until
-        StartCoroutine( LoadAsynchonusly(LoadLevelString));
-        
+        StartCoroutine(LoadAsynchonusly(LoadLevelString));
+
     }
 
     public IEnumerator LoadAsynchonusly(string sceneString)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString, LoadSceneMode.Additive);
+
 
         NightScreen.SetActive(true);
 
@@ -119,7 +115,24 @@ public class ScreenViewHandler : MonoBehaviour {
         }
         Debug.Log("LevelLoad is finish");
         NightScreen.SetActive(false);
+        //LevelAccomplishTest.instance.onLevelIsOver.AddListener(isLevelAccomplished);
     }
 
+    public void isLevelAccomplished(bool isAccomplished)
+    {
+        SceneManager.UnloadSceneAsync(LoadLevelString);
+        Debug.Log("LevelUnloaded");
+        // UnLoadlevel
+
+        if (isAccomplished)
+        {
+
+        }
+    }
 
 }
+
+
+
+
+
