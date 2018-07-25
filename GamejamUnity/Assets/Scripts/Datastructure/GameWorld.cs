@@ -14,6 +14,7 @@ public class EvilAction
 public class TherapyStory
 {
     public string DialogeType { get; set; }
+    public string Actor { get; set; }
     public string Message { get; set; }
     public string ActionType { get; set; }
 }
@@ -21,6 +22,7 @@ public class TherapyStory
 public class ReviewStory
 {
     public string DialogType { get; set; }
+    public string Actor { get; set; }
     public string Message { get; set; }
     public string ActionType { get; set; }
     public string SolvedMessage { get; set; }
@@ -34,6 +36,7 @@ public class Person
     public int Age { get; set; }
     public bool Finished { get; set; }
     public bool Unlocked { get; set; }
+    public string SpritePathInResources { get; set; }
     public List<EvilAction> EvilAction { get; set; }
     public List<EvilAction> SolvedActions { get; set; }
     public List<TherapyStory> TherapyStory { get; set; }
@@ -50,6 +53,5 @@ public class RootObject
 {
     public string Game { get; set; }
     public int Revision { get; set; }
-    public string Begruessung { get; set; }
     public List<World> Worlds { get; set; }
 }
