@@ -21,7 +21,7 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
         throw new System.NotImplementedException();
     }
 
-    public void DoAction(ActionComplete actionComplete)
+    public void TriggerAction(ActionComplete actionComplete)
     {
         actionComplete(actionTrigger);
     }

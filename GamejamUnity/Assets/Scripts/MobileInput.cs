@@ -6,7 +6,6 @@ namespace MobileSensors
 {
     public class MobileInput : MonoBehaviour
     {
-
         public static MobileInput instance;
 
         public TouchInput touch;
@@ -30,10 +29,10 @@ namespace MobileSensors
                 yield return new WaitForSeconds(1);
             }
 #endif
+            yield return null;
             OnUnityRemoteStarted.Invoke();
         }
 
-        // Use this for initialization
         void Awake()
         {
             if (!instance)
@@ -46,13 +45,14 @@ namespace MobileSensors
 
         }
 
-        public GameObject CastRayHitFromCam(Vector2 pos, int layerMask = 8)
+        public GameObject CastRayHitFromCam(Vector2 pos, Camera cam, int layerMask = 8)
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Ray ray = cam.ScreenPointToRay(pos);
 
-            if (Physics.Raycast(ray, out hit, layerMask))
+            if (Physics.Raycast(ray, out hit, 100, 1 << layerMask))
                 return hit.transform.gameObject;
+
             return null;
         }
     }

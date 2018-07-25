@@ -7,12 +7,10 @@ using MobileSensors;
 public class GyroCamera : MonoBehaviour {
 
     private Gyro gyro;
-    private Camera cam;
 
 	// Use this for initialization
 	void Start () {
         gyro = MobileInput.instance.gyro;
-        cam = GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
