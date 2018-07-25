@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class TouchInput : MonoBehaviour {
 
@@ -15,6 +12,7 @@ public class TouchInput : MonoBehaviour {
     public EventScreenPosition OnTapPositionUp;
     public EventTouch OnTouchDown;
     public EventTouch OnDrag;
+    public EventTouch OnMove;
 
     // Use this for initialization
     void Awake () {
@@ -32,6 +30,9 @@ public class TouchInput : MonoBehaviour {
 
         if (OnTapPositionUp == null)
             OnTapPositionUp = new EventScreenPosition();
+
+        if (OnMove == null)
+            OnMove = new EventTouch();
     }
 	
 	// Update is called once per frame
@@ -61,15 +62,17 @@ public class TouchInput : MonoBehaviour {
                 OnTouchUp.Invoke(tap);
                 dragTime = 0;
             }
+            if (tap.phase == TouchPhase.Moved)
+            {
+                OnMove.Invoke(tap);
+            }
             if ((tap.phase == TouchPhase.Moved || tap.phase == TouchPhase.Stationary) && dragTime >= dragInterval)
             {
                 OnDrag.Invoke(tap);
             }
 
             dragTime += Time.deltaTime;
-        }
-
-        if (Input.GetMouseButtonUp(0))
+        } else if (Input.GetMouseButtonUp(0))
         {
             OnTapPositionUp.Invoke(Input.mousePosition);
         }

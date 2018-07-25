@@ -19,7 +19,7 @@ public class Drag : MonoBehaviour
 
     private void OnTap(Touch touch)
     {
-        GameObject hitTrans = MobileInput.instance.CastRayHitFromCam(touch.position, 8);
+        GameObject hitTrans = MobileInput.instance.CastRayHitFromCam(touch.position, Camera.main);
 
         if (hitTrans != null && hitTrans.gameObject == gameObject)
             Debug.Log("THI OBJECT HITTET");
@@ -32,7 +32,7 @@ public class Drag : MonoBehaviour
 
         if (dragObj == null)
         {
-            dragObj = MobileInput.instance.CastRayHitFromCam(touch.position, 8);
+            dragObj = MobileInput.instance.CastRayHitFromCam(touch.position, Camera.main);
         }
 
         if (dragObj != null && dragObj.gameObject == gameObject)
