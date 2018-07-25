@@ -45,6 +45,14 @@ namespace MobileSensors
 
         }
 
+        IEnumerator Debugger()
+        {
+            while (true)
+            {
+                Debug.Log("Mic: " + mic.micLevelinDb);
+            }
+        }
+
         public GameObject CastRayHitFromCam(Vector2 pos, Camera cam, int layerMask = 8)
         {
             RaycastHit hit;
@@ -70,7 +78,15 @@ public class EventString : UnityEvent<string>
 {
 }
 
+public class EventThresholdLevel : UnityEvent<ThresholdLevel>
+{
+}
+
 public class EventTouch : UnityEvent<Touch>
+{
+}
+
+public class EventMultiTouch : UnityEvent<Touch[]>
 {
 }
 
@@ -85,6 +101,6 @@ public class EventLocation : UnityEvent<LocationInfo>
 [System.Serializable]
 public struct Threshold
 {
-    public string name;
+    public ThresholdLevel level;
     public float amount;
 }

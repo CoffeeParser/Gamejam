@@ -5,14 +5,20 @@ using MobileSensors;
 
 
 public delegate void ActionComplete(EvilAction action);
-
 public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
 
     public int evilActionID;
     public EvilAction actionTrigger;
+    public float triggerCompleteTime;
+    public Animation anim;
+    public bool isSolved;
+    public bool isTriggered;
+    public float holdingTime;
+    public float holdingTimeThreshold;
 
     private void Start()
     {
+        anim = GetComponent<Animation>();
         actionTrigger = GameState.instance.CurrentPerson.EvilAction[evilActionID];
     }
 
@@ -21,9 +27,19 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
         throw new System.NotImplementedException();
     }
 
-    public void TriggerAction(ActionComplete actionComplete)
+    public IEnumerator TriggerAction(ActionComplete CompleteCallback)
     {
-        actionComplete(actionTrigger);
+        if (!isTriggered)
+        {
+            isTriggered = true;
+            yield return new WaitForSeconds(triggerCompleteTime);
+            CompleteCallback(actionTrigger);
+        }
+    }
+
+    public void StopAction()
+    {
+        anim.Stop();
     }
 }
 

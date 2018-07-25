@@ -18,7 +18,7 @@ public class Accelerate : MonoBehaviour
     private float lowPassKernelWidthInSeconds = 1.0f;
     private float lowPassFilterFactor;
 
-    public EventString OnShake;
+    public EventThresholdLevel OnShake;
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class Accelerate : MonoBehaviour
         lowPassAccel = Input.acceleration;
 
         if (OnShake == null)
-            OnShake = new EventString();
+            OnShake = new EventThresholdLevel();
 
     }
 
@@ -49,7 +49,7 @@ public class Accelerate : MonoBehaviour
             {
                 if (accelMagnDelta >= threshold.amount)
                 {
-                    OnShake.Invoke(threshold.name);
+                    OnShake.Invoke(threshold.level);
                     timeAfterShake = 0;
                 }
             }

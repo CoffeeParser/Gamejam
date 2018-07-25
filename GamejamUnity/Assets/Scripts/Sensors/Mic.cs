@@ -33,11 +33,11 @@ public class Mic : MonoBehaviour
 
     public bool debugging;
 
-    //private string[] devices;
-    private string deviceName;
+    public string[] devices;
+    public string deviceName;
     private AudioClip recClip;
 
-    public EventString OnThresholdExceeded;
+    public EventThresholdLevel OnThresholdExceeded;
 
     // Use this for initialization
     void Awake()
@@ -45,13 +45,13 @@ public class Mic : MonoBehaviour
         StartCoroutine(WaitForDevice());
 
         if (OnThresholdExceeded == null)
-            OnThresholdExceeded = new EventString();
-
+            OnThresholdExceeded = new EventThresholdLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
+        devices = Microphone.devices;
         if (!string.IsNullOrEmpty(deviceName))
         {
             if (Microphone.IsRecording(deviceName))
@@ -62,7 +62,7 @@ public class Mic : MonoBehaviour
                 for (int i = 0; i < thresholdTriggers.Count; i++)
                 {
                     if (micLevelinDb >= thresholdTriggers[i].amount)
-                        OnThresholdExceeded.Invoke(thresholdTriggers[i].name);
+                        OnThresholdExceeded.Invoke(thresholdTriggers[i].level);
                 }
             }
         }

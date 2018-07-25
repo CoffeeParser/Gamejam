@@ -13,18 +13,31 @@
 		"Unlocked": true,
         "EvilAction": [
           {
-            "ActionType": "Sound",
+            "ActionType": "touch",
             "Peaks": 3,
+			"details" : "low",
             "Decibel": 60
           },
           {
-            "ActionType": "Grab",
+            "ActionType": "swipe",
             "ObjectOfInterest": "Picture",
             "PlacementTarget": "Floor",
             "details": "whatever" 
           },
           {
-            "ActionType": "Trigger",
+            "ActionType": "push",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
+          },
+          {
+            "ActionType": "scratch",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
+          },
+          {
+            "ActionType": "voice",
             "ObjectOfInterest": "Picture",
             "PlacementTarget": "Floor",
             "details": "whatever" 

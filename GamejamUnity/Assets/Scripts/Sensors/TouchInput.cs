@@ -13,6 +13,8 @@ public class TouchInput : MonoBehaviour {
     public EventTouch OnTouchDown;
     public EventTouch OnDrag;
     public EventTouch OnMove;
+    public EventMultiTouch OnMultiMove;
+    public EventMultiTouch OnMultiMoveUp;
 
     // Use this for initialization
     void Awake () {
@@ -33,6 +35,12 @@ public class TouchInput : MonoBehaviour {
 
         if (OnMove == null)
             OnMove = new EventTouch();
+
+        if (OnMultiMove == null)
+            OnMultiMove = new EventMultiTouch();
+
+        if (OnMultiMoveUp == null)
+            OnMultiMoveUp = new EventMultiTouch();
     }
 	
 	// Update is called once per frame
@@ -72,6 +80,17 @@ public class TouchInput : MonoBehaviour {
             }
 
             dragTime += Time.deltaTime;
+        } else if ( touchCount > 1)
+        {
+            Touch tap = Input.touches[0];
+            if (tap.phase == TouchPhase.Moved)
+            {
+                OnMultiMove.Invoke(Input.touches);
+            }
+            if (tap.phase == TouchPhase.Ended)
+            {
+                OnMultiMoveUp.Invoke(Input.touches);
+            }
         } else if (Input.GetMouseButtonUp(0))
         {
             OnTapPositionUp.Invoke(Input.mousePosition);
