@@ -31,7 +31,14 @@
               "details": "whatever"
             }
           ],
-          "SolvedActions": [],
+          "SolvedActions": [
+            {
+              "ActionType": "Trigger",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            }
+          ],
           "TherapyStory": [
             {
               "DialogeType": "Story",

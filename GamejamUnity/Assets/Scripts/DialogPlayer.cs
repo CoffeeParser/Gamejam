@@ -28,7 +28,7 @@ public class DialogPlayer : MonoBehaviour
         _gameState = GameState.instance;
     }
 
-    public void PlayReviewStory(List<ReviewStory> reviewStories, Person person)
+    public void PlayStory(Person person)
     {
         Debug.Log("PlayReviewStory started!");
         // 0. activate therapyscreen
@@ -64,20 +64,6 @@ public class DialogPlayer : MonoBehaviour
         }
     }
 
-    public void PlayTherapyStory(List<TherapyStory> therapyStories, Person person)
-    {
-        // 0. activate therapyscreen
-        TherapyScreenGameObject.SetActive(true);
-
-        InitializePatientScreen(person);
-
-        // 2. Reset dialogIndex to -1 (start from scratch)
-        dialogIndex = -1;
-
-        DialogField.SetActive(true);
-        NextDialogButton.onClick.AddListener(ShowTherapieDialog);
-        ShowTherapieDialog();
-    }
 
     /// <summary>
     /// Set Person Description and Update Sprite
@@ -159,7 +145,7 @@ public class DialogPlayer : MonoBehaviour
             }
             else if (currentReviewStory.DialogType.Equals("ActionStatus")) // DialogType = ActionStatus
             {
-                if (_gameState.CurrentPerson.SolvedActions.First(b => b.ActionType.Equals(currentReviewStory.ActionType)) != null)
+                if (_gameState.CurrentPerson.SolvedActions.FirstOrDefault(b => b.ActionType.Equals(currentReviewStory.ActionType)) != null)
                 {
                     dialogFieldtext.text = currentReviewStory.SolvedMessage;
                 }

@@ -66,7 +66,7 @@ public class ScreenViewHandler : MonoBehaviour
     void PersonChanged()
     {
         MapViewGameObject.SetActive(false);
-        DialogPlayer.PlayTherapyStory(_gameState.CurrentPerson.TherapyStory, _gameState.CurrentPerson);
+        DialogPlayer.PlayStory(_gameState.CurrentPerson);
     }
 
     // Second Entry Point After Night Scene -> Play ReviewStory
@@ -74,7 +74,7 @@ public class ScreenViewHandler : MonoBehaviour
     {
         LeaveFinishScreen.SetActive(false);
         LeaveUnFinishScreen.SetActive(false);
-        DialogPlayer.PlayReviewStory(_gameState.CurrentPerson.ReviewStory, _gameState.CurrentPerson);
+        DialogPlayer.PlayStory(_gameState.CurrentPerson);
     }
 
     //public void SkipAchievementScreen()
