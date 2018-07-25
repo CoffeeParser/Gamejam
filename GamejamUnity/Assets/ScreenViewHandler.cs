@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class ScreenViewHandler : MonoBehaviour
 {
@@ -22,13 +23,13 @@ public class ScreenViewHandler : MonoBehaviour
     public GameObject LeaveUnFinishScreen;
     public Button LeaveUnFinishVBtn;
 
+    public GameObject achievementScreen;
+    public Button achievementBtn;
 
     public GameObject DialogField;
     public Text dialogFieldtext;
 
     private GameState _gameState;
-
-
 
     public Button SkipDialogBtn;
     public Button SkipNightScreenBtn;
@@ -40,6 +41,7 @@ public class ScreenViewHandler : MonoBehaviour
 
     void Awake()
     {
+
         if (instance == null)
             instance = this;
 
@@ -64,6 +66,19 @@ public class ScreenViewHandler : MonoBehaviour
 
         //Add Listeners to Skip Evil Dialog
         SkipNightScreenBtn.onClick.AddListener(SkipNightScreen);
+
+        // Add Listener to AchievementScreen
+        achievementBtn.onClick.AddListener(SkipNightScreen);
+    }
+
+    // Hier beginnt alles 
+    void PersonChanged()
+    {
+        dialogIndex = -1;
+        MapViewGameObject.SetActive(false);
+        EvilScreenGameObject.SetActive(true);
+        DialogField.SetActive(true);
+        dialogFieldtext.text = _gameState.Begruessung;
     }
 
     // On EvilDialog Skip, Evil Screen = false // setze 
@@ -72,83 +87,127 @@ public class ScreenViewHandler : MonoBehaviour
         EvilScreenGameObject.SetActive(false);
         PatientScreenGameObject.SetActive(true);
         SetPatientDialogText();
-
-    }
-
-
-    void PersonChanged()
-    {
-        MapViewGameObject.SetActive(false);
-        EvilScreenGameObject.SetActive(true);
-        DialogField.SetActive(true);
-        dialogFieldtext.text = _gameState.Begruessung;
     }
 
     public void SetPatientDialogText()
     {
-        Debug.Log(_gameState.CurrentPerson.SolvedActions.Count);
-        Debug.Log(_gameState.CurrentPerson.EvilAction.Count);
+        // Check witch Action is Solved 
+        // If Solved Actions is empty write TherapieStroy
+        // Is Solved Actions is NOT Empty write
+    
 
 
-        UIController.MenuisActive = false;
+        //Debug.Log(_gameState.CurrentPerson.SolvedActions.Count);
+        //Debug.Log(_gameState.CurrentPerson.EvilAction.Count);
+
         dialogIndex++;
-        Debug.Log(dialogIndex);
+        //Debug.Log(dialogIndex);
+
+        // How many Actions are to do
+        int evilActions = _gameState.CurrentPerson.EvilAction.Count;
 
         // How many Actions are solved
         int solvedActions = _gameState.CurrentPerson.SolvedActions.Count;
-        // How many Actions are to do
-        int actionsToDo = _gameState.CurrentPerson.EvilAction.Count;
 
+
+        // Zeigt ThearpieStory
         if (solvedActions == 0)
         {
-            // Show TherapieStory again
-            if (dialogIndex >= _gameState.CurrentPerson.TherapyStory.Count) // max
-            {
-
-                //hier ende, lade szene raum
-                //Debug.Log("End");
-                NightScreen.SetActive(true);
-                DialogField.SetActive(false);
-                PatientScreenGameObject.SetActive(false);
-                StartCoroutine(LoadAsynchonusly(LoadLevelString));
-
-                dialogIndex = -1;
-                return;
-            }
-            else
-            {
-                dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
-            }
-
+            ShowTherapieDialog();
         }
-        else if (solvedActions > 0 && solvedActions < actionsToDo)
+
+        // All Actions Are Solved
+        else if (evilActions == 0)
         {
-            // show Review with part of
+            ShowSolvedDialog();
         }
-        else if (solvedActions == actionsToDo)
+
+        // Show PartiallSolved Story
+        else if (evilActions != 0 && solvedActions !=0)
         {
-            // Show compledet Review 
-            // Show ArchivementScreen
+            ShowPartiallySolvedDialog();
+        }     
+    }
+
+    public void ShowTherapieDialog()
+    {
+        // Show TherapieStory again
+        if (dialogIndex >= _gameState.CurrentPerson.TherapyStory.Count) // max
+        {
+
+            //hier ende, lade szene raum
+            //Debug.Log("End");
+            NightScreen.SetActive(true);
+            DialogField.SetActive(false);
+            PatientScreenGameObject.SetActive(false);
+            StartCoroutine(LoadAsynchonusly(LoadLevelString));
+
+            dialogIndex = -1;
+            return;
         }
+        else
+        {
+            dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
+        }
+    }
+    public void ShowSolvedDialog()
+    {
+        if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+        {
+            achievementScreen.SetActive(true);
+            DialogField.SetActive(false);
+            PatientScreenGameObject.SetActive(false);
+            dialogIndex = -1;
+            return;
+            //später MiniMap ZUrück
+        }
+        else
+        {
+            dialogFieldtext.text = _gameState.CurrentPerson.ReviewStory[dialogIndex].DialogType.Equals("Story") ? (_gameState.CurrentPerson.ReviewStory[dialogIndex].Message) : (_gameState.CurrentPerson.ReviewStory[dialogIndex].SolvedMessage);
+        }
+    }
 
 
+    public void ShowPartiallySolvedDialog()
+    {
+        if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+        {
+            NightScreen.SetActive(true);
+            DialogField.SetActive(false);
+            PatientScreenGameObject.SetActive(false);
+            dialogIndex = -1;
+            return;
+        }
+        else
+        {
+            ReviewStory currentReviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
+            if (currentReviewStory.DialogType.Equals("Story"))
+            {
+                dialogFieldtext.text = currentReviewStory.Message;
+            }
+            else if (currentReviewStory.DialogType.Equals("ActionStatus")) // DialogType = ActionStatus
+            {
+                if (_gameState.CurrentPerson.SolvedActions.First(b => b.ActionType.Equals(currentReviewStory.ActionType)) != null)
+                {
+                    dialogFieldtext.text = currentReviewStory.SolvedMessage;
+                }
+                else
+                {
+                    dialogFieldtext.text = currentReviewStory.FailedMessage;
+                }
+            }
+        }
+    }
 
-
-
-
+    public void SkipAchievementScreen()
+    {
+        achievementScreen.SetActive(false);
     }
 
 
     public void SkipNightScreen()
     {
-        Debug.Log("SkipNiht");
         NightScreen.SetActive(false);
-
-        // Set MainMenu Activity false
-        UIController.MenuisActive = false;
-        // Load Level And wait until
-        //StartCoroutine(LoadAsynchonusly(LoadLevelString));
-
     }
 
 
@@ -174,11 +233,8 @@ public class ScreenViewHandler : MonoBehaviour
 
     public void isLevelAccomplished(bool isAccomplished)
     {
-        SceneManager.UnloadSceneAsync(LoadLevelString);
-        Debug.Log("LevelUnloaded");
         // UnLoadlevel after ever Session
-
-        // Get Count of solved information 
+        SceneManager.UnloadSceneAsync(LoadLevelString);
 
 
         // Obsolet maybe for alternativ loadScreen
@@ -188,16 +244,11 @@ public class ScreenViewHandler : MonoBehaviour
             LeaveFinishScreen.SetActive(true);
             LeaveFinishVBtn.onClick.AddListener(LoadSecondDialog);
         }
-        else if (!isAccomplished)
+        else 
         {
             // Unfinsih LeaveScreen Only Skipable wenn Level is unloaded 
             LeaveUnFinishScreen.SetActive(true);
             LeaveUnFinishVBtn.onClick.AddListener(LoadSecondDialog);
-        }
-        else if (1 == 2)
-        {
-            // When parts accoplished load House leave Screen, only skipable when Level is Unload
-            // Get Count of solved information 
         }
     }
 
