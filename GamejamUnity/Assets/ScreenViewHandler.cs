@@ -3,81 +3,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
-public class ScreenViewHandler : MonoBehaviour
-{
-    public static ScreenViewHandler instance;
+
+public class ScreenViewHandler : MonoBehaviour {
 
     public GameObject StartScreen;
     public Button EnterMapMenu;
-
-
     public GameObject MapViewGameObject;
     public GameObject EvilScreenGameObject;
     public GameObject PatientScreenGameObject;
-    public GameObject NightScreen;
-
-    public GameObject LeaveFinishScreen;
-    public Button LeaveFinishVBtn;
-
-    public GameObject LeaveUnFinishScreen;
-    public Button LeaveUnFinishVBtn;
-
 
     public GameObject DialogField;
     public Text dialogFieldtext;
 
     private GameState _gameState;
 
-
-
     public Button SkipDialogBtn;
-    public Button SkipNightScreenBtn;
 
-    public string LoadLevelString = "GyroTestScene";
-    private int dialogIndex = -1;
 
-    private bool acc;
 
-    void Awake()
-    {
-        if(instance == null)
-            instance = this;
 
-        // -1 da der Dr auch immer eine Satz sagt 
-        dialogIndex = -1;
-
-        //To read Gamestate
+    void Awake () {
         _gameState = GameObject.FindGameObjectWithTag("GlobalLifeTime").GetComponent<GameState>();
 
-        // First of all set Start Screen true
         StartScreen.SetActive(true);
-
-        // After Click show MapMenu
         EnterMapMenu.onClick.AddListener(() =>
         {
             MapViewGameObject.SetActive(true);
             StartScreen.SetActive(false);
         });
 
-        //Add Listeners to Skip Evil Dialog
         SkipDialogBtn.onClick.AddListener(SkipEvilDialogScreen);
-
-        //Add Listeners to Skip Evil Dialog
-        SkipNightScreenBtn.onClick.AddListener(SkipNightScreen);
     }
 
-    // On EvilDialog Skip, Evil Screen = false // setze 
     private void SkipEvilDialogScreen()
     {
         EvilScreenGameObject.SetActive(false);
         PatientScreenGameObject.SetActive(true);
-        SetPatientDialogText();
-
     }
 
+    // Update is called once per frame
+    void Update () {
+		
+	}
 
     void PersonChanged()
     {
@@ -87,6 +55,7 @@ public class ScreenViewHandler : MonoBehaviour
         dialogFieldtext.text = _gameState.Begruessung;
     }
 
+<<<<<<< HEAD
     public void SetPatientDialogText()
     {
         Debug.Log(_gameState.CurrentPerson.SolvedActions.Count);
@@ -221,10 +190,10 @@ public class ScreenViewHandler : MonoBehaviour
         LeaveFinishScreen.SetActive(false);
         LeaveUnFinishScreen.SetActive(false);
         PersonChanged();
+=======
+    public void SetDialogText()
+    {
+        
+>>>>>>> 65916427a8f2de1ce74f08720ec8c2245d34e3ff
     }
 }
-
-
-
-
-

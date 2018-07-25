@@ -69,7 +69,7 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        //MenuisActive = true;
+        MenuisActive = true;
 
         MainMenu.SetActive(MenuisActive);
         OptionsMenu.SetActive(OptionsisActive);

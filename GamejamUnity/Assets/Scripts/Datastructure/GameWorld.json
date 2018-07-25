@@ -22,6 +22,12 @@
             "ObjectOfInterest": "Picture",
             "PlacementTarget": "Floor",
             "details": "whatever" 
+          },
+          {
+            "ActionType": "Trigger",
+            "ObjectOfInterest": "Picture",
+            "PlacementTarget": "Floor",
+            "details": "whatever" 
           }
         ],
         "SolvedActions": [],

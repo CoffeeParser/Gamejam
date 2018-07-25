@@ -3,20 +3,20 @@ guid: 20ce08e3f488f2a4099c870e43109c54
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: Lamp
+    100000: Camera.001
+    100002: Lamp.001
     100004: Pills
     100006: //RootNode
-    400000: Camera
-    400002: Lamp
+    400000: Camera.001
+    400002: Lamp.001
     400004: Pills
     400006: //RootNode
-    2000000: Camera
+    2000000: Camera.001
     2100000: Pills_Material
     2300000: Pills
     3300000: Pills
     4300000: Pills
-    10800000: Lamp
+    10800000: Lamp.001
   externalObjects: {}
   materials:
     importMaterials: 1

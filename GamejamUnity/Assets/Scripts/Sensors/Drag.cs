@@ -8,18 +8,18 @@ using UnityEngine.SceneManagement;
 public class Drag : MonoBehaviour
 {
 
-    Transform dragObj;
+    GameObject dragObj;
 
     // Use this for initialization
     void Start()
     {
-        MobileInput.inst.touch.OnDrag.AddListener(OnDrag);
-        MobileInput.inst.touch.OnTouchUp.AddListener(OnTap);
+        MobileInput.instance.touch.OnDrag.AddListener(OnDrag);
+        MobileInput.instance.touch.OnTouchUp.AddListener(OnTap);
     }
 
     private void OnTap(Touch touch)
     {
-        Transform hitTrans = MobileInput.inst.CastRayHitFromCam(touch.position, 8);
+        GameObject hitTrans = MobileInput.instance.CastRayHitFromCam(touch.position, 8);
 
         if (hitTrans != null && hitTrans.gameObject == gameObject)
             Debug.Log("THI OBJECT HITTET");
@@ -32,7 +32,7 @@ public class Drag : MonoBehaviour
 
         if (dragObj == null)
         {
-            dragObj = MobileInput.inst.CastRayHitFromCam(touch.position, 8);
+            dragObj = MobileInput.instance.CastRayHitFromCam(touch.position, 8);
         }
 
         if (dragObj != null && dragObj.gameObject == gameObject)

@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour {
     public UnityEvent OpenPopUp;
     public UnityEvent RestartGame;
 
-
     private static int IndexOfLastLoadedScene = -1;
     private static string StringOfLastLoadedScene = "";
 
@@ -141,7 +140,7 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
         
     }
-    public IEnumerator LoadAsynchonusly(int sceneIndex)
+    public IEnumerator LoadAsynchonusly (int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
@@ -152,22 +151,7 @@ public class LevelManager : MonoBehaviour {
             float progress = Mathf.Clamp01(operation.progress / .9f);
             slider.value = progress;
             //Debug.Log(slider.value);
-            yield return null;
-        }
-        loadingScreen.SetActive(false);
-    }
-    public IEnumerator LoadAsynchonusly(string sceneString)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString);
-
-        loadingScreen.SetActive(true);
-
-        while (!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-            slider.value = progress;
-            //Debug.Log(slider.value);
-            yield return null;
+            yield return null;         
         }
         loadingScreen.SetActive(false);
     }
@@ -183,7 +167,7 @@ public class LevelManager : MonoBehaviour {
             }
             catch (Exception e)
             {
-                Debug.Log("Scene was not Found");
+                Debug.Log("Scene was not Found " + e.ToString());
             }
         }
         else if (StringOfLastLoadedScene != "")
@@ -194,7 +178,7 @@ public class LevelManager : MonoBehaviour {
             }
             catch (Exception e)
             {
-                Debug.Log("Scene was not Found");
+                Debug.Log("Scene was not Found " + e.ToString());
             }
         }
     }

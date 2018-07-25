@@ -35,7 +35,7 @@ public class Person
     public bool Finished { get; set; }
     public bool Unlocked { get; set; }
     public List<EvilAction> EvilAction { get; set; }
-    public List<object> SolvedActions { get; set; }
+    public List<EvilAction> SolvedActions { get; set; }
     public List<TherapyStory> TherapyStory { get; set; }
     public List<ReviewStory> ReviewStory { get; set; }
 }
