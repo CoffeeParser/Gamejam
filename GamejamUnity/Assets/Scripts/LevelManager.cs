@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour {
             }
             catch (Exception e)
             {
-                Debug.Log("Scene was not Found");
+                Debug.Log("Scene was not Found " + e.ToString());
             }
         }
         else if (StringOfLastLoadedScene != "")
@@ -178,7 +178,7 @@ public class LevelManager : MonoBehaviour {
             }
             catch (Exception e)
             {
-                Debug.Log("Scene was not Found");
+                Debug.Log("Scene was not Found " + e.ToString());
             }
         }
     }

@@ -12,6 +12,7 @@ public class TouchInput : MonoBehaviour {
 
     public EventInt OnTouchCountChanged;
     public EventTouch OnTouchUp;
+    public EventScreenPosition OnTapPositionUp;
     public EventTouch OnTouchDown;
     public EventTouch OnDrag;
 
@@ -28,6 +29,9 @@ public class TouchInput : MonoBehaviour {
 
         if (OnDrag == null)
             OnDrag = new EventTouch();
+
+        if (OnTapPositionUp == null)
+            OnTapPositionUp = new EventScreenPosition();
     }
 	
 	// Update is called once per frame
@@ -53,6 +57,7 @@ public class TouchInput : MonoBehaviour {
             }
             if (tap.phase == TouchPhase.Ended)
             {
+                OnTapPositionUp.Invoke(tap.position);
                 OnTouchUp.Invoke(tap);
                 dragTime = 0;
             }
@@ -64,5 +69,9 @@ public class TouchInput : MonoBehaviour {
             dragTime += Time.deltaTime;
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnTapPositionUp.Invoke(Input.mousePosition);
+        }
 	}
 }

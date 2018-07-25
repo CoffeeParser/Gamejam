@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour {
 
-    public TextAsset InputFileTextAsset;
+    public static GameState instance;
 
+    public TextAsset InputFileTextAsset;
     public World CurrentWorld;
     public Person CurrentPerson;
     public string Begruessung;
@@ -14,6 +15,11 @@ public class GameState : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         var rootObject = JsonConvert.DeserializeObject<RootObject>(InputFileTextAsset.text);
         CurrentWorld = rootObject.Worlds[0];
         Begruessung = rootObject.Begruessung;
@@ -42,5 +48,35 @@ public class GameState : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public bool SolveAction(EvilAction action)
+    {
+        if (CurrentPerson.EvilAction.Contains(action))
+        {
+            CurrentPerson.SolvedActions.Add(action);
+            CurrentPerson.EvilAction.Remove(action);
+            return true;
+        }
+        return false;
+        //bool actionfound = false;
+        //EvilAction evilAction = null;
+        //foreach(var action in CurrentPerson.EvilAction)
+        //{
+        //    if (action.ActionType.Equals(action))
+        //    {
+        //        evilAction = action;
+        //        actionfound = true;
+        //        break;
+        //    }
+        //}
+        //if (actionfound)
+        //{
+        //    CurrentPerson.SolvedActions.Add(evilAction);
+        //    CurrentPerson.EvilAction.Remove(evilAction);
+        //    return true;
+        //}
+        //return false;
+        //if(CurrentPerson.EvilAction.Contains(EvilAction))
     }
 }

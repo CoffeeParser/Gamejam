@@ -7,18 +7,17 @@ namespace MobileSensors
     public class MobileInput : MonoBehaviour
     {
 
-        public static MobileInput inst;
+        public static MobileInput instance;
 
         public TouchInput touch;
-        public Pinch pinch;
+        //public Pinch pinch;
         public Mic mic;
         public Accelerate accel;
         public Gyro gyro;
-        public Steps steps;
-        public Compass compass;
-        public MobileCamera camMain;
-        public MobileCamera camFront;
-        public Location location;
+        //public Compass compass;
+        //public MobileCamera camMain;
+        //public MobileCamera camFront;
+        //public Location location;
 
         public UnityEvent OnUnityRemoteStarted;
 
@@ -37,29 +36,23 @@ namespace MobileSensors
         // Use this for initialization
         void Awake()
         {
-            if (!inst)
-                inst = this;
+            if (!instance)
+                instance = this;
 
             touch = GetComponentInChildren<TouchInput>();
-            pinch = GetComponentInChildren<Pinch>();
             mic = GetComponentInChildren<Mic>();
             accel = GetComponentInChildren<Accelerate>();
             gyro = GetComponentInChildren<Gyro>();
-            steps = GetComponentInChildren<Steps>();
-            compass = GetComponentInChildren<Compass>();
-            camMain = GetComponentsInChildren<MobileCamera>()[0];
-            camFront = GetComponentsInChildren<MobileCamera>()[1];
-            location = GetComponentInChildren<Location>();
 
         }
 
-        public Transform CastRayHitFromCam(Vector2 pos, int layerMask)
+        public GameObject CastRayHitFromCam(Vector2 pos, int layerMask = 8)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(pos);
 
             if (Physics.Raycast(ray, out hit, layerMask))
-                return hit.transform;
+                return hit.transform.gameObject;
             return null;
         }
     }
@@ -78,6 +71,10 @@ public class EventString : UnityEvent<string>
 }
 
 public class EventTouch : UnityEvent<Touch>
+{
+}
+
+public class EventScreenPosition : UnityEvent<Vector2>
 {
 }
 

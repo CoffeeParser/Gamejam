@@ -9,7 +9,7 @@ public class MobileCamera : MonoBehaviour
     /// <summary>
     /// The number of frames per second
     /// </summary>
-    private int framesPerSecond = 0;
+    //private int framesPerSecond = 0;
 
     /// <summary>
     /// The current frame count
@@ -106,7 +106,7 @@ public class MobileCamera : MonoBehaviour
     {
         if (timerFrames < DateTime.Now)
         {
-            framesPerSecond = frameCount;
+            //framesPerSecond = frameCount;
             frameCount = 0;
             timerFrames = DateTime.Now + TimeSpan.FromSeconds(1);
         }

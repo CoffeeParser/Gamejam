@@ -25,7 +25,7 @@ namespace MobileSensors
         void Start()
         {
             OnLocationServiceStarted.AddListener(UpdateLocationInfo);
-            MobileInput.inst.OnUnityRemoteStarted.AddListener(delegate()
+            MobileInput.instance.OnUnityRemoteStarted.AddListener(delegate()
             {
                 StartCoroutine("StartLocationService");
             });
