@@ -29,6 +29,14 @@ public class MapViewController : MonoBehaviour
         EnterMiniMap();
     }
 
+    void OnEnable()
+    {
+        if (_levelButtonsInitialized)
+        {
+            EnterMiniMap();
+        }
+    }
+
     private void InitializeLevelButtons()
     {
         if (!_levelButtonsInitialized)

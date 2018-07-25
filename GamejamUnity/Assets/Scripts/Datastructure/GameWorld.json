@@ -1,225 +1,463 @@
 {
-	"Game": "Dr Evil",
-	"Revision": 1,
-	"Begruessung": "Hallo, wie kann ich Ihnen denn helfen?",
-	"Worlds": [{
-		"WorldName": "Vorstadt",
-    "Persons": [
-      {
-        "Name": "Paul",
-        "Alias": "Kriegsveteran",
-        "Age": 28,
-		"Finished": false,
-		"Unlocked": true,
-        "EvilAction": [
-          {
-            "ActionType": "Sound",
-            "Peaks": 3,
-            "Decibel": 60
-          },
-          {
-            "ActionType": "Grab",
-            "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor",
-            "details": "whatever" 
-          },
-          {
-            "ActionType": "Trigger",
-            "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor",
-            "details": "whatever" 
-          }
-        ],
-        "SolvedActions": [],
-        "TherapyStory": [
-          {
-            "DialogeType": "Story",
-            "Message": "Ich kann den Krieg nicht vergessen."
-          },
-          {
-            "DialogeType": "Story",
-            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
-          },
-          {
-            "DialogeType": "Action",
-            "ActionType": "Sound",
-            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
-          }
-        ],
-        "ReviewStory": [
-          {
-            "DialogType": "Story",
-            "Message": "Wo soll ich nur anfangen?"
-          },
-          {
-            "DialogType": "ActionStatus",
-            "ActionType": "Sound",
-            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
-          },
-          {
-            "DialogType": "Story",
-            "Message": "Helfen Sie mir bitte."
-          }
-        ]
-      },
-      {
-        "Name": "Paul",
-        "Alias": "Kriegsveteran",
-        "Age": 28,
-		"Finished": false,
-		"Unlocked": false,
-        "EvilAction": [
-          {
-            "ActionType": "Sound",
-            "Peaks": 3,
-            "Decibel": 60
-          },
-          {
-            "ActionType": "Grab",
-            "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor"
-          }
-        ],
-        "SolvedActions": [],
-        "TherapyStory": [
-          {
-            "DialogeType": "Story",
-            "Message": "Ich kann den Krieg nicht vergessen."
-          },
-          {
-            "DialogeType": "Story",
-            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
-          },
-          {
-            "DialogeType": "Action",
-            "ActionType": "Sound",
-            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
-          }
-        ],
-        "ReviewStory": [
-          {
-            "DialogType": "Story",
-            "Message": "Wo soll ich nur anfangen?"
-          },
-          {
-            "DialogType": "ActionStatus",
-            "ActionType": "Sound",
-            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört."
-          },
-          {
-            "DialogType": "Story",
-            "Message": "Helfen Sie mir bitte."
-          }
-        ]
-      },
-	  {
-        "Name": "Paul",
-        "Alias": "Kriegsveteran",
-        "Age": 28,
-		"Finished": false,
-		"Unlocked": false,
-        "EvilAction": [
-          {
-            "ActionType": "Sound",
-            "Peaks": 3,
-            "Decibel": 60
-          },
-          {
-            "ActionType": "Grab",
-            "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor",
-            "details": "whatever" 
-          }
-        ],
-        "SolvedActions": [],
-        "TherapyStory": [
-          {
-            "DialogeType": "Story",
-            "Message": "Ich kann den Krieg nicht vergessen."
-          },
-          {
-            "DialogeType": "Story",
-            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
-          },
-          {
-            "DialogeType": "Action",
-            "ActionType": "Sound",
-            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
-          }
-        ],
-        "ReviewStory": [
-          {
-            "DialogType": "Story",
-            "Message": "Wo soll ich nur anfangen?"
-          },
-          {
-            "DialogType": "ActionStatus",
-            "ActionType": "Sound",
-            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
-          },
-          {
-            "DialogType": "Story",
-            "Message": "Helfen Sie mir bitte."
-          }
-        ]
-      },
-	  {
-        "Name": "Paul",
-        "Alias": "Kriegsveteran",
-        "Age": 28,
-		"Finished": false,
-		"Unlocked": false,
-        "EvilAction": [
-          {
-            "ActionType": "Sound",
-            "Peaks": 3,
-            "Decibel": 60
-          },
-          {
-            "ActionType": "Grab",
-            "ObjectOfInterest": "Picture",
-            "PlacementTarget": "Floor",
-            "details": "whatever" 
-          }
-        ],
-        "SolvedActions": [],
-        "TherapyStory": [
-          {
-            "DialogeType": "Story",
-            "Message": "Ich kann den Krieg nicht vergessen."
-          },
-          {
-            "DialogeType": "Story",
-            "Message": "Im Krieg verlor ich meinen Kameraden und besten Freund Sven."
-          },
-          {
-            "DialogeType": "Action",
-            "ActionType": "Sound",
-            "Message": "Wenn ich schrille Geräusche höre erinnere ich mich an den Tag als Sven starb."
-          }
-        ],
-        "ReviewStory": [
-          {
-            "DialogType": "Story",
-            "Message": "Wo soll ich nur anfangen?"
-          },
-          {
-            "DialogType": "ActionStatus",
-            "ActionType": "Sound",
-            "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
-            "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
-          },
-          {
-            "DialogType": "Story",
-            "Message": "Helfen Sie mir bitte."
-          }
-        ]
-      }
-
-    ]
-	}
-	]
+  "Game": "Dr Evil",
+  "Revision": 1,
+  "Worlds": [
+    {
+      "WorldName": "Vorstadt",
+      "Persons": [
+        {
+          "Name": "Paul",
+          "Alias": "Kriegsveteran",
+          "Age": 28,
+          "Finished": false,
+          "Unlocked": true,
+          "SpritePathInResources": "Characters/Robs_trans",
+          "EvilAction": [
+            {
+              "ActionType": "Sound",
+              "Peaks": 3,
+              "Decibel": 60
+            },
+            {
+              "ActionType": "Grab",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "Trigger",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            }
+          ],
+          "SolvedActions": [],
+          "TherapyStory": [
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Sound",
+              "Actor": "Patient",
+              "Message": "Ach herrje, der Krieg hat alles in mir zerbombt. Mein bester Freund wurde im Krieg getötet und andauernd hab ich diese Geräusche im Kopf, ich dreh schon halb durch deswegen."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Ohje, Sie Armer. Gibt es noch mehr, was Sie belastet?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Grab",
+              "Actor": "Patient",
+              "Message": "Ja, meine Frau hat mich verlassen und hat meine Tochter mitgenommen, weil sie sagt, ich bin nicht zurechnungsfähig und erschrecke meine Tochter, wenn ich nachts schreiend aufwache."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Erzählen Sie mir mehr."
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Trigger",
+              "Actor": "Patient",
+              "Message": "Naja, ich kann halt nicht schlafen, weil ich dauernd die Bomben und Schüsse höre. Seit dem Krieg ist das so, da habe ich mich auch nicht getraut, einzuschlafen, weil ich Angst hatte, im Schlaf zu sterben, wenn ich nicht aufpasse. Meine Tochter fehlt mir wie verrückt."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Das ist ja schlimm. Sie müssen mir berichten, ob es besser wird. Mein Rat für heute wäre: Gehen Sie nach Hause und machen Sie sich einen ruhigen Abend. Versuchen Sie zu entspannen und morgen berichten Sie, ob es dadurch besser wurde."
+            }
+          ],
+          "ReviewStory": [
+            {
+              "DialogType": "Story",
+              "Actor": "Patient",
+              "Message": "Wo soll ich nur anfangen?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Sound",
+              "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+              "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Grab",
+              "SolvedMessage": "Das Bild meiner Tochter lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
+              "FailedMessage": "Ich habe das Bild von meiner Tochter angeschaut und ich will um das Sorgerecht kämpfen."
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Trigger",
+              "SolvedMessage": "Ich habe letzte Nacht poltern gehört aber kann es mir nicht erklären!",
+              "FailedMessage": "Jetzt wo Sie das ansprechen... Es geht mir schon viel besser."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Dr",
+              "ActionType": "All",
+              "SolvedMessage": "Ich muss Sie leider in die Psychiatrie einweisen, Sie stelen eine Bedrohung für die Allgemeinheit dar.",
+              "FailedMessage": "Das sind gute Neuigkeiten, machen Sie weiter so."
+            }
+          ]
+        },
+        {
+          "Name": "Paul",
+          "Alias": "Kriegsveteran",
+          "Age": 28,
+          "Finished": false,
+          "Unlocked": false,
+          "SpritePathInResources": "Characters/Robs_trans",
+          "EvilAction": [
+            {
+              "ActionType": "Sound",
+              "Peaks": 3,
+              "Decibel": 60
+            },
+            {
+              "ActionType": "Grab",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "Trigger",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            }
+          ],
+          "SolvedActions": [],
+          "TherapyStory": [
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Sound",
+              "Actor": "Patient",
+              "Message": "Ach herrje, der Krieg hat alles in mir zerbombt. Mein bester Freund wurde im Krieg getötet und andauernd hab ich diese Geräusche im Kopf, ich dreh schon halb durch deswegen."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Ohje, Sie Armer. Gibt es noch mehr, was Sie belastet?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Grab",
+              "Actor": "Patient",
+              "Message": "Ja, meine Frau hat mich verlassen und hat meine Tochter mitgenommen, weil sie sagt, ich bin nicht zurechnungsfähig und erschrecke meine Tochter, wenn ich nachts schreiend aufwache."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Erzählen Sie mir mehr."
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Trigger",
+              "Actor": "Patient",
+              "Message": "Naja, ich kann halt nicht schlafen, weil ich dauernd die Bomben und Schüsse höre. Seit dem Krieg ist das so, da habe ich mich auch nicht getraut, einzuschlafen, weil ich Angst hatte, im Schlaf zu sterben, wenn ich nicht aufpasse. Meine Tochter fehlt mir wie verrückt."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Das ist ja schlimm. Sie müssen mir berichten, ob es besser wird. Mein Rat für heute wäre: Gehen Sie nach Hause und machen Sie sich einen ruhigen Abend. Versuchen Sie zu entspannen und morgen berichten Sie, ob es dadurch besser wurde."
+            }
+          ],
+          "ReviewStory": [
+            {
+              "DialogType": "Story",
+              "Actor": "Patient",
+              "Message": "Wo soll ich nur anfangen?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Sound",
+              "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+              "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Grab",
+              "SolvedMessage": "Das Bild meiner Tochter lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
+              "FailedMessage": "Ich habe das Bild von meiner Tochter angeschaut und ich will um das Sorgerecht kämpfen."
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Trigger",
+              "SolvedMessage": "Ich habe letzte Nacht poltern gehört aber kann es mir nicht erklären!",
+              "FailedMessage": "Jetzt wo Sie das ansprechen... Es geht mir schon viel besser."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Dr",
+              "ActionType": "All",
+              "SolvedMessage": "Ich muss Sie leider in die Psychiatrie einweisen, Sie stelen eine Bedrohung für die Allgemeinheit dar.",
+              "FailedMessage": "Das sind gute Neuigkeiten, machen Sie weiter so."
+            }
+          ]
+        },
+        {
+          "Name": "Paul",
+          "Alias": "Kriegsveteran",
+          "Age": 28,
+          "Finished": false,
+          "Unlocked": false,
+          "SpritePathInResources": "Characters/Robs_trans",
+          "EvilAction": [
+            {
+              "ActionType": "Sound",
+              "Peaks": 3,
+              "Decibel": 60
+            },
+            {
+              "ActionType": "Grab",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "Trigger",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            }
+          ],
+          "SolvedActions": [],
+          "TherapyStory": [
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Sound",
+              "Actor": "Patient",
+              "Message": "Ach herrje, der Krieg hat alles in mir zerbombt. Mein bester Freund wurde im Krieg getötet und andauernd hab ich diese Geräusche im Kopf, ich dreh schon halb durch deswegen."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Ohje, Sie Armer. Gibt es noch mehr, was Sie belastet?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Grab",
+              "Actor": "Patient",
+              "Message": "Ja, meine Frau hat mich verlassen und hat meine Tochter mitgenommen, weil sie sagt, ich bin nicht zurechnungsfähig und erschrecke meine Tochter, wenn ich nachts schreiend aufwache."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Erzählen Sie mir mehr."
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Trigger",
+              "Actor": "Patient",
+              "Message": "Naja, ich kann halt nicht schlafen, weil ich dauernd die Bomben und Schüsse höre. Seit dem Krieg ist das so, da habe ich mich auch nicht getraut, einzuschlafen, weil ich Angst hatte, im Schlaf zu sterben, wenn ich nicht aufpasse. Meine Tochter fehlt mir wie verrückt."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Das ist ja schlimm. Sie müssen mir berichten, ob es besser wird. Mein Rat für heute wäre: Gehen Sie nach Hause und machen Sie sich einen ruhigen Abend. Versuchen Sie zu entspannen und morgen berichten Sie, ob es dadurch besser wurde."
+            }
+          ],
+          "ReviewStory": [
+            {
+              "DialogType": "Story",
+              "Actor": "Patient",
+              "Message": "Wo soll ich nur anfangen?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Sound",
+              "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+              "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Grab",
+              "SolvedMessage": "Das Bild meiner Tochter lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
+              "FailedMessage": "Ich habe das Bild von meiner Tochter angeschaut und ich will um das Sorgerecht kämpfen."
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Trigger",
+              "SolvedMessage": "Ich habe letzte Nacht poltern gehört aber kann es mir nicht erklären!",
+              "FailedMessage": "Jetzt wo Sie das ansprechen... Es geht mir schon viel besser."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Dr",
+              "ActionType": "All",
+              "SolvedMessage": "Ich muss Sie leider in die Psychiatrie einweisen, Sie stelen eine Bedrohung für die Allgemeinheit dar.",
+              "FailedMessage": "Das sind gute Neuigkeiten, machen Sie weiter so."
+            }
+          ]
+        },
+        {
+          "Name": "Paul",
+          "Alias": "Kriegsveteran",
+          "Age": 28,
+          "Finished": false,
+          "Unlocked": false,
+          "SpritePathInResources": "Characters/Robs_trans",
+          "EvilAction": [
+            {
+              "ActionType": "Sound",
+              "Peaks": 3,
+              "Decibel": 60
+            },
+            {
+              "ActionType": "Grab",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "Trigger",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            }
+          ],
+          "SolvedActions": [],
+          "TherapyStory": [
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Sound",
+              "Actor": "Patient",
+              "Message": "Ach herrje, der Krieg hat alles in mir zerbombt. Mein bester Freund wurde im Krieg getötet und andauernd hab ich diese Geräusche im Kopf, ich dreh schon halb durch deswegen."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Ohje, Sie Armer. Gibt es noch mehr, was Sie belastet?"
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Grab",
+              "Actor": "Patient",
+              "Message": "Ja, meine Frau hat mich verlassen und hat meine Tochter mitgenommen, weil sie sagt, ich bin nicht zurechnungsfähig und erschrecke meine Tochter, wenn ich nachts schreiend aufwache."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Erzählen Sie mir mehr."
+            },
+            {
+              "DialogeType": "Action",
+              "ActionType": "Trigger",
+              "Actor": "Patient",
+              "Message": "Naja, ich kann halt nicht schlafen, weil ich dauernd die Bomben und Schüsse höre. Seit dem Krieg ist das so, da habe ich mich auch nicht getraut, einzuschlafen, weil ich Angst hatte, im Schlaf zu sterben, wenn ich nicht aufpasse. Meine Tochter fehlt mir wie verrückt."
+            },
+            {
+              "DialogeType": "Story",
+              "Actor": "Dr",
+              "Message": "Das ist ja schlimm. Sie müssen mir berichten, ob es besser wird. Mein Rat für heute wäre: Gehen Sie nach Hause und machen Sie sich einen ruhigen Abend. Versuchen Sie zu entspannen und morgen berichten Sie, ob es dadurch besser wurde."
+            }
+          ],
+          "ReviewStory": [
+            {
+              "DialogType": "Story",
+              "Actor": "Patient",
+              "Message": "Wo soll ich nur anfangen?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Sound",
+              "SolvedMessage": "Ich habe letzte Nacht schrille Geräusche gehört, was stimmt nicht?",
+              "FailedMessage": "Mir geht es schon viel besser und die schrillen Geräusche habe ich nicht mehr gehört"
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Grab",
+              "SolvedMessage": "Das Bild meiner Tochter lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
+              "FailedMessage": "Ich habe das Bild von meiner Tochter angeschaut und ich will um das Sorgerecht kämpfen."
+            },
+            {
+              "DialogType": "Story",
+              "Actor": "Dr",
+              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Patient",
+              "ActionType": "Trigger",
+              "SolvedMessage": "Ich habe letzte Nacht poltern gehört aber kann es mir nicht erklären!",
+              "FailedMessage": "Jetzt wo Sie das ansprechen... Es geht mir schon viel besser."
+            },
+            {
+              "DialogType": "ActionStatus",
+              "Actor": "Dr",
+              "ActionType": "All",
+              "SolvedMessage": "Ich muss Sie leider in die Psychiatrie einweisen, Sie stelen eine Bedrohung für die Allgemeinheit dar.",
+              "FailedMessage": "Das sind gute Neuigkeiten, machen Sie weiter so."
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -10,7 +10,6 @@ public class GameState : MonoBehaviour {
     public TextAsset InputFileTextAsset;
     public World CurrentWorld;
     public Person CurrentPerson;
-    public string Begruessung;
 
     // Use this for initialization
     void Awake()
@@ -22,7 +21,6 @@ public class GameState : MonoBehaviour {
 
         var rootObject = JsonConvert.DeserializeObject<RootObject>(InputFileTextAsset.text);
         CurrentWorld = rootObject.Worlds[0];
-        Begruessung = rootObject.Begruessung;
     }
 
     /// <summary>
@@ -44,7 +42,7 @@ public class GameState : MonoBehaviour {
         {
             CurrentPerson = newPerson;
             Debug.Log($"newPersonSelected name{CurrentPerson.Name}");
-            BroadcastMessage("PersonChanged");
+            BroadcastMessage("PersonChanged"); // Receiver: ScreenViewHandler.cs
             return true;
         }
         return false;
