@@ -585,10 +585,12 @@ MonoBehaviour:
   voiceActionObjs:
   - {fileID: 0}
   scratchActions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1991329217}
+  - {fileID: 1767528201}
+  - {fileID: 560438227}
+  - {fileID: 1978486313}
+  - {fileID: 143326408}
+  hasUserSwiped: 0
 --- !u!4 &1015005724
 Transform:
   m_ObjectHideFlags: 0

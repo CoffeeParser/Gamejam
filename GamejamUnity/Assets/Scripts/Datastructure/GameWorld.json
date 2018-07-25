@@ -14,18 +14,30 @@
           "SpritePathInResources": "Characters/Robs_trans",
           "EvilAction": [
             {
-              "ActionType": "Sound",
+              "ActionType": "voice",
               "Peaks": 3,
               "Decibel": 60
             },
             {
-              "ActionType": "Grab",
+              "ActionType": "swipe",
               "ObjectOfInterest": "Picture",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
-              "ActionType": "Trigger",
+              "ActionType": "touch",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "push",
+              "ObjectOfInterest": "Picture",
+              "PlacementTarget": "Floor",
+              "details": "whatever"
+            },
+            {
+              "ActionType": "scratch",
               "ObjectOfInterest": "Picture",
               "PlacementTarget": "Floor",
               "details": "whatever"
