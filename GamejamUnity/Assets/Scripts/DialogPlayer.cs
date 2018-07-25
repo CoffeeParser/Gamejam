@@ -145,7 +145,10 @@ public class DialogPlayer : MonoBehaviour
             }
             else if (currentReviewStory.DialogType.Equals("ActionStatus")) // DialogType = ActionStatus
             {
-                if (_gameState.CurrentPerson.SolvedActions.FirstOrDefault(b => b.ActionType.Equals(currentReviewStory.ActionType)) != null)
+                if (_gameState.CurrentPerson.SolvedActions.FirstOrDefault(b =>
+                {
+                    return b.ActionType.Equals(currentReviewStory.ActionType) && b.Identifier.Equals(currentReviewStory.Identifier);
+                }) != null)
                 {
                     dialogFieldtext.text = currentReviewStory.SolvedMessage;
                 }

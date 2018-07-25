@@ -15,23 +15,27 @@
           "EvilAction": [
             {
               "ActionType": "voice",
+              "Identifier": "voice_01", 
               "Peaks": 3,
               "Decibel": 60
             },
             {
               "ActionType": "swipe",
+              "Identifier": "swipe_01",
               "ObjectOfInterest": "Toy",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "swipe",
+              "Identifier": "swipe_02",
               "ObjectOfInterest": "Picture",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "ObjectOfInterest": "WaterTap",
               "PlacementTarget": "Floor",
               "details": "whatever"
@@ -92,10 +96,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "voice",
-              "SolvedMessage":
-                "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich kriege den Lärm einfach nicht aus dem Kopf!",
-              "FailedMessage":
-                "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen."
+              "Identifier": "voice_01",
+              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich kriege den Lärm einfach nicht aus dem Kopf!",
+              "FailedMessage": "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen."
             },
             {
               "DialogType": "Story",
@@ -106,10 +109,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "swipe",
-              "SolvedMessage":
-                "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich glaube, ich habe das Spielzeug meiner Tochter umgestellt, aber ich kann mich nicht daran erinnern!",
-              "FailedMessage":
-                "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen. Vielleicht sehe ich meine Tochter ja bald wieder"
+              "Identifier": "swipe_01",
+              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich glaube, ich habe das Spielzeug meiner Tochter umgestellt, aber ich kann mich nicht daran erinnern!",
+              "FailedMessage": "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen. Vielleicht sehe ich meine Tochter ja bald wieder"
             },
             {
               "DialogType": "Story",
@@ -120,10 +122,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "swipe",
-              "SolvedMessage":
-                "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Das Bild meines Freundes lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
-              "FailedMessage":
-                "Ich habe mir Fotos von früher angeschaut, als mein Freund noch lebte. Ich finde, wir hatten eine tolle Zeit und ich glaube, ich kann jetzt mehr daran denken, als an den Anschlag, der ihn getötet hat."
+              "Identifier": "swipe_02",
+              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Das Bild meines Freundes lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
+              "FailedMessage": "Ich habe mir Fotos von früher angeschaut, als mein Freund noch lebte. Ich finde, wir hatten eine tolle Zeit und ich glaube, ich kann jetzt mehr daran denken, als an den Anschlag, der ihn getötet hat."
             },
             {
               "DialogType": "Story",
@@ -134,10 +135,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
-              "SolvedMessage":
-                "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich habe letzte Nacht Geräusche vom Wasserhahn gehört, aber kann es mir nicht erklären, ich drehe ihn immer fest zu!",
-              "FailedMessage":
-                "Ich konnte mich gestern wirklich gut entspannen und habe endlich mal geschlafen wie ein Stein, mir geht es heute schon besser."
+              "Identifier": "touch_01",
+              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich habe letzte Nacht Geräusche vom Wasserhahn gehört, aber kann es mir nicht erklären, ich drehe ihn immer fest zu!",
+              "FailedMessage": "Ich konnte mich gestern wirklich gut entspannen und habe endlich mal geschlafen wie ein Stein, mir geht es heute schon besser."
             },
             {
               "DialogType": "ActionStatus",
@@ -158,18 +158,21 @@
           "EvilAction": [
             {
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "ObjectOfInterest": "Television",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "touch",
+              "Identifier": "touch_02",
               "ObjectOfInterest": "WaterTap",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "touch",
+              "Identifier": "voice_03",
               "ObjectOfInterest": "Light",
               "PlacementTarget": "Floor",
               "details": "whatever"
@@ -230,10 +233,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
-              "SolvedMessage":
-                "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Fernseher die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage":
-                "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
+              "Identifier": "touch_01",
+              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Fernseher die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
+              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
             },
             {
               "DialogType": "Story",
@@ -244,10 +246,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
-              "SolvedMessage":
-                "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Wasserhahn die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage":
-                "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
+              "Identifier": "touch_02",
+              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Wasserhahn die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
+              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
             },
             {
               "DialogType": "Story",
@@ -258,10 +259,9 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
-              "SolvedMessage":
-                "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Licht die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage":
-                "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
+              "Identifier": "touch_03",
+              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Licht die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
+              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
             },
             {
               "DialogType": "ActionStatus",
@@ -284,18 +284,21 @@
           "EvilAction": [
             {
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "ObjectOfInterest": "Drugs",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "push",
+              "Identifier": "push_01",
               "ObjectOfInterest": "Hammering",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "push",
+              "Identifier": "push_02",
               "ObjectOfInterest": "Cat",
               "PlacementTarget": "Floor",
               "details": "whatever"
@@ -374,6 +377,7 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, diese scheiß Drogen, ich weiß nicht mehr, was war!! Ich bin letzte Nacht total ausgeflippt, aber ich glaube, ich habe gar keine Drogen genommen.",
               "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
             },
@@ -386,6 +390,7 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "push",
+              "Identifier": "push_01",
               "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, ich dachte letzte Nacht, mein beschissener Scheißvater steht vor der Tür, aber das kann gar nicht sein, der lebt am anderen Ende der Welt. Ich drehe wirklich durch...",
               "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
             },
@@ -398,6 +403,7 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "push",
+              "Identifier": "push_02",
               "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, ich weiß nicht mehr, was war!! Ich bin letzte Nacht total ausgeflippt und ich glaube, ich habe meine Katze umgebracht…",
               "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
             },
@@ -420,12 +426,14 @@
           "EvilAction": [
             {
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "ObjectOfInterest": "SmuggleDrugs",
               "PlacementTarget": "Floor",
               "details": "whatever"
             },
             {
               "ActionType": "swipe",
+              "Identifier": "swipe_01",
               "ObjectOfInterest": "Relocate",
               "PlacementTarget": "Floor",
               "details": "whatever"
@@ -482,6 +490,7 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "touch",
+              "Identifier": "touch_01",
               "SolvedMessage": "Herr Doktor!! Meine M-M-Mama hat mich heute morgen vor die Tür gesetzt!! Sie hat Drogen gefunden, a-aber ich hatte doch gar k-keine. Ich weiß nicht, was passiert ist. I-ich g-glaube ich drehe durch!!",
               "FailedMessage": "H-Herr Doktor!! Ich bin g-ganz aufgeregt. Meine Mama h-hat gesagt, i-ich kann ewig bei ihr wohnen. Ich h-hatte doch so Angst, dass ich äh bald ausziehen muss."
             },
@@ -494,6 +503,7 @@
               "DialogType": "ActionStatus",
               "Actor": "Patient",
               "ActionType": "swipe",
+              "Identifier": "swipe_01",
               "SolvedMessage": "Herr Doktor!! Ich weiß nicht, was passiert ist. I-ich g-glaube ich drehe durch, i-ich h-habe die ganze Wohnung u-umgeräumt aber ich äh, k-kann mich gar n-nicht daran erinnern…",
               "FailedMessage": "H-Herr Doktor!! Ich bin g-ganz aufgeregt. I-ich habe äh...gestern ein paar Sachen a-auf..äh...meinem Schreibtisch sch-schief hingestellt. Und es h-hat mich gar nicht gestört! D-Danke Dr. G-Goodwill!"
             },
