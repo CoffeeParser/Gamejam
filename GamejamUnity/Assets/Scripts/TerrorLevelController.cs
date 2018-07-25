@@ -159,6 +159,7 @@ public class TerrorLevelController : MonoBehaviour
 
     bool TryTriggerInteraction(ObjectTrigger triggerObj, TriggerTypes triggerType)
     {
+        Debug.Log(triggerObj);
         if (triggerObj != null)
         {
             if (triggerObj.actionTrigger.ActionType == triggerType.ToString())
