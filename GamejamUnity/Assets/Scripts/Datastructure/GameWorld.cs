@@ -4,6 +4,7 @@
 public class EvilAction
 {
     public string ActionType { get; set; }
+    public string Identifier { get; set; }
     public int Peaks { get; set; }
     public int Decibel { get; set; }
     public string ObjectOfInterest { get; set; }
@@ -25,6 +26,7 @@ public class ReviewStory
     public string Actor { get; set; }
     public string Message { get; set; }
     public string ActionType { get; set; }
+    public string Identifier { get; set; }
     public string SolvedMessage { get; set; }
     public string FailedMessage { get; set; }
 }
