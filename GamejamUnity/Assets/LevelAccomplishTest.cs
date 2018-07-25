@@ -28,13 +28,13 @@ public class LevelAccomplishTest : MonoBehaviour {
     {
 
 
-        Debug.Log(ScreenViewHandler.instance == null);
+        //Debug.Log(ScreenViewHandler.instance == null);
         //test.onClick.AddListener(delegate () { onLevelIsOver.Invoke(true); });
     }
 
     void AddEventListener()
     {
-        Debug.Log("CALL IT FUCKING BITCH!!!");
+        //Debug.Log("CALL IT FUCKING BITCH!!!");
         test.onClick.AddListener(delegate () { ScreenViewHandler.instance.isLevelAccomplished(true); });
 
     }

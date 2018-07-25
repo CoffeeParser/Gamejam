@@ -19,17 +19,25 @@ public class ScreenViewHandler : MonoBehaviour
     public GameObject PatientScreenGameObject;
     public GameObject NightScreen;
 
+    public GameObject LeaveFinishScreen;
+    public Button LeaveFinishVBtn;
+
+    public GameObject LeaveUnFinishScreen;
+    public Button LeaveUnFinishVBtn;
+
 
     public GameObject DialogField;
     public Text dialogFieldtext;
 
     private GameState _gameState;
 
+
+
     public Button SkipDialogBtn;
     public Button SkipNightScreenBtn;
 
     public string LoadLevelString = "GyroTestScene";
-    private int dialogIndex = 0;
+    private int dialogIndex = -1;
 
     private bool acc;
 
@@ -38,26 +46,36 @@ public class ScreenViewHandler : MonoBehaviour
         if(instance == null)
             instance = this;
 
-        dialogIndex = 0;
+        // -1 da der Dr auch immer eine Satz sagt 
+        dialogIndex = -1;
 
+        //To read Gamestate
         _gameState = GameObject.FindGameObjectWithTag("GlobalLifeTime").GetComponent<GameState>();
 
+        // First of all set Start Screen true
         StartScreen.SetActive(true);
+
+        // After Click show MapMenu
         EnterMapMenu.onClick.AddListener(() =>
         {
             MapViewGameObject.SetActive(true);
             StartScreen.SetActive(false);
         });
 
+        //Add Listeners to Skip Evil Dialog
         SkipDialogBtn.onClick.AddListener(SkipEvilDialogScreen);
+
+        //Add Listeners to Skip Evil Dialog
         SkipNightScreenBtn.onClick.AddListener(SkipNightScreen);
     }
 
+    // On EvilDialog Skip, Evil Screen = false // setze 
     private void SkipEvilDialogScreen()
     {
         EvilScreenGameObject.SetActive(false);
         PatientScreenGameObject.SetActive(true);
         SetPatientDialogText();
+
     }
 
 
@@ -71,6 +89,7 @@ public class ScreenViewHandler : MonoBehaviour
 
     public void SetPatientDialogText()
     {
+        UIController.MenuisActive = false;
         dialogIndex++;
         Debug.Log(dialogIndex);
 
@@ -78,11 +97,14 @@ public class ScreenViewHandler : MonoBehaviour
         {
 
             // hier ende, lade szene raum
-            Debug.Log("End");
+            //Debug.Log("End");
+            NightScreen.SetActive(true);
             DialogField.SetActive(false);
             PatientScreenGameObject.SetActive(false);
-            NightScreen.SetActive(true);
-            UIController.MenuisActive = false;
+            StartCoroutine(LoadAsynchonusly(LoadLevelString));
+            
+
+            dialogIndex = -1;
             return;
         }
         else
@@ -92,29 +114,37 @@ public class ScreenViewHandler : MonoBehaviour
 
     }
 
+    
     public void SkipNightScreen()
     {
+        Debug.Log("SkipNiht");
+        NightScreen.SetActive(false);
+
         // Set MainMenu Activity false
         UIController.MenuisActive = false;
         // Load Level And wait until
-        StartCoroutine(LoadAsynchonusly(LoadLevelString));
+        //StartCoroutine(LoadAsynchonusly(LoadLevelString));
 
     }
+    
 
     public IEnumerator LoadAsynchonusly(string sceneString)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString, LoadSceneMode.Additive);
 
+        Debug.Log("LoadLevel");
 
         NightScreen.SetActive(true);
 
         while (!operation.isDone)
         {
+            Debug.Log(".");
             SkipNightScreenBtn.enabled = false;
             yield return null;
         }
-        Debug.Log("LevelLoad is finish");
-        NightScreen.SetActive(false);
+        SkipNightScreenBtn.enabled = true;
+        //Debug.Log("LevelLoad is finish");
+        //NightScreen.SetActive(false);
         //LevelAccomplishTest.instance.onLevelIsOver.AddListener(isLevelAccomplished);
     }
 
@@ -122,14 +152,39 @@ public class ScreenViewHandler : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(LoadLevelString);
         Debug.Log("LevelUnloaded");
-        // UnLoadlevel
+        // UnLoadlevel after ever Session
 
+        // Get Count of solved information 
+
+
+        // Obsolet maybe for alternativ loadScreen
         if (isAccomplished)
         {
-
+            // Finish leave Screen, only skipable when Level is Unload      
+            LeaveFinishScreen.SetActive(true);
+            LeaveFinishVBtn.onClick.AddListener(LoadSecondDialog);
+        }
+        else if (!isAccomplished)
+        {
+            // Unfinsih LeaveScreen Only Skipable wenn Level is unloaded 
+            LeaveUnFinishScreen.SetActive(true);
+            LeaveUnFinishVBtn.onClick.AddListener(LoadSecondDialog);
+        }
+        else if (1==2)
+        {
+            // When parts accoplished load House leave Screen, only skipable when Level is Unload
+            // Get Count of solved information 
         }
     }
 
+
+    public void LoadSecondDialog()
+    {
+        LeaveFinishScreen.SetActive(false);
+        LeaveUnFinishScreen.SetActive(false);
+        Debug.Log("Second Dialog");
+        PersonChanged();
+    }
 }
 
 
