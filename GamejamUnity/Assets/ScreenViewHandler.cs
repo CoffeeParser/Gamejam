@@ -89,28 +89,55 @@ public class ScreenViewHandler : MonoBehaviour
 
     public void SetPatientDialogText()
     {
+        Debug.Log(_gameState.CurrentPerson.SolvedActions.Count);
+        Debug.Log(_gameState.CurrentPerson.EvilAction.Count);
+
+
         UIController.MenuisActive = false;
         dialogIndex++;
         Debug.Log(dialogIndex);
 
-        if (dialogIndex >= _gameState.CurrentPerson.TherapyStory.Count) // max
-        {
+        // How many Actions are solved
+        int solvedActions = _gameState.CurrentPerson.SolvedActions.Count;
+        // How many Actions are to do
+        int actionsToDo = _gameState.CurrentPerson.EvilAction.Count;
 
-            // hier ende, lade szene raum
-            //Debug.Log("End");
-            NightScreen.SetActive(true);
-            DialogField.SetActive(false);
-            PatientScreenGameObject.SetActive(false);
-            StartCoroutine(LoadAsynchonusly(LoadLevelString));
-            
-
-            dialogIndex = -1;
-            return;
-        }
-        else
+        if(solvedActions == 0)
         {
-            dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
+            // Show TherapieStory again
+            if (dialogIndex >= _gameState.CurrentPerson.TherapyStory.Count) // max
+            {
+
+                //hier ende, lade szene raum
+                //Debug.Log("End");
+                NightScreen.SetActive(true);
+                DialogField.SetActive(false);
+                PatientScreenGameObject.SetActive(false);
+                StartCoroutine(LoadAsynchonusly(LoadLevelString));
+
+                dialogIndex = -1;
+                return;
+            }
+            else
+            {
+                dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
+            }
+
         }
+        else if (solvedActions > 0 && solvedActions < actionsToDo)
+        {
+            // show Review with part of
+        }
+        else if (solvedActions == actionsToDo)
+        {
+            // Show compledet Review 
+            // Show ArchivementScreen
+        }
+
+
+ 
+
+
 
     }
 
@@ -180,9 +207,19 @@ public class ScreenViewHandler : MonoBehaviour
 
     public void LoadSecondDialog()
     {
+        // Wenn nichts gelöst TherapiheStroy von vorne 
+        
+
+        // Wenn teile gelöst dann Review Story anhand der:
+        // Solved actions
+
+        //  Wenn alle Gelöst Solved actins count = Actions to do Count  
+        //    EinweisungsScreen 
+        // Dann minimap (muss dann umgeschaltet sein)
+
+
         LeaveFinishScreen.SetActive(false);
         LeaveUnFinishScreen.SetActive(false);
-        Debug.Log("Second Dialog");
         PersonChanged();
     }
 }
