@@ -8,6 +8,8 @@ public class UI_Text_Rescaler : MonoBehaviour
     public float percentageTextScale;
     private RectTransform rect;
     private Text text;
+    private bool isInit;
+    public bool isMagementMaster;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class UI_Text_Rescaler : MonoBehaviour
     // Use this for initialization
     public void Init()
     {
+        isInit = true;
         rect = GetComponent<RectTransform>();
         text = GetComponent<Text>();
     }
@@ -35,6 +38,15 @@ public class UI_Text_Rescaler : MonoBehaviour
     public float GetPercentageHeight(float percentage)
     {
         return Camera.main.pixelHeight * percentage;
+    }
+
+    private void OnEnable()
+    {
+        if (!isInit && !isMagementMaster)
+        {
+            Init();
+            RescaleTextSize();
+        }
     }
 
     public void ApplyAllResizeObjs()
