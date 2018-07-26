@@ -279,7 +279,7 @@
           "Alias": "Nutte",
           "Age": 25,
           "Finished": false,
-          "Unlocked": true,
+          "Unlocked": false,
           "SpritePathInResources": "Characters/Anni_trans_big",
           "EvilAction": [
             {

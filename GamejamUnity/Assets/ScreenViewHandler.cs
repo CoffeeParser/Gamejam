@@ -14,6 +14,8 @@ public class ScreenViewHandler : MonoBehaviour
     public Button EnterMapMenu;
 
     public GameObject MapViewGameObject;
+    public GameObject DayScreenGameObject;
+    public UI_SpriteAnimator AnimateEnterTherapyAfterMap;
 
     public GameObject NightScreen;
 
@@ -66,7 +68,12 @@ public class ScreenViewHandler : MonoBehaviour
     void PersonChanged()
     {
         MapViewGameObject.SetActive(false);
-        DialogPlayer.PlayStory(_gameState.CurrentPerson);
+        DayScreenGameObject.SetActive(true);
+        AnimateEnterTherapyAfterMap.PlayOneBurstWithCallback(() =>
+        {
+            DayScreenGameObject.SetActive(false);
+            DialogPlayer.PlayStory(_gameState.CurrentPerson);
+        });
     }
 
     // Second Entry Point After Night Scene -> Play ReviewStory
