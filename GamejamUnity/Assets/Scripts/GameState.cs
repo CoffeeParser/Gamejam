@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour {
     public static GameState instance;
 
     public TextAsset InputFileTextAsset;
+    public World rawData;
     public World CurrentWorld;
     public Person CurrentPerson;
 
@@ -20,6 +21,7 @@ public class GameState : MonoBehaviour {
         }
 
         var rootObject = JsonConvert.DeserializeObject<RootObject>(InputFileTextAsset.text);
+        rawData = rootObject.Worlds[0];
         CurrentWorld = rootObject.Worlds[0];
     }
 
@@ -47,6 +49,12 @@ public class GameState : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public void ResetLevel(Person person)
+    {
+        int index = CurrentWorld.Persons.IndexOf(person);
+        person = rawData.Persons[index];
     }
 
     public bool SolveAction(EvilAction action)

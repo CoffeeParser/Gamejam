@@ -220,12 +220,17 @@
           ],
           "ReviewStory": [
             {
-              "DialogType": "Story",
+              "DialogType": "All",
               "Actor": "Dr",
               "Message": "Wie   geht   es   Ihnen   heute?"
             },
+			{
+              "DialogType": "Solved",
+              "Actor": "Patient",
+              "Message": "Dr.   Goodwill!!!   Ich   weiss   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!"
+            },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "touch",
               "Identifier": "tap_tv",
@@ -235,12 +240,12 @@
                 "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
             },
             {
-              "DialogType": "Story",
+              "DialogType": "Action",
               "Actor": "Dr",
               "Message": "Haben   Sie   sonst   etwas   seltsames   bemerkt?"
             },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "touch",
               "Identifier": "tap_sink",
@@ -250,12 +255,12 @@
                 "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
             },
             {
-              "DialogType": "Story",
+              "DialogType": "Action",
               "Actor": "Dr",
               "Message": "Letztes   mal   sagten   Sie   etwas   ueber   ihre   Angst   vor   Bombenschuessen..."
             },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "touch",
               "Identifier": "tap_lightswitch",
@@ -265,7 +270,7 @@
                 "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
             },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "All",
               "Actor": "Dr",
               "ActionType": "All",
               "SolvedMessage":

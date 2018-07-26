@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
 public class ScreenViewHandler : MonoBehaviour
 {
@@ -24,9 +23,6 @@ public class ScreenViewHandler : MonoBehaviour
 
     public GameObject LevelFailedScreen;
     public Button LeaveUnFinishVBtn;
-
-    //public GameObject achievementScreen;
-    //public Button achievementBtn;
 
     private GameState _gameState;
     public Button SkipNightScreenBtn;

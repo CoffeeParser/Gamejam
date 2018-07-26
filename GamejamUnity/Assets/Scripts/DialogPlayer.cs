@@ -147,6 +147,7 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.ResetLevel(GameState.instance.CurrentPerson);
                 GameState.instance.AccomplishActualLevel();
                 ScreenViewHandler.instance.EnterMiniMapMenu();
                 break;
@@ -178,6 +179,7 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.ResetLevel(GameState.instance.CurrentPerson);
                 ScreenViewHandler.instance.EnterMiniMapMenu();
             }
             else
