@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using MobileSensors;
 
-
-
 public class TerrorLevelController : MonoBehaviour
 {
+    public static TerrorLevelController instance;
 
     public int maxFailAttempts = 5;
     public float failAttemptWaitTime = 1.5f;
@@ -16,13 +15,21 @@ public class TerrorLevelController : MonoBehaviour
     private Mic micInput;
     private Accelerate accel;
     private Camera gyroCam;
-    public List<GameObject> voiceActionObjs;
-    public List<ObjectTrigger> scratchActions;
+    private List<ObjectTrigger> voiceActionObjs;
+    private List<ObjectTrigger> scratchActions;
 
     private bool hasUserScratched;
     public bool hasUserSwiped;
 
     AudioSource levelAudioSource;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -49,6 +56,22 @@ public class TerrorLevelController : MonoBehaviour
         attemptTime = Mathf.Max(0, attemptTime);
     }
 
+    public void AddScratchAction(EvilAction scratchEvilAction)
+    {
+        GameObject tempGo = new GameObject();
+        ObjectTrigger objTrigger = tempGo.AddComponent<ObjectTrigger>();
+        objTrigger.actionTrigger = scratchEvilAction;
+        scratchActions.Add(objTrigger);
+    }
+
+    public void AddVoiceAction(EvilAction voiceEvilAction)
+    {
+        GameObject tempGo = new GameObject();
+        ObjectTrigger objTrigger = tempGo.AddComponent<ObjectTrigger>();
+        objTrigger.actionTrigger = voiceEvilAction;
+        voiceActionObjs.Add(objTrigger);
+    }
+
     void OnUserScratch(Touch[] touch)
     {
         PlayAudio(AssetManager.instance.scratch, 0.5f);
@@ -73,9 +96,8 @@ public class TerrorLevelController : MonoBehaviour
 
     void OnUserVoiceThresholdExceeded(ThresholdLevel voiceLevel)
     {
-        foreach (GameObject voiceObj in voiceActionObjs)
+        foreach (ObjectTrigger voiceObjTrigger in voiceActionObjs)
         {
-            ObjectTrigger voiceObjTrigger = voiceObj.GetComponent<ObjectTrigger>();
             if (voiceObjTrigger.actionTrigger.details == voiceLevel.ToString())
             {
                 voiceObjTrigger.holdingTime += Time.deltaTime;
@@ -162,7 +184,7 @@ public class TerrorLevelController : MonoBehaviour
         Debug.Log(triggerObj);
         if (triggerObj != null)
         {
-            if (triggerObj.actionTrigger.ActionType == triggerType.ToString())
+            if (triggerObj.actionTrigger != null && triggerObj.actionTrigger.ActionType == triggerType.ToString())
             {
                 StartCoroutine(triggerObj.TriggerAction(CompleteAction));
             }
