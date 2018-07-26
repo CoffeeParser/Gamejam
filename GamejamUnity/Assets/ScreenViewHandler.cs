@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Linq;
-using System;
 
 public class ScreenViewHandler : MonoBehaviour
 {
@@ -26,9 +24,6 @@ public class ScreenViewHandler : MonoBehaviour
 
     public GameObject LevelFailedScreen;
     public Button LeaveUnFinishVBtn;
-
-    //public GameObject achievementScreen;
-    //public Button achievementBtn;
 
     private GameState _gameState;
     public Button SkipNightScreenBtn;
@@ -108,8 +103,10 @@ public class ScreenViewHandler : MonoBehaviour
         else if (NightScreen.activeSelf)
         {
             Debug.Log("Night");
+            soundController.StopAllSources();
             soundController.PlayMusicLoop(soundController.NightRoomMusik);
             soundController.audioListener.enabled = false;
+            soundController.voice.Stop();
         }
         else if (LevelAccomplishedScreen.activeSelf)
         {

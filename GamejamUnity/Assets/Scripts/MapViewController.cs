@@ -64,12 +64,7 @@ public class MapViewController : MonoBehaviour
     {
         for (int i = 0; i < _gamestate.CurrentWorld.Persons.Count; i++)
         {
-            if (_gamestate.CurrentWorld.Persons[i].Finished) // first state: the level is already finished
-            {
-                _allButtons[i].interactable = false;
-                _allButtons[i].gameObject.GetComponent<Image>().sprite = _inactiveLevelSprites[i];
-            }
-            else if (_gamestate.CurrentWorld.Persons[i].Unlocked) // second state: this is the next possible level!
+            if (_gamestate.CurrentWorld.Persons[i].Finished || _gamestate.CurrentWorld.Persons[i].Unlocked) // first state: the level is already finished
             {
                 _allButtons[i].interactable = true;
                 _allButtons[i].gameObject.GetComponent<Image>().sprite = _activeLevelSprites[i];

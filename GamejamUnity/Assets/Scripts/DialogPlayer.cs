@@ -22,14 +22,18 @@ public class DialogPlayer : MonoBehaviour
     private GameState _gameState;
     private int dialogIndex;
 
+    private SoundController soundController;
+
     // Use this for initialization
     void Start()
     {
+        soundController = GetComponent<SoundController>();
         _gameState = GameState.instance;
     }
 
     public void PlayStory(Person person, bool newLevel = false)
     {
+        NextDialogButton.onClick.RemoveAllListeners();
         // 0. activate therapyscreen
         TherapyScreenGameObject.SetActive(true);
 
@@ -97,6 +101,7 @@ public class DialogPlayer : MonoBehaviour
 
     private void EndDialog()
     {
+        StopAllCoroutines();
         dialogIndex = -1;
         NextDialogButton.onClick.RemoveAllListeners();
         DialogField.SetActive(false);
@@ -118,24 +123,36 @@ public class DialogPlayer : MonoBehaviour
         }
         else
         {
-            UpdateActor(_gameState.CurrentPerson.TherapyStory[dialogIndex].Actor);
+            string actor = _gameState.CurrentPerson.TherapyStory[dialogIndex].Actor;
+            UpdateActor(actor);
 
             StopAllCoroutines();
-            StartCoroutine(DialogueWriter(_gameState.CurrentPerson.TherapyStory[dialogIndex].Message));
+            StartCoroutine(DialogueWriter(_gameState.CurrentPerson.TherapyStory[dialogIndex].Message, actor));
             //dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
         }
     }
 
-    public IEnumerator DialogueWriter(string displayText)
+    public IEnumerator DialogueWriter(string displayText, string actor)
     {
-
+        soundController.voice.Stop();
         int subStringLength = 0;
         while (subStringLength < displayText.Length)
         {
+            if (!soundController.voice.isPlaying)
+            {
+                if(actor == "Dr")
+                {
+                    soundController.PlayVoice(soundController.DrEvilTalk);
+                } else
+                {
+                    soundController.PlayVoice(soundController.PatientTalk);
+                }
+            }
             dialogFieldtext.text = displayText.Substring(0, subStringLength);
             subStringLength++;
             yield return new WaitForSeconds(0.02f);
         }
+        soundController.voice.Stop();
     }
 
     public void ShowSolvedDialog()
@@ -147,6 +164,7 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.ResetLevel(GameState.instance.CurrentPerson);
                 GameState.instance.AccomplishActualLevel();
                 ScreenViewHandler.instance.EnterMiniMapMenu();
                 break;
@@ -155,6 +173,8 @@ public class DialogPlayer : MonoBehaviour
             {
                 ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
 
+                
+
                 if(reviewStory.DialogType.Equals("All") || reviewStory.DialogType.Equals("Solved"))
                 {
                     message = reviewStory.Message != null ? reviewStory.Message : reviewStory.SolvedMessage;
@@ -162,7 +182,8 @@ public class DialogPlayer : MonoBehaviour
                     {
                         UpdateActor(reviewStory.Actor);
                         StopAllCoroutines();
-                        StartCoroutine(DialogueWriter(message));
+                        string actor = reviewStory.Actor;
+                        StartCoroutine(DialogueWriter(message, actor));
                     }
                 }
             }
@@ -178,6 +199,7 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.ResetLevel(GameState.instance.CurrentPerson);
                 ScreenViewHandler.instance.EnterMiniMapMenu();
             }
             else
@@ -190,8 +212,9 @@ public class DialogPlayer : MonoBehaviour
                     message = reviewStory.Message != null ? reviewStory.Message : GetMessageDependingOnSolvedActionStatus(reviewStory);
                     if (!string.IsNullOrEmpty(message))
                     {
+                        string actor = reviewStory.Actor;
                         StopAllCoroutines();
-                        StartCoroutine(DialogueWriter(message));
+                        StartCoroutine(DialogueWriter(message, actor));
                     }
                 }
             }
