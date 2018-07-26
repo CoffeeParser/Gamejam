@@ -21,8 +21,11 @@ public class TerrorLevelController : MonoBehaviour
     private bool hasUserScratched;
     public bool hasUserSwiped;
 
-    AudioSource levelAudioSource;
-
+    public AudioSource levelAudioSource;
+    public AudioSource VoiceAudioSource;
+    public AudioClip VoiceAudioClip;
+    public List<AudioClip> FailedClips;
+    public int failedClipIndex = -1;
     void Awake()
     {
         if (instance == null)
@@ -50,7 +53,6 @@ public class TerrorLevelController : MonoBehaviour
         attemptTime = failAttemptWaitTime;
         gyroCam = FindObjectOfType<GyroCamera>().GetComponent<Camera>();
 
-        levelAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -110,8 +112,9 @@ public class TerrorLevelController : MonoBehaviour
                 {
                     Debug.Log("Voice input action solved, nice");
                     voiceObjTrigger.isSolved = true;
-                    voiceObjTrigger.TriggerAction(CompleteAction);
+                    StartCoroutine(voiceObjTrigger.TriggerAction(CompleteAction));
                     voiceObjTrigger.holdingTime = 0.0f;
+                    VoiceAudioSource.PlayOneShot(VoiceAudioClip);
                 }
             }
             else
@@ -193,7 +196,7 @@ public class TerrorLevelController : MonoBehaviour
 
     bool TryTriggerInteraction(ObjectTrigger triggerObj, TriggerTypes triggerType)
     {
-        Debug.Log(triggerObj);
+        Debug.Log(triggerObj + "TriggerType: "+triggerType);
         if (triggerObj != null)
         {
             if (triggerObj.actionTrigger != null && triggerObj.actionTrigger.ActionType == triggerType.ToString())
@@ -213,6 +216,19 @@ public class TerrorLevelController : MonoBehaviour
     {
         attemptTime = failAttemptWaitTime;
         maxFailAttempts--;
+        failedClipIndex++;
+        if (failedClipIndex > FailedClips.Count)
+        {
+            failedClipIndex = 0;
+        }
+
+        StartCoroutine(PlayFailedSound());
+    }
+
+    public IEnumerator PlayFailedSound()
+    {
+        VoiceAudioSource.PlayOneShot(FailedClips[failedClipIndex]);
+        yield return new WaitForSeconds(FailedClips[failedClipIndex].length);
         if (maxFailAttempts < 0)
             ScreenViewHandler.instance.FinalizeLevel(false);
     }

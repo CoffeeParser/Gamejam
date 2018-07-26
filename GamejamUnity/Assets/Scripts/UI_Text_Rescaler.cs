@@ -64,7 +64,7 @@ public class UI_Text_Rescaler : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(UI_Text_Rescaler))]
 public class UI_Text_Rescaler_customEditor : Editor
 {
@@ -86,3 +86,5 @@ public class UI_Text_Rescaler_customEditor : Editor
         }
     }
 }
+
+#endif

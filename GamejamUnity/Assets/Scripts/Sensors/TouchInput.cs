@@ -70,9 +70,10 @@ public class TouchInput : MonoBehaviour {
                 OnTouchUp.Invoke(tap);
                 dragTime = 0;
             }
-            if (tap.phase == TouchPhase.Moved)
+            if (tap.phase == TouchPhase.Moved && dragTime < dragInterval)
             {
                 OnMove.Invoke(tap);
+                dragTime = 0;
             }
             if ((tap.phase == TouchPhase.Moved || tap.phase == TouchPhase.Stationary) && dragTime >= dragInterval)
             {

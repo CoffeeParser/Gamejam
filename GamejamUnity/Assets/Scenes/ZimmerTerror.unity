@@ -326,11 +326,13 @@ MonoBehaviour:
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &52086425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1101,11 +1103,13 @@ MonoBehaviour:
   EvilActionIdentifier: push_cat
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &332811675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,11 +1227,13 @@ MonoBehaviour:
   EvilActionIdentifier: swipe_glas
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &373166989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1318,7 @@ GameObject:
   - component: {fileID: 460004389}
   - component: {fileID: 460004388}
   - component: {fileID: 460004387}
+  - component: {fileID: 460004390}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1338,7 +1345,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.860816
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1428,6 +1435,15 @@ MonoBehaviour:
   maxFailAttempts: 3
   failAttemptWaitTime: 1.5
   hasUserSwiped: 0
+  levelAudioSource: {fileID: 460004387}
+  VoiceAudioSource: {fileID: 460004390}
+  VoiceAudioClip: {fileID: 8300000, guid: 8ae5ac0f698b10144a65bb0cd4b79ca1, type: 3}
+  FailedClips:
+  - {fileID: 8300000, guid: 769871e48fc19d84eac4cd0350c221c5, type: 3}
+  - {fileID: 8300000, guid: 2369efb1cf0d1b3428dc460cc585f572, type: 3}
+  - {fileID: 8300000, guid: 655e6fc05eaf49241b6e972fedda2f00, type: 3}
+  - {fileID: 8300000, guid: 6394204b848ed45449adc3c932b8109c, type: 3}
+  failedClipIndex: -1
 --- !u!4 &460004389
 Transform:
   m_ObjectHideFlags: 0
@@ -1435,12 +1451,107 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460004386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.91, y: 1.9261143, z: 1.123}
+  m_LocalPosition: {x: 0, y: 1.9261143, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &460004390
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460004386}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 3.860816
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &477995122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,11 +1599,13 @@ MonoBehaviour:
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &477995125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1684,11 +1797,13 @@ MonoBehaviour:
   EvilActionIdentifier: push_door
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &502856757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,11 +2494,13 @@ MonoBehaviour:
   EvilActionIdentifier: tap_musicplayer
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &919900316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,11 +2653,13 @@ MonoBehaviour:
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &1014527474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3003,11 +3122,13 @@ MonoBehaviour:
   EvilActionIdentifier: tap_tv
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &1236192884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,11 +3176,13 @@ MonoBehaviour:
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 1
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &1236192887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3870,11 +3993,13 @@ MonoBehaviour:
   EvilActionIdentifier: swipe_toy
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 8300000, guid: 4f895e3a83b23604ab6d330dab299275, type: 3}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &1686626073
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3890,6 +4015,101 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!82 &1686626074
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686626069}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 3.8762627
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1704426123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,14 +4715,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EvilActionIdentifier: touch_sink
+  EvilActionIdentifier: tap_sink
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 8300000, guid: c3e5ea213554e84428fc24148dc903ca, type: 3}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
+--- !u!82 &1901557598
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1901557594}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5.1601715
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1908818541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,11 +5005,13 @@ MonoBehaviour:
   EvilActionIdentifier: tap_lightswitch
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!1 &1929192221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,11 +5236,13 @@ MonoBehaviour:
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 0}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!54 &1981025232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5157,11 +5478,13 @@ MonoBehaviour:
   EvilActionIdentifier: swipe_picture
   triggerCompleteTime: 0
   anim: {fileID: 0}
+  SuccessAudioClip: {fileID: 8300000, guid: 6d2b736b6da5e5f4f99cfdb60d3e608f, type: 3}
   isSolved: 0
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
   actionObject: {fileID: 0}
+  IsFailed: 0
 --- !u!114 &2118489866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5191,3 +5514,98 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!82 &2118489868
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118489864}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5.4272394
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

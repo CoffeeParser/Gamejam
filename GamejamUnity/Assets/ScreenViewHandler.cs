@@ -7,6 +7,7 @@ public class ScreenViewHandler : MonoBehaviour
 {
     public static ScreenViewHandler instance;
 
+    private SoundController soundController;
     public DialogPlayer DialogPlayer;
 
     public GameObject StartScreen;
@@ -36,6 +37,7 @@ public class ScreenViewHandler : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        soundController = GetComponent<SoundController>();
 
         if (instance == null)
             instance = this;
@@ -46,11 +48,13 @@ public class ScreenViewHandler : MonoBehaviour
         // First of all set Start Screen true
         StartScreen.SetActive(true);
 
+
         // After Click show MapMenu
         EnterMapMenu.onClick.AddListener(() =>
         {
             MapViewGameObject.SetActive(true);
             StartScreen.SetActive(false);
+            OnSceneStateChanged();
         });
 
         //Add Listeners to Skip Evil Dialog
@@ -58,17 +62,73 @@ public class ScreenViewHandler : MonoBehaviour
 
         // Add Listener to AchievementScreen
         //achievementBtn.onClick.AddListener(SkipNightScreen);
+        
     }
+
+    private void Start()
+    {
+        
+        OnSceneStateChanged();
+    }
+
+    private void OnSceneStateChanged()
+    {
+        soundController.StopAllSources();
+        if (StartScreen.activeSelf)
+        {
+            Debug.Log("StartScreen");
+            soundController.PlayMusicLoop(soundController.StartScreenMusik);
+            soundController.PlayVoiceLoop(soundController.DrEvilLaugh);
+            soundController.audioListener.enabled = true;
+        }
+        else if (MapViewGameObject.activeSelf)
+        {
+            Debug.Log("Map");
+
+            soundController.PlayMusicLoop(soundController.StartScreenMusik);
+            soundController.audioListener.enabled = true;
+        }
+        else if (DayScreenGameObject.activeSelf)
+        {
+            Debug.Log("Day");
+            soundController.PlayMusicLoop(soundController.DialogMusik);
+            soundController.audioListener.enabled = true;
+        }
+        else if (DialogPlayer.TherapyScreenGameObject.activeSelf)
+        {
+            Debug.Log("Therapy");
+            soundController.PlayMusicLoop(soundController.DialogMusik);
+            soundController.audioListener.enabled = true;
+        }
+        else if (NightScreen.activeSelf)
+        {
+            Debug.Log("Night");
+            soundController.PlayMusicLoop(soundController.NightRoomMusik);
+            soundController.audioListener.enabled = false;
+        }
+        else if (LevelAccomplishedScreen.activeSelf)
+        {
+            Debug.Log("LevelAccomplishedScreen");
+            soundController.PlayMusicLoop(soundController.NightRoomMusik);
+            soundController.audioListener.enabled = true;
+        }
+
+    }
+
 
     // First Entry Point After MiniMap -> Play TherapyStory
     void LevelStarted()
     {
+
         MapViewGameObject.SetActive(false);
         DayScreenGameObject.SetActive(true);
+        OnSceneStateChanged();
         AnimateEnterTherapyAfterMap.PlayOneBurstWithCallback(() =>
         {
             DayScreenGameObject.SetActive(false);
             DialogPlayer.PlayStory(_gameState.CurrentPerson, true);
+            OnSceneStateChanged();
+
         });
     }
 
@@ -78,6 +138,7 @@ public class ScreenViewHandler : MonoBehaviour
         LevelAccomplishedScreen.SetActive(false);
         LevelFailedScreen.SetActive(false);
         DialogPlayer.PlayStory(_gameState.CurrentPerson);
+        OnSceneStateChanged();
     }
 
     //public void SkipAchievementScreen()
@@ -89,6 +150,7 @@ public class ScreenViewHandler : MonoBehaviour
     public void SkipNightScreen()
     {
         NightScreen.SetActive(false);
+        OnSceneStateChanged();
     }
 
 
@@ -104,6 +166,7 @@ public class ScreenViewHandler : MonoBehaviour
             yield return null;
         }
         SkipNightScreenBtn.enabled = true;
+        OnSceneStateChanged();
         //Debug.Log("LevelLoad is finish");
         //NightScreen.SetActive(false);
         //LevelAccomplishTest.instance.onLevelIsOver.AddListener(isLevelAccomplished);
@@ -121,6 +184,7 @@ public class ScreenViewHandler : MonoBehaviour
             // Finish leave Screen, only skipable when Level is Unload      
             LevelAccomplishedScreen.SetActive(true);
             LeaveFinishVBtn.onClick.AddListener(NightEnded);
+            OnSceneStateChanged();
             //GameState.instance.AccomplishActualLevel();
         }
         else 
@@ -128,20 +192,23 @@ public class ScreenViewHandler : MonoBehaviour
             // Unfinsih LeaveScreen Only Skipable wenn Level is unloaded 
             LevelFailedScreen.SetActive(true);
             LeaveUnFinishVBtn.onClick.AddListener(NightEnded);
+            OnSceneStateChanged();
         }
     }
 
     // Callback from DialogPlayer
     public void EnterNightScene()
     {
-        NightScreen.SetActive(true);
+        NightScreen.SetActive(true);      
         StartCoroutine(LoadAsynchonusly(LoadLevelString));
+        OnSceneStateChanged();
     }
 
     public void EnterMiniMapMenu()
     {
         //achievementScreen.SetActive(true);
         MapViewGameObject.SetActive(true);
+        OnSceneStateChanged();
         //MapViewGameObject.GetComponent<MapViewController>().EnterMiniMap();
     }
 
