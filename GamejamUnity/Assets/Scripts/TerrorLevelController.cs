@@ -112,7 +112,7 @@ public class TerrorLevelController : MonoBehaviour
                 {
                     Debug.Log("Voice input action solved, nice");
                     voiceObjTrigger.isSolved = true;
-                    voiceObjTrigger.TriggerAction(CompleteAction);
+                    StartCoroutine(voiceObjTrigger.TriggerAction(CompleteAction));
                     voiceObjTrigger.holdingTime = 0.0f;
                     VoiceAudioSource.PlayOneShot(VoiceAudioClip);
                 }

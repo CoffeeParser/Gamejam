@@ -34,12 +34,12 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
         {
             isTriggered = true;
             yield return new WaitForSeconds(triggerCompleteTime);
-            CompleteCallback(actionTrigger);
             if (SuccessAudioClip != null)
             {
                 AudioSource audioSource = GetComponent<AudioSource>();
                 audioSource.PlayOneShot(SuccessAudioClip);
             }
+            CompleteCallback(actionTrigger);
         }
     }
 
