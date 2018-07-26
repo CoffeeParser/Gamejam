@@ -65,14 +65,14 @@ public class ScreenViewHandler : MonoBehaviour
     }
 
     // First Entry Point After MiniMap -> Play TherapyStory
-    void PersonChanged()
+    void LevelStarted()
     {
         MapViewGameObject.SetActive(false);
         DayScreenGameObject.SetActive(true);
         AnimateEnterTherapyAfterMap.PlayOneBurstWithCallback(() =>
         {
             DayScreenGameObject.SetActive(false);
-            DialogPlayer.PlayStory(_gameState.CurrentPerson);
+            DialogPlayer.PlayStory(_gameState.CurrentPerson, true);
         });
     }
 
@@ -114,7 +114,7 @@ public class ScreenViewHandler : MonoBehaviour
     }
 
     // Für robert, spaeter weg
-    public void IsLevelAccomplished(bool isAccomplished)
+    public void FinalizeLevel(bool isAccomplished)
     {
         // UnLoadlevel after ever Session
         SceneManager.UnloadSceneAsync(LoadLevelString);
@@ -125,7 +125,7 @@ public class ScreenViewHandler : MonoBehaviour
             // Finish leave Screen, only skipable when Level is Unload      
             LevelAccomplishedScreen.SetActive(true);
             LeaveFinishVBtn.onClick.AddListener(NightEnded);
-            GameState.instance.AccomplishActualLevel();
+            //GameState.instance.AccomplishActualLevel();
         }
         else 
         {
@@ -146,6 +146,7 @@ public class ScreenViewHandler : MonoBehaviour
     {
         //achievementScreen.SetActive(true);
         MapViewGameObject.SetActive(true);
+        //MapViewGameObject.GetComponent<MapViewController>().EnterMiniMap();
     }
 
 }

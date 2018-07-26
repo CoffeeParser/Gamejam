@@ -28,7 +28,7 @@ public class DialogPlayer : MonoBehaviour
         _gameState = GameState.instance;
     }
 
-    public void PlayStory(Person person)
+    public void PlayStory(Person person, bool newLevel = false)
     {
         // 0. activate therapyscreen
         TherapyScreenGameObject.SetActive(true);
@@ -45,25 +45,37 @@ public class DialogPlayer : MonoBehaviour
         DialogField.SetActive(true);
         // How many Actions are solved
         int solvedActions = _gameState.CurrentPerson.SolvedActions.Count;
-        // All Actions Are Solved
-        if (evilActions == 0) // Show all SolvedMessages
+
+        if (newLevel)
         {
-            NextDialogButton.onClick.AddListener(ShowSolvedDialog);
-            ShowSolvedDialog();
-        }
-        else if (solvedActions == 0) // nothing solved at all! just show TherapyStory
-        {
+            //Debug.Log("Start level from new");
             NextDialogButton.onClick.AddListener(ShowTherapieDialog);
-            ShowPartiallySolvedDialog();
-        }
-        // Show PartiallSolved Story
-        else if (evilActions != 0 && solvedActions != 0)
+            ShowTherapieDialog();
+        } else
         {
-            NextDialogButton.onClick.AddListener(ShowPartiallySolvedDialog);
-            ShowPartiallySolvedDialog();
+            //Debug.Log(evilActions + " " + solvedActions);
+            // All Actions Are Solved
+            if (evilActions <= 0) // Show all SolvedMessages
+            {
+                //Debug.Log("ALL SOLVED");
+                NextDialogButton.onClick.AddListener(ShowSolvedDialog);
+                ShowSolvedDialog();
+            }
+            //else (solvedActions == 0) // nothing solved at all! just show TherapyStory
+            //{
+            //    Debug.Log("NONE SOLVED");
+            //    NextDialogButton.onClick.AddListener(ShowTherapieDialog);
+            //    ShowPartiallySolvedDialog();
+            //}
+            //// Show PartiallSolved Story
+            else
+            {
+                //Debug.Log("PART SOLVED");
+                NextDialogButton.onClick.AddListener(ShowPartiallySolvedDialog);
+                ShowPartiallySolvedDialog();
+            }
         }
     }
-
 
     /// <summary>
     /// Set Person Description and Update Sprite
@@ -135,52 +147,78 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.AccomplishActualLevel();
+                ScreenViewHandler.instance.EnterMiniMapMenu();
+                break;
+            }
+            else
+            {
+                ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
+
+                if(reviewStory.DialogType.Equals("All") || reviewStory.DialogType.Equals("Solved"))
+                {
+                    message = reviewStory.Message != null ? reviewStory.Message : reviewStory.SolvedMessage;
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        UpdateActor(reviewStory.Actor);
+                        StopAllCoroutines();
+                        StartCoroutine(DialogueWriter(message));
+                    }
+                }
+            }
+        }
+    }
+
+    public void ShowPartiallySolvedDialog()
+    {
+        string message = null;
+        while (message == null)
+        {
+            dialogIndex++;
+            if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+            {
+                EndDialog();
                 ScreenViewHandler.instance.EnterMiniMapMenu();
             }
             else
             {
                 ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
-                message = reviewStory.DialogType.Equals("Story") ? reviewStory.Message : reviewStory.SolvedMessage;
                 UpdateActor(reviewStory.Actor);
-                StartCoroutine(DialogueWriter(message));
+                if (reviewStory.DialogType.Equals("Action") || reviewStory.DialogType.Equals("All"))
+                {
+                    Debug.Log("PARTIALY");
+                    message = reviewStory.Message != null ? reviewStory.Message : GetMessageDependingOnSolvedActionStatus(reviewStory);
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        StopAllCoroutines();
+                        StartCoroutine(DialogueWriter(message));
+                    }
+                }
             }
         }
-
-        
     }
 
-    public void ShowPartiallySolvedDialog()
+    private string GetMessageDependingOnSolvedActionStatus(ReviewStory story)
     {
-        dialogIndex++;
-        if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+        if (story.DialogType != "Action")
         {
-            EndDialog();
-            ScreenViewHandler.instance.EnterNightScene();
-        }
-        else
-        {
-            Debug.Log("showing partial solved dialog");
-            ReviewStory currentReviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
-            UpdateActor(currentReviewStory.Actor);
-            if (currentReviewStory.DialogType.Equals("Story"))
+            if (_gameState.CurrentPerson.EvilAction.Count > 0)
             {
-                dialogFieldtext.text = currentReviewStory.Message;
+                return story.FailedMessage;
             }
-            else if (currentReviewStory.DialogType.Equals("ActionStatus")) // DialogType = ActionStatus
+            return story.SolvedMessage;
+        } else
+        {
+            foreach (EvilAction evilAction in GameState.instance.CurrentPerson.EvilAction)
             {
-                if (_gameState.CurrentPerson.SolvedActions.FirstOrDefault(b =>
+                if (evilAction.Identifier == story.Identifier)
                 {
-                    return b.ActionType.Equals(currentReviewStory.ActionType) && b.Identifier.Equals(currentReviewStory.Identifier);
-                }) != null)
-                {
-                    dialogFieldtext.text = currentReviewStory.SolvedMessage;
-                }
-                else
-                {
-                    dialogFieldtext.text = currentReviewStory.FailedMessage;
+                    return story.FailedMessage;
                 }
             }
+            return story.SolvedMessage;
         }
     }
 
 }
+

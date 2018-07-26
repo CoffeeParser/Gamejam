@@ -32,17 +32,18 @@ public class GameState : MonoBehaviour {
         int currentIndex = CurrentWorld.Persons.IndexOf(CurrentPerson);
         if(currentIndex < CurrentWorld.Persons.Count)
         {
-            CurrentWorld.Persons[currentIndex++].Unlocked = true;
+            currentIndex++;
+            CurrentWorld.Persons[currentIndex].Unlocked = true;
         }
     }
 
-    public bool SelectNewPerson(Person newPerson)
+    public bool SelectAnLevel(Person newPerson)
     {
         if (newPerson.Unlocked && !newPerson.Finished && newPerson != CurrentPerson)
         {
             CurrentPerson = newPerson;
             Debug.Log($"newPersonSelected name{CurrentPerson.Name}");
-            BroadcastMessage("PersonChanged"); // Receiver: ScreenViewHandler.cs
+            BroadcastMessage("LevelStarted"); // Receiver: ScreenViewHandler.cs
             return true;
         }
         return false;
