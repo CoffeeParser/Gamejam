@@ -354,7 +354,6 @@ GameObject:
   - component: {fileID: 98375043}
   - component: {fileID: 98375042}
   - component: {fileID: 98375041}
-  - component: {fileID: 98375040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -362,13 +361,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &98375040
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 98375039}
-  m_Enabled: 1
 --- !u!124 &98375041
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3676,6 +3668,7 @@ GameObject:
   - component: {fileID: 635574103}
   - component: {fileID: 635574102}
   - component: {fileID: 635574101}
+  - component: {fileID: 635574105}
   m_Layer: 5
   m_Name: ScreenGroup
   m_TagString: Untagged
@@ -4060,6 +4053,14 @@ MonoBehaviour:
   voiceLoop: {fileID: 635574103}
   voice: {fileID: 635574102}
   musik: {fileID: 635574101}
+  audioListener: {fileID: 635574105}
+--- !u!81 &635574105
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635574097}
+  m_Enabled: 1
 --- !u!1 &641377808
 GameObject:
   m_ObjectHideFlags: 0

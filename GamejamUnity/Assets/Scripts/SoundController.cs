@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour {
 
-    public GameObject Camera;
+    //public GameObject Camera;
 
     [Header("DrEvilSpeak")]
     public AudioClip DrEvilLaugh;
@@ -36,7 +36,6 @@ public class SoundController : MonoBehaviour {
     private void Start()
     {
 
-        audioListener = Camera.GetComponent<AudioListener>();
         // Disable when TerroScene!!!
         audioListener.enabled = true;
 
