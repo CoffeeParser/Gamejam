@@ -2,8 +2,8 @@
 using UnityEngine.UI;
 using UnityEditor;
 
-[RequireComponent(typeof(Image))]
-public class UI_Graphic_Rescaler : MonoBehaviour {
+public class UI_Graphic_Rescaler : MonoBehaviour
+{
 
     public float widthPercentage;
     public float heightPercentage;
@@ -11,6 +11,9 @@ public class UI_Graphic_Rescaler : MonoBehaviour {
     public float offsetX_percentage;
     private Image image;
     private RectTransform rect;
+    public bool looseAspectRatio;
+    private bool isInit;
+    public bool isMagementMaster;
 
     private void Start()
     {
@@ -18,27 +21,35 @@ public class UI_Graphic_Rescaler : MonoBehaviour {
     }
 
     // Use this for initialization
-    public void Init () {
+    public void Init()
+    {
+        isInit = true;
         image = GetComponent<Image>();
         rect = GetComponent<RectTransform>();
-	}
-	
+    }
+
     public void rescaleImageBasedOnHeight()
     {
         float newHeight = GetPercentageHeight(heightPercentage);
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
 
-        float newWidth = newHeight * GetAspectRatioHeight();
-        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+        if (!looseAspectRatio)
+        {
+            float newWidth = newHeight * GetAspectRatioHeight();
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+        }
     }
 
     public void rescaleImageBasedOnWidth()
     {
-        //float newWidth = GetPercentageWidth(heightPercentage); 
-        //rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+        float newWidth = GetPercentageWidth(widthPercentage);
+        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
 
-        //float newHeight = newWidth * GetAspectRatioHeight();
-        //rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+        if (!looseAspectRatio)
+        {
+            float newHeight = newWidth * GetAspectRatioWidth();
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+        }
     }
 
     public void setPercentageOffset()
@@ -67,14 +78,29 @@ public class UI_Graphic_Rescaler : MonoBehaviour {
         return Camera.main.pixelHeight * percentage;
     }
 
+    private void OnEnable()
+    {
+        if (!isInit && !isMagementMaster)
+        {
+            Init();
+            if (looseAspectRatio)
+                rescaleImageBasedOnWidth();
+            rescaleImageBasedOnHeight();
+            setPercentageOffset();
+        }
+    }
+
     public void ApplyAllResizeObjs()
     {
         UI_Graphic_Rescaler[] resizeObjs = GetComponentsInChildren<UI_Graphic_Rescaler>();
-
+        Debug.Log(resizeObjs.Length);
         foreach (UI_Graphic_Rescaler resizeObj in resizeObjs)
         {
-            if(resizeObj != this){
+            if (resizeObj != this)
+            {
                 resizeObj.Init();
+                if (resizeObj.looseAspectRatio)
+                    resizeObj.rescaleImageBasedOnWidth();
                 resizeObj.rescaleImageBasedOnHeight();
                 resizeObj.setPercentageOffset();
             }
@@ -84,7 +110,7 @@ public class UI_Graphic_Rescaler : MonoBehaviour {
 
 
 [CustomEditor(typeof(UI_Graphic_Rescaler))]
-public class ObjectBuilderEditor : Editor
+public class UI_Graphic_Rescaler_customEditor : Editor
 {
     public override void OnInspectorGUI()
     {
