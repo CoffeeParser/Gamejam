@@ -31,11 +31,12 @@ public class SoundController : MonoBehaviour {
     public AudioSource voice;
     public AudioSource musik;
 
+    public AudioListener audioListener;
 
     private void Start()
     {
 
-        AudioListener audioListener = Camera.GetComponent<AudioListener>();
+        audioListener = Camera.GetComponent<AudioListener>();
         // Disable when TerroScene!!!
         audioListener.enabled = true;
 
@@ -43,6 +44,12 @@ public class SoundController : MonoBehaviour {
         //PlayStartMusic();
     }
 
+    public void StopAllSources()
+    {
+        voiceLoop.Stop();
+        voice.Stop();
+        musik.Stop();
+    }
 
     // PlayVoidLoop
     public void PlayVoiceLoop(AudioClip audioClip)
