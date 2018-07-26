@@ -30,6 +30,7 @@ public class DialogPlayer : MonoBehaviour
 
     public void PlayStory(Person person, bool newLevel = false)
     {
+        NextDialogButton.onClick.RemoveAllListeners();
         // 0. activate therapyscreen
         TherapyScreenGameObject.SetActive(true);
 
@@ -155,6 +156,8 @@ public class DialogPlayer : MonoBehaviour
             else
             {
                 ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
+
+                
 
                 if(reviewStory.DialogType.Equals("All") || reviewStory.DialogType.Equals("Solved"))
                 {
