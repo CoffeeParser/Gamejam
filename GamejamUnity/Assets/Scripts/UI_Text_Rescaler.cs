@@ -27,7 +27,7 @@ public class UI_Text_Rescaler : MonoBehaviour
     public void RescaleTextSize()
     {
         text.fontSize = (int)GetPercentageHeight(percentageTextScale);
-        text.lineSpacing = (text.fontSize / 45.0f) + 0.5f;
+        text.lineSpacing = (text.fontSize / 60.0f) + 0.2f;
     }
 
     public float GetPercentageWidth(float percentage)
