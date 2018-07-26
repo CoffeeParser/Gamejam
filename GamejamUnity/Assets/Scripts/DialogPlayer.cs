@@ -101,6 +101,7 @@ public class DialogPlayer : MonoBehaviour
 
     private void EndDialog()
     {
+        StopAllCoroutines();
         dialogIndex = -1;
         NextDialogButton.onClick.RemoveAllListeners();
         DialogField.SetActive(false);

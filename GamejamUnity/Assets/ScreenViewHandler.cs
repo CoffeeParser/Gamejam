@@ -103,8 +103,10 @@ public class ScreenViewHandler : MonoBehaviour
         else if (NightScreen.activeSelf)
         {
             Debug.Log("Night");
+            soundController.StopAllSources();
             soundController.PlayMusicLoop(soundController.NightRoomMusik);
             soundController.audioListener.enabled = false;
+            soundController.voice.Stop();
         }
         else if (LevelAccomplishedScreen.activeSelf)
         {
