@@ -323,7 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 1
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
@@ -415,6 +414,7 @@ GameObject:
   - component: {fileID: 101918244}
   - component: {fileID: 101918249}
   - component: {fileID: 101918250}
+  - component: {fileID: 101918251}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: GyroCam
@@ -520,6 +520,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &101918251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101918243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865adfaa0b2cd3641bb8b57f7ddec029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104459757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: push_cat
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -1210,7 +1220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: swipe_glas
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -1476,7 +1485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 3
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
@@ -1673,7 +1681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: push_door
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -2369,7 +2376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: tap_musicplayer
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -2527,7 +2533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
@@ -2995,7 +3000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: tap_tv
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -3048,7 +3052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 4
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
@@ -3864,7 +3867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: swipe_toy
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -4493,7 +4495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: touch_sink
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -4684,7 +4685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 0
   EvilActionIdentifier: tap_lightswitch
   triggerCompleteTime: 0
   anim: {fileID: 0}
@@ -4914,7 +4914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 2
   EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
@@ -5155,7 +5154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilActionID: 2
   EvilActionIdentifier: swipe_picture
   triggerCompleteTime: 0
   anim: {fileID: 0}

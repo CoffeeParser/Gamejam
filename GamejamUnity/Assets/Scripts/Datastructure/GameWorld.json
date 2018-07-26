@@ -17,7 +17,8 @@
               "ActionType": "voice",
               "Identifier": "voice_01",
               "Peaks": 3,
-              "Decibel": 60
+              "Decibel": 60,
+              "details": "low"
             },
             {
               "ActionType": "swipe",
