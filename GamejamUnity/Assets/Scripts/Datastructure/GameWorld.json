@@ -16,7 +16,7 @@
             {
               "ActionType": "voice",
               "Identifier": "voice_01", 
-              "Peaks": 3,
+              "Peaks":  3,
               "Decibel": 60
             },
             {
