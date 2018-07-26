@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GlobalLifeTime
   - GyroCam
+  - EvilActionObject
   layers:
   - Default
   - TransparentFX

@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 1
+  EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
   isSolved: 0
@@ -1038,6 +1039,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 756b0c574f380324a85262e736c0418b, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 756b0c574f380324a85262e736c0418b, type: 3}
   m_IsPrefabParent: 0
@@ -1071,6 +1076,26 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.002
   OutlineMaterial: {fileID: 2100000, guid: 946b03f675e352445903101568d243fd, type: 2}
+--- !u!114 &263075847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263075844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: push_cat
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &332811675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1111,7 @@ GameObject:
   - component: {fileID: 332811681}
   m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: EvilActionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1186,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 0
+  EvilActionIdentifier: 
   triggerCompleteTime: 0
   anim: {fileID: 0}
   isSolved: 0
@@ -1459,6 +1485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 3
+  EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
   isSolved: 0
@@ -1606,6 +1633,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 10a00e78965732e4c89f909ba19faf38, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10a00e78965732e4c89f909ba19faf38, type: 3}
   m_IsPrefabParent: 0
@@ -1639,6 +1670,26 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.039
   OutlineMaterial: {fileID: 2100000, guid: 05eaa048e7a5a46469104e440b306b98, type: 2}
+--- !u!114 &495153952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495153949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: push_door
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &502856757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,9 +1848,7 @@ GameObject:
   - component: {fileID: 564900400}
   - component: {fileID: 564900402}
   - component: {fileID: 564900401}
-  - component: {fileID: 564900403}
-  - component: {fileID: 564900404}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1863,32 +1912,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 564900399}
   m_Mesh: {fileID: 4300000, guid: a96c00c750a50c54683cf742d2ac21be, type: 3}
---- !u!114 &564900403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564900399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95832b7cd47865e40aeeb797e78e8211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OutLineMin: 0
-  OutlineMax: 0.99
-  OutlineMaterial: {fileID: 2100000, guid: 662cd469b8eb0394ab3fc668a1087505, type: 2}
---- !u!65 &564900404
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564900399}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014417858, y: 0.01666328, z: 0.025361942}
-  m_Center: {x: 1.0792024e-23, y: 0.0004940401, z: 0.012740971}
 --- !u!1 &605871073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,9 +2275,10 @@ GameObject:
   - component: {fileID: 910349287}
   - component: {fileID: 910349289}
   - component: {fileID: 910349290}
+  - component: {fileID: 910349291}
   m_Layer: 8
   m_Name: plattenspieler
-  m_TagString: Untagged
+  m_TagString: EvilActionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2342,6 +2366,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48101777, y: 0.088760726, z: 0.36476713}
   m_Center: {x: -0.06354691, y: -0.023301434, z: 0.013020339}
+--- !u!114 &910349291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910349285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: tap_musicplayer
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &919900316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,6 +2536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 0
+  EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
   isSolved: 0
@@ -2578,6 +2623,7 @@ GameObject:
   - component: {fileID: 1091545131}
   - component: {fileID: 1091545133}
   - component: {fileID: 1091545132}
+  - component: {fileID: 1091545134}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Untagged
@@ -2641,6 +2687,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1091545130}
+  m_Mesh: {fileID: 4300020, guid: d85f4fbc14177c04ea1cd1f07e9198b1, type: 3}
+--- !u!64 &1091545134
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1091545130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: d85f4fbc14177c04ea1cd1f07e9198b1, type: 3}
 --- !u!1 &1135727708
 GameObject:
@@ -2895,6 +2955,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f0c143f8bc6cff44c92f9c375be960cb, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0c143f8bc6cff44c92f9c375be960cb, type: 3}
   m_IsPrefabParent: 0
@@ -2928,6 +2992,26 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.249
   OutlineMaterial: {fileID: 2100000, guid: d94407559bb5d814085be24a849ce21b, type: 2}
+--- !u!114 &1228469634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1228469631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: tap_tv
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &1236192884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,6 +3057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 4
+  EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
   isSolved: 0
@@ -3490,41 +3575,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 25031e1dd643afd49957d199f9afb58f, type: 2}
     - target: {fileID: 159934, guid: 3bf7aeade93ce2946a79d9fd12da3fd2, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159934, guid: 3bf7aeade93ce2946a79d9fd12da3fd2, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf7aeade93ce2946a79d9fd12da3fd2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1527973223 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 159934, guid: 3bf7aeade93ce2946a79d9fd12da3fd2, type: 2}
-  m_PrefabInternal: {fileID: 1527973222}
---- !u!65 &1527973224
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1527973223}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7862936, y: 1.7765088, z: 0.47230572}
-  m_Center: {x: -0.000000059604645, y: -0.00000011920932, z: 0.2381647}
---- !u!114 &1527973225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1527973223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95832b7cd47865e40aeeb797e78e8211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OutLineMin: 0
-  OutlineMax: 0.007
-  OutlineMaterial: {fileID: 2100000, guid: 25031e1dd643afd49957d199f9afb58f, type: 2}
 --- !u!1001 &1562767681
 Prefab:
   m_ObjectHideFlags: 0
@@ -3765,6 +3824,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 76c400b08535b3d4da893adec34d4d61, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76c400b08535b3d4da893adec34d4d61, type: 3}
   m_IsPrefabParent: 0
@@ -3798,6 +3861,41 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.007
   OutlineMaterial: {fileID: 2100000, guid: 66e05910075b08e4da9dc1560d9cb4e8, type: 2}
+--- !u!114 &1686626072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686626069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: swipe_toy
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
+--- !u!54 &1686626073
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686626069}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &1704426123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3935,7 @@ GameObject:
   - component: {fileID: 1733410196}
   - component: {fileID: 1733410198}
   - component: {fileID: 1733410197}
+  - component: {fileID: 1733410199}
   m_Layer: 0
   m_Name: Boden
   m_TagString: Untagged
@@ -3901,6 +4000,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733410195}
   m_Mesh: {fileID: 4300000, guid: d85f4fbc14177c04ea1cd1f07e9198b1, type: 3}
+--- !u!65 &1733410199
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733410195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.039999988, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1767940995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,6 +4097,7 @@ GameObject:
   - component: {fileID: 1828916235}
   - component: {fileID: 1828916237}
   - component: {fileID: 1828916236}
+  - component: {fileID: 1828916238}
   m_Layer: 0
   m_Name: shelf
   m_TagString: Untagged
@@ -4049,6 +4161,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1828916234}
+  m_Mesh: {fileID: 4300002, guid: 69b344aa417c7914789561f4b228b101, type: 3}
+--- !u!64 &1828916238
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828916234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 69b344aa417c7914789561f4b228b101, type: 3}
 --- !u!1 &1839053145
 GameObject:
@@ -4327,6 +4453,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cba8d3ce29e039341aa8be02a7135526, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cba8d3ce29e039341aa8be02a7135526, type: 3}
   m_IsPrefabParent: 0
@@ -4360,6 +4490,26 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.055
   OutlineMaterial: {fileID: 2100000, guid: 11a57994ed9b37c47a11c71b842c854e, type: 2}
+--- !u!114 &1901557597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1901557594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: touch_sink
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &1908818541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +4644,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 041443c69fa57d542813bdc74bb3b7a9, type: 3}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 041443c69fa57d542813bdc74bb3b7a9, type: 3}
   m_IsPrefabParent: 0
@@ -4527,6 +4681,26 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.268
   OutlineMaterial: {fileID: 2100000, guid: 55a0a2fef934c3d479ff7381fb24b9c4, type: 2}
+--- !u!114 &1910189322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910189319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130c720beb3408340a3bbd2faa27bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evilActionID: 0
+  EvilActionIdentifier: tap_lightswitch
+  triggerCompleteTime: 0
+  anim: {fileID: 0}
+  isSolved: 0
+  isTriggered: 0
+  holdingTime: 0
+  holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &1929192221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,6 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 2
+  EvilActionIdentifier: 
   triggerCompleteTime: 1
   anim: {fileID: 0}
   isSolved: 0
@@ -4965,6 +5140,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1627497564551428, guid: eded3844e29c2ec40bc278e2cbd31279, type: 2}
+      propertyPath: m_TagString
+      value: EvilActionObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eded3844e29c2ec40bc278e2cbd31279, type: 2}
   m_IsPrefabParent: 0
@@ -4985,6 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 2
+  EvilActionIdentifier: swipe_picture
   triggerCompleteTime: 0
   anim: {fileID: 0}
   isSolved: 0
@@ -5006,3 +5186,18 @@ MonoBehaviour:
   OutLineMin: 0
   OutlineMax: 0.035
   OutlineMaterial: {fileID: 2100000, guid: 21e3b71e1000d6148ad83767b57440d6, type: 2}
+--- !u!54 &2118489867
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118489864}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1

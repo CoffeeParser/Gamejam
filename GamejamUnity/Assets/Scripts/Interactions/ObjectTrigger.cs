@@ -8,6 +8,7 @@ public delegate void ActionComplete(EvilAction action);
 public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
 
     public int evilActionID;
+    public string EvilActionIdentifier;
     public EvilAction actionTrigger;
     public float triggerCompleteTime;
     public Animation anim;
@@ -20,7 +21,7 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
     private void Start()
     {
         anim = GetComponent<Animation>();
-        actionTrigger = GameState.instance.CurrentPerson.EvilAction[evilActionID];
+        //actionTrigger = GameState.instance.CurrentPerson.EvilAction[evilActionID];
     }
 
     public void ActionCompleted()
