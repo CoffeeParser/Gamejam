@@ -28,7 +28,7 @@ public class UI_Graphic_Rescaler : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
-    public void rescaleImageBasedOnHeight()
+    public void RescaleImageBasedOnHeight()
     {
         float newHeight = GetPercentageHeight(heightPercentage);
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
@@ -85,7 +85,7 @@ public class UI_Graphic_Rescaler : MonoBehaviour
             Init();
             if (looseAspectRatio)
                 rescaleImageBasedOnWidth();
-            rescaleImageBasedOnHeight();
+            RescaleImageBasedOnHeight();
             setPercentageOffset();
         }
     }
@@ -93,7 +93,6 @@ public class UI_Graphic_Rescaler : MonoBehaviour
     public void ApplyAllResizeObjs()
     {
         UI_Graphic_Rescaler[] resizeObjs = GetComponentsInChildren<UI_Graphic_Rescaler>();
-        Debug.Log(resizeObjs.Length);
         foreach (UI_Graphic_Rescaler resizeObj in resizeObjs)
         {
             if (resizeObj != this)
@@ -101,7 +100,7 @@ public class UI_Graphic_Rescaler : MonoBehaviour
                 resizeObj.Init();
                 if (resizeObj.looseAspectRatio)
                     resizeObj.rescaleImageBasedOnWidth();
-                resizeObj.rescaleImageBasedOnHeight();
+                resizeObj.RescaleImageBasedOnHeight();
                 resizeObj.setPercentageOffset();
             }
         }
@@ -125,7 +124,7 @@ public class UI_Graphic_Rescaler_customEditor : Editor
         if (GUILayout.Button("Resize depending height"))
         {
             resizer.Init();
-            resizer.rescaleImageBasedOnHeight();
+            resizer.RescaleImageBasedOnHeight();
         }
         if (GUILayout.Button("Set percentage Offset"))
         {

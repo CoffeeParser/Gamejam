@@ -107,9 +107,25 @@ public class DialogPlayer : MonoBehaviour
         else
         {
             UpdateActor(_gameState.CurrentPerson.TherapyStory[dialogIndex].Actor);
-            dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
+
+            StopAllCoroutines();
+            StartCoroutine(DialogueWriter(_gameState.CurrentPerson.TherapyStory[dialogIndex].Message));
+            //dialogFieldtext.text = (_gameState.CurrentPerson.TherapyStory[dialogIndex].Message);
         }
     }
+
+    public IEnumerator DialogueWriter(string displayText)
+    {
+        
+        int subStringLength = 0;
+        while (subStringLength < displayText.Length)
+        {
+            dialogFieldtext.text = displayText.Substring(0, subStringLength);
+            subStringLength++;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
     public void ShowSolvedDialog()
     {
         dialogIndex++;
