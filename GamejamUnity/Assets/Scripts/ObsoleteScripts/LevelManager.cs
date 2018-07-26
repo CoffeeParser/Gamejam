@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
+    /// <summary>
+    /// Obsolete Script
+    /// </summary>
+
     public static LevelManager instance;
 
     public GameObject loadingScreen;

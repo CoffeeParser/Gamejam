@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ScreenOrientation : MonoBehaviour {
 
+
+    /// <summary>
+    /// Obsolete Script
+    /// </summary>
+
     public bool isVertical;
     public bool isHorizontal;
     public bool shouldRotate;

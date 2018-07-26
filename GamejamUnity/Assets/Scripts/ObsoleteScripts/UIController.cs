@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
+
+    /// <summary>
+    /// Obsolete Script
+    /// </summary>
+
     /// <summary>
     /// Hold all Menu UI without ScreenGroup
     /// </summary>
