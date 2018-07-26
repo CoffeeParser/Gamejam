@@ -180,7 +180,7 @@ public class TerrorLevelController : MonoBehaviour
         attemptTime = failAttemptWaitTime;
         maxFailAttempts--;
         if (maxFailAttempts < 0)
-            ScreenViewHandler.instance.IsLevelAccomplished(false);
+            ScreenViewHandler.instance.FinalizeLevel(false);
     }
 
     void CompleteAction(EvilAction action)
@@ -190,7 +190,7 @@ public class TerrorLevelController : MonoBehaviour
             Debug.Log("ACTION SOLVED: " + action.ActionType + " <> " + GameState.instance.CurrentPerson.EvilAction.Count + " left!");
             if (GameState.instance.CurrentPerson.EvilAction.Count <= 0)
             {
-                ScreenViewHandler.instance.IsLevelAccomplished(true);
+                ScreenViewHandler.instance.FinalizeLevel(true);
             }
         }
     }

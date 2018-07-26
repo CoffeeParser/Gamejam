@@ -35,8 +35,31 @@ public class LevelAccomplishTest : MonoBehaviour {
     void AddEventListener()
     {
         //Debug.Log("CALL IT FUCKING BITCH!!!");
-        test.onClick.AddListener(delegate () { ScreenViewHandler.instance.IsLevelAccomplished(true); });
+        test.onClick.AddListener(PartFaiLevel);
 
+    }
+
+    void PartFaiLevel()
+    {
+        List<EvilAction> evilActios = GameState.instance.CurrentPerson.EvilAction;
+        foreach (EvilAction ea in evilActios)
+        {
+            GameState.instance.CurrentPerson.SolvedActions.Add(ea);
+            break;
+        }
+        evilActios.RemoveAt(0);
+        ScreenViewHandler.instance.FinalizeLevel(true);
+    }
+
+    void AccomplishLevel()
+    {
+        List<EvilAction> evilActios = GameState.instance.CurrentPerson.EvilAction;
+        foreach (EvilAction ea in evilActios)
+        {
+            GameState.instance.CurrentPerson.SolvedActions.Add(ea);
+        }
+        GameState.instance.CurrentPerson.EvilAction.Clear();
+        ScreenViewHandler.instance.FinalizeLevel(true);
     }
 
     // Update is called once per frame

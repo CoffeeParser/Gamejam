@@ -54,7 +54,7 @@ public class MapViewController : MonoBehaviour
             for (int i = 0; i < _gamestate.CurrentWorld.Persons.Count; i++)
             {
                 var currentIndex = i;
-                _allButtons[i].onClick.AddListener(() => _gamestate.SelectNewPerson(_gamestate.CurrentWorld.Persons[currentIndex]));
+                _allButtons[i].onClick.AddListener(() => _gamestate.SelectAnLevel(_gamestate.CurrentWorld.Persons[currentIndex]));
             }
             _levelButtonsInitialized = true;
         }

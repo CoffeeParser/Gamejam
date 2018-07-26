@@ -112,6 +112,8 @@
                                           "Actor":   "Patient",
                                           "ActionType":   "swipe",
                                           "Identifier":   "swipe_01",
+										  "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   doch   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
+
                                           "FailedMessage":   "Vielleicht   sehe   ich   meine   Tochter   ja   bald   wieder"
                                     },
                                     {
@@ -119,6 +121,7 @@
                                           "Actor":   "Patient",
                                           "ActionType":   "swipe",
                                           "Identifier":   "swipe_02",
+										  "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   doch   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
                                           "FailedMessage":   "Ich   habe   mir   Fotos   von   frueher   angeschaut,   als   mein   Freund   noch   lebte.   Ich   finde,   wir   hatten   eine   tolle   Zeit   und   ich   glaube,   ich   kann   jetzt   mehr   daran   denken,   als   an   den   Anschlag,   der   ihn   getoetet   hat."
                                     },
                                     {
@@ -126,6 +129,7 @@
                                           "Actor":   "Patient",
                                           "ActionType":   "touch",
                                           "Identifier":   "touch_01",
+										  "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   doch   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
                                           "FailedMessage":   "Ich   konnte   mich   gestern   wirklich   gut   entspannen   und   habe   endlich   mal   geschlafen   wie   ein   Stein,   mir   geht   es   heute   schon   besser."
                                     },
                                     {
