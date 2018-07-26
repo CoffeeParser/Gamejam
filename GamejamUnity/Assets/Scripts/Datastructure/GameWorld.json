@@ -37,7 +37,7 @@
           "SolvedActions": [],
           "TherapyStory": [
             {
-              "DialogeType": "Story",
+              "DialogeType": "All",
               "Actor": "Dr",
               "Message":
                 "Halli   Hallo,   hier   sind   Sie   nun   also...   was   haben   Sie   denn   fuer   Probleme?"
@@ -50,7 +50,7 @@
                 "Ach   herrje,   der   Krieg   hat   alles   in   mir   zerbombt.   Mein   bester   Freund   wurde   im   Krieg   getoetet   und   andauernd   hab   ich   diese   Geraeusche   im   Kopf.   Ich   dreh   schon   halb   durch   deswegen."
             },
             {
-              "DialogeType": "Story",
+              "DialogeType": "All",
               "Actor": "Dr",
               "Message": "Ohje,   Sie   Armer.   Gibt   es   noch   mehr,   was   Sie   belastet?"
             },
@@ -62,7 +62,7 @@
                 "Ja,   meine   Frau   hat   mich   verlassen   und   hat   meine   Tochter   mitgenommen,   weil   sie   sagt,   ich   bin   nicht   zurechnungsfaehig   und   erschrecke   meine   Tochter,   wenn   ich   nachts   schreiend   aufwache.   Meine   Tochter   fehlt   mir   wie   verrueckt..."
             },
             {
-              "DialogeType": "Story",
+              "DialogeType": "All",
               "Actor": "Dr",
               "Message": "Erzaehlen   Sie   mir   mehr..."
             },
@@ -74,7 +74,7 @@
                 "Naja,   ich   kann   halt   nicht   schlafen,   weil   ich   dauernd   die   Bomben   und   Schuesse   hoere.   Seit   dem   Krieg   ist   das   so,   da   habe   ich   mich   auch   nicht   getraut,   einzuschlafen,   weil   ich   Angst   hatte,   im   Schlaf   zu   sterben,   wenn   ich   nicht   aufpasse.   "
             },
             {
-              "DialogeType": "Story",
+              "DialogeType": "All",
               "Actor": "Dr",
               "Message":
                 "Das   ist   ja   schlimm.   Sie   muessen   mir   berichten,   ob   es   besser   wird.   Mein   Rat   fuer   heute   waere:   Gehen   Sie   nach   Hause   und   machen   Sie   sich   einen   ruhigen   Abend.   Versuchen   Sie   zu   entspannen   und   morgen   berichten   Sie,   ob   es   dadurch   besser   wurde."
@@ -82,12 +82,17 @@
           ],
           "ReviewStory": [
             {
-              "DialogType": "Story",
+              "DialogType": "All",
               "Actor": "Dr",
               "Message": "Geht   es   Ihnen   heute   besser?"
             },
+			{
+              "DialogType": "Solved",
+              "Actor": "Patient",
+              "Message": "Dr.   Goodwill!!!   Ich   weiss   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!"
+            },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "voice",
               "Identifier": "voice_01",
@@ -97,12 +102,12 @@
                 "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen."
             },
             {
-              "DialogType": "Story",
+              "DialogType": "Action",
               "Actor": "Dr",
               "Message": "Geht   es   Ihnen   heute   besser?"
             },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "swipe",
               "Identifier": "swipe_toy",
@@ -112,17 +117,12 @@
                 "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen.   Vielleicht   sehe   ich   meine   Tochter   ja   bald   wieder"
             },
             {
-              "DialogType": "Story",
+              "DialogType": "Action",
               "Actor": "Dr",
               "Message": "Geht   es   Ihnen   heute   besser?"
             },
             {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Wie   geht   es   Ihnen   heute?"
-            },
-            {
-              "DialogType": "ActionStatus",
+              "DialogType": "Action",
               "Actor": "Patient",
               "ActionType": "touch",
               "Identifier": "tap_sink",
@@ -132,9 +132,8 @@
                 "Ich   konnte   mich   gestern   wirklich   gut   entspannen   und   habe   endlich   mal   geschlafen   wie   ein   Stein,   mir   geht   es   heute   schon   besser."
             },
             {
-              "DialogType": "ActionStatus",
+              "DialogType": "All",
               "Actor": "Dr",
-              "ActionType": "All",
               "SolvedMessage":
                 "Hmm...ich   glaube,   es   bleibt   uns   nichts   anderes   uebrig,   als   Sie   einzuweisen.",
               "FailedMessage":

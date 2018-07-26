@@ -146,6 +146,7 @@ public class ScreenViewHandler : MonoBehaviour
     {
         //achievementScreen.SetActive(true);
         MapViewGameObject.SetActive(true);
+        //MapViewGameObject.GetComponent<MapViewController>().EnterMiniMap();
     }
 
 }

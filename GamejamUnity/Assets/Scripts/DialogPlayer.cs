@@ -48,16 +48,16 @@ public class DialogPlayer : MonoBehaviour
 
         if (newLevel)
         {
-            Debug.Log("Start level from new");
+            //Debug.Log("Start level from new");
             NextDialogButton.onClick.AddListener(ShowTherapieDialog);
             ShowTherapieDialog();
         } else
         {
-            Debug.Log(evilActions + " " + solvedActions);
+            //Debug.Log(evilActions + " " + solvedActions);
             // All Actions Are Solved
             if (evilActions <= 0) // Show all SolvedMessages
             {
-                Debug.Log("ALL SOLVED");
+                //Debug.Log("ALL SOLVED");
                 NextDialogButton.onClick.AddListener(ShowSolvedDialog);
                 ShowSolvedDialog();
             }
@@ -70,7 +70,7 @@ public class DialogPlayer : MonoBehaviour
             //// Show PartiallSolved Story
             else
             {
-                Debug.Log("PART SOLVED");
+                //Debug.Log("PART SOLVED");
                 NextDialogButton.onClick.AddListener(ShowPartiallySolvedDialog);
                 ShowPartiallySolvedDialog();
             }
@@ -147,17 +147,23 @@ public class DialogPlayer : MonoBehaviour
             if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
                 EndDialog();
+                GameState.instance.AccomplishActualLevel();
                 ScreenViewHandler.instance.EnterMiniMapMenu();
+                break;
             }
             else
             {
                 ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
-                message = reviewStory.DialogType.Equals("Story") ? reviewStory.Message : reviewStory.SolvedMessage;
-                if (!string.IsNullOrEmpty(message))
+
+                if(reviewStory.DialogType.Equals("All") || reviewStory.DialogType.Equals("Solved"))
                 {
-                    UpdateActor(reviewStory.Actor);
-                    StopAllCoroutines();
-                    StartCoroutine(DialogueWriter(message));
+                    message = reviewStory.Message != null ? reviewStory.Message : reviewStory.SolvedMessage;
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        UpdateActor(reviewStory.Actor);
+                        StopAllCoroutines();
+                        StartCoroutine(DialogueWriter(message));
+                    }
                 }
             }
         }
@@ -165,55 +171,54 @@ public class DialogPlayer : MonoBehaviour
 
     public void ShowPartiallySolvedDialog()
     {
-        StopAllCoroutines();
-        dialogIndex++;
-        if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+        string message = null;
+        while (message == null)
         {
-            EndDialog();
-            ScreenViewHandler.instance.EnterMiniMapMenu();
-        }
-        else
-        {
-            Debug.Log("showing partial solved dialog");
-            ReviewStory currentReviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
-            UpdateActor(currentReviewStory.Actor);
-
-
-
-            if (currentReviewStory.DialogType.Equals("Story"))
+            dialogIndex++;
+            if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
             {
-                dialogFieldtext.text = currentReviewStory.Message;
+                EndDialog();
+                ScreenViewHandler.instance.EnterMiniMapMenu();
             }
-
-
-
-            //else if (currentReviewStory.DialogType.Equals("ActionStatus")) // DialogType = ActionStatus
-            //{
-            //    if (_gameState.CurrentPerson.SolvedActions.FirstOrDefault(b =>
-            //    {
-            //        return b.ActionType.Equals(currentReviewStory.ActionType) && b.Identifier.Equals(currentReviewStory.Identifier);
-            //    }) != null)
-            //    {
-            //        dialogFieldtext.text = currentReviewStory.SolvedMessage;
-            //    }
-            //    else
-            //    {
-            //        dialogFieldtext.text = currentReviewStory.FailedMessage;
-            //    }
-            //}
+            else
+            {
+                ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
+                UpdateActor(reviewStory.Actor);
+                if (reviewStory.DialogType.Equals("Action") || reviewStory.DialogType.Equals("All"))
+                {
+                    Debug.Log("PARTIALY");
+                    message = reviewStory.Message != null ? reviewStory.Message : GetMessageDependingOnSolvedActionStatus(reviewStory);
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        StopAllCoroutines();
+                        StartCoroutine(DialogueWriter(message));
+                    }
+                }
+            }
         }
     }
 
-    //private string GetMessageDependingOnSolvedActioNStatus(ReviewStory story)
-    //{
-    //    foreach (GameState.instance.CurrentPerson)
-    //    {
-    //        if (story.ActionType)
-    //        {
-
-    //        }
-    //    }
-    //}
+    private string GetMessageDependingOnSolvedActionStatus(ReviewStory story)
+    {
+        if (story.DialogType != "Action")
+        {
+            if (_gameState.CurrentPerson.EvilAction.Count > 0)
+            {
+                return story.FailedMessage;
+            }
+            return story.SolvedMessage;
+        } else
+        {
+            foreach (EvilAction evilAction in GameState.instance.CurrentPerson.EvilAction)
+            {
+                if (evilAction.Identifier == story.Identifier)
+                {
+                    return story.FailedMessage;
+                }
+            }
+            return story.SolvedMessage;
+        }
+    }
 
 }
 

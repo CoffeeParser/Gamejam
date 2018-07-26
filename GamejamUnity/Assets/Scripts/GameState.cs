@@ -32,7 +32,8 @@ public class GameState : MonoBehaviour {
         int currentIndex = CurrentWorld.Persons.IndexOf(CurrentPerson);
         if(currentIndex < CurrentWorld.Persons.Count)
         {
-            CurrentWorld.Persons[currentIndex++].Unlocked = true;
+            currentIndex++;
+            CurrentWorld.Persons[currentIndex].Unlocked = true;
         }
     }
 

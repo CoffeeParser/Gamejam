@@ -35,8 +35,20 @@ public class LevelAccomplishTest : MonoBehaviour {
     void AddEventListener()
     {
         //Debug.Log("CALL IT FUCKING BITCH!!!");
-        test.onClick.AddListener(PartFaiLevel);
+        test.onClick.AddListener(AccomplishLevel);
 
+    }
+
+    void FullyLevelFailed()
+    {
+        //List<EvilAction> evilActios = GameState.instance.CurrentPerson.EvilAction;
+        //foreach (EvilAction ea in evilActios)
+        //{
+        //    GameState.instance.CurrentPerson.SolvedActions.Add(ea);
+        //    break;
+        //}
+        //evilActios.RemoveAt(0);
+        ScreenViewHandler.instance.FinalizeLevel(false);
     }
 
     void PartFaiLevel()
