@@ -22,7 +22,7 @@ public class TerrorLevelController : MonoBehaviour
     public bool hasUserSwiped;
 
     AudioSource levelAudioSource;
-
+    public AudioClip VoiceAudioClip;
     void Awake()
     {
         if (instance == null)
@@ -112,6 +112,7 @@ public class TerrorLevelController : MonoBehaviour
                     voiceObjTrigger.isSolved = true;
                     voiceObjTrigger.TriggerAction(CompleteAction);
                     voiceObjTrigger.holdingTime = 0.0f;
+                    levelAudioSource.PlayOneShot(VoiceAudioClip);
                 }
             }
             else
@@ -193,7 +194,7 @@ public class TerrorLevelController : MonoBehaviour
 
     bool TryTriggerInteraction(ObjectTrigger triggerObj, TriggerTypes triggerType)
     {
-        Debug.Log(triggerObj);
+        Debug.Log(triggerObj + "TriggerType: "+triggerType);
         if (triggerObj != null)
         {
             if (triggerObj.actionTrigger != null && triggerObj.actionTrigger.ActionType == triggerType.ToString())
