@@ -72,7 +72,8 @@ public class TerrorLevelController : MonoBehaviour
         GameObject tempGo = new GameObject();
         ObjectTrigger objTrigger = tempGo.AddComponent<ObjectTrigger>();
         objTrigger.actionTrigger = voiceEvilAction;
-        objTrigger.holdingTimeThreshold = 1.0f;
+        objTrigger.holdingTimeThreshold = .1f;
+        objTrigger.isSolved = false;
         voiceActionObjs.Add(objTrigger);
     }
 
@@ -105,8 +106,9 @@ public class TerrorLevelController : MonoBehaviour
             if (voiceObjTrigger.actionTrigger.details == voiceLevel.ToString())
             {
                 voiceObjTrigger.holdingTime += Time.deltaTime;
-                if (voiceObjTrigger.holdingTime >= voiceObjTrigger.holdingTimeThreshold)
+                if (voiceObjTrigger.holdingTime >= voiceObjTrigger.holdingTimeThreshold && !voiceObjTrigger.isSolved)
                 {
+                    Debug.Log("Voice input action solved, nice");
                     voiceObjTrigger.isSolved = true;
                     voiceObjTrigger.TriggerAction(CompleteAction);
                     voiceObjTrigger.holdingTime = 0.0f;
