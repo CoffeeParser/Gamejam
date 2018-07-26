@@ -14,8 +14,8 @@
                               "SpritePathInResources":   "Characters/Robs_trans",
                               "EvilAction":   [
                                     {
-                                          "ActionType":   "touch",
-                                          "Identifier":   "voice_01",   
+                                          "ActionType":   "swipe",
+                                          "Identifier":   "swipe_picture",   
                                           "Peaks":      3,
                                           "Decibel":   60
                                     },
