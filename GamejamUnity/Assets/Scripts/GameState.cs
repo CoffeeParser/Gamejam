@@ -39,7 +39,7 @@ public class GameState : MonoBehaviour {
 
     public bool SelectAnLevel(Person newPerson)
     {
-        if (newPerson.Unlocked && !newPerson.Finished && newPerson != CurrentPerson)
+        if (newPerson.Unlocked)
         {
             CurrentPerson = newPerson;
             Debug.Log($"newPersonSelected name{CurrentPerson.Name}");
