@@ -1,523 +1,511 @@
 {
-  "Game": "Dr Evil",
-  "Revision": 1,
-  "Worlds": [
-    {
-      "WorldName": "Vorstadt",
-      "Persons": [
-        {
-          "Name": "Paul",
-          "Alias": "Kriegsveteran",
-          "Age": 28,
-          "Finished": false,
-          "Unlocked": true,
-          "SpritePathInResources": "Characters/Robs_trans",
-          "EvilAction": [
+      "Game":   "Dr   Evil",
+      "Revision":   1,
+      "Worlds":   [
             {
-              "ActionType": "voice",
-              "Identifier": "voice_01", 
-              "Peaks":  3,
-              "Decibel": 60
-            },
-            {
-              "ActionType": "swipe",
-              "Identifier": "swipe_01",
-              "ObjectOfInterest": "Toy",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "swipe",
-              "Identifier": "swipe_02",
-              "ObjectOfInterest": "Picture",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "ObjectOfInterest": "WaterTap",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
+                  "WorldName":   "Vorstadt",
+                  "Persons":   [
+                        {
+                              "Name":   "Paul",
+                              "Alias":   "Kriegsveteran",
+                              "Age":   28,
+                              "Finished":   false,
+                              "Unlocked":   true,
+                              "SpritePathInResources":   "Characters/Robs_trans",
+                              "EvilAction":   [
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "voice_01",   
+                                          "Peaks":      3,
+                                          "Decibel":   60
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "swipe_01",
+                                          "ObjectOfInterest":   "Toy",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "swipe_02",
+                                          "ObjectOfInterest":   "Picture",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "ObjectOfInterest":   "WaterTap",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_02",
+                                          "ObjectOfInterest":   "WaterTap",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    }
+                              ],
+                              "SolvedActions":   [],
+                              "TherapyStory":   [
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Halli   Hallo,   hier   sind   Sie   nun   also...   was   haben   Sie   denn   fuer   Probleme?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "voice",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Ach   herrje,   der   Krieg   hat   alles   in   mir   zerbombt.   Mein   bester   Freund   wurde   im   Krieg   getoetet   und   andauernd   hab   ich   diese   Geraeusche   im   Kopf.   Ich   dreh   schon   halb   durch   deswegen."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Ohje,   Sie   Armer.   Gibt   es   noch   mehr,   was   Sie   belastet?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "swipe",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Ja,   meine   Frau   hat   mich   verlassen   und   hat   meine   Tochter   mitgenommen,   weil   sie   sagt,   ich   bin   nicht   zurechnungsfaehig   und   erschrecke   meine   Tochter,   wenn   ich   nachts   schreiend   aufwache.   Meine   Tochter   fehlt   mir   wie   verrueckt..."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Erzaehlen   Sie   mir   mehr..."
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Naja,   ich   kann   halt   nicht   schlafen,   weil   ich   dauernd   die   Bomben   und   Schuesse   hoere.   Seit   dem   Krieg   ist   das   so,   da   habe   ich   mich   auch   nicht   getraut,   einzuschlafen,   weil   ich   Angst   hatte,   im   Schlaf   zu   sterben,   wenn   ich   nicht   aufpasse.   "
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":
+                                                "Das   ist   ja   schlimm.   Sie   muessen   mir   berichten,   ob   es   besser   wird.   Mein   Rat   fuer   heute   waere:   Gehen   Sie   nach   Hause   und   machen   Sie   sich   einen   ruhigen   Abend.   Versuchen   Sie   zu   entspannen   und   morgen   berichten   Sie,   ob   es   dadurch   besser   wurde."
+                                    }
+                              ],
+                              "ReviewStory":   [
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Geht   es   Ihnen   heute   besser?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "voice",
+                                          "Identifier":   "voice_01",
+                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   doch   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
+                                          "FailedMessage":   "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen!"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "swipe",
+                                          "Identifier":   "swipe_01",
+                                          "FailedMessage":   "Vielleicht   sehe   ich   meine   Tochter   ja   bald   wieder"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "swipe",
+                                          "Identifier":   "swipe_02",
+                                          "FailedMessage":   "Ich   habe   mir   Fotos   von   frueher   angeschaut,   als   mein   Freund   noch   lebte.   Ich   finde,   wir   hatten   eine   tolle   Zeit   und   ich   glaube,   ich   kann   jetzt   mehr   daran   denken,   als   an   den   Anschlag,   der   ihn   getoetet   hat."
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "FailedMessage":   "Ich   konnte   mich   gestern   wirklich   gut   entspannen   und   habe   endlich   mal   geschlafen   wie   ein   Stein,   mir   geht   es   heute   schon   besser."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+										  "SolvedMessage": "Hah... Da sind sie wohl ein Fall für die Klapse!!!",
+                                          "FailedMessage":   "Das   ist   super!   Das   sollten   Sie   gleich   heute   Abend   noch   einmal   wiederholen"
+                                    }
+                              ]
+                        },
+                        {
+                              "Name":   "Hildegard   Miller",
+                              "Alias":   "Oma",
+                              "Age":   76,
+                              "Finished":   false,
+                              "Unlocked":   false,
+                              "SpritePathInResources":   "Characters/Mama_trans_big",
+                              "EvilAction":   [
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "ObjectOfInterest":   "Television",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_02",
+                                          "ObjectOfInterest":   "WaterTap",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "voice_03",
+                                          "ObjectOfInterest":   "Light",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    }
+                              ],
+                              "SolvedActions":   [],
+                              "TherapyStory":   [
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Halli   Hallo,   hier   sind   Sie   nun   also...   was   haben   Sie   denn   fuer   Probleme?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Oh   Herr   Doktor,   ich   bin   so   alleine.   Wissen   Sie,   das   Leben   als   alte   Frau   ist   sehr   schwer   fuer   mich.   Ich   habe   niemanden   mehr.   Mein   Mann   ist   seit   zehn   Jahren   tot   und   fast   alle   meine   Freunde   auch."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Haben   Sie   Angst,   zu   sterben?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Ja,   das   ist   fast   meine   groeßte   Angst.   Es   gibt   aber   noch   etwas   anderes,   das   ist   mir   fast   schon   peinlich."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Warum?   Erzaehlen   Sie   mir   doch   noch   mehr   ueber   Ihre   aengste"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":
+                                                "Hmm...naja,   also   es   ist   so.   Ich   glaube,   die   Geister   meiner   verstorbenen   Freunde   und   meines   Mannes   tummeln   sich   in   meinem   Haus,   weil   sie   wissen,   dass   sie   mich   bald   abholen   muessen.   Ich   weiß   einfach   nicht,   was   ich   machen   soll."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":
+                                                "Das   kann   ich   verstehen.   Ich   denke,   es   ist   das   Beste,   wenn   Sie   sich   einen   gemuetlichen   Abend   zu   Hause   machen   und   ein   Buch   lesen.   Versuchen   Sie,   sich   zu   entspannen."
+                                    }
+                              ],
+                              "ReviewStory":   [
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Wie   geht   es   Ihnen   heute?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "SolvedMessage":   "Oh   Herr   Doktor,   ich   bin   mir   jetzt   sicher,   es   gibt   Geister!!   Letzte   Nacht   ist   mein   Fernseher   die   ganze   Zeit   an   und   aus   gegangen,   das   kann   kein   Zufall   sein!",
+                                          "FailedMessage":   "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Haben   Sie   sonst   etwas   seltsames   bemerkt?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_02",
+                                          "SolvedMessage":   "Oh   Herr   Doktor,   ich   bin   mir   jetzt   sicher,   es   gibt   Geister!!   Letzte   Nacht   ist   mein   Wasserhahn   die   ganze   Zeit   an   und   aus   gegangen,   das   kann   kein   Zufall   sein!",
+                                          "FailedMessage":   "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Letztes   mal   sagten   Sie   etwas   ueber   ihre   Angst   vor   Bombenschuessen..."
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_03",
+                                          "SolvedMessage":   "Oh   Herr   Doktor,   ich   bin   mir   jetzt   sicher,   es   gibt   Geister!!   Letzte   Nacht   ist   mein   Licht   die   ganze   Zeit   an   und   aus   gegangen,   das   kann   kein   Zufall   sein!",
+                                          "FailedMessage":   "Oh   Herr   Doktor.   Ich   habe   ein   ganzes   Buch   gelesen   gestern   Abend.   Das   hat   sehr   geholfen.   Ich   war   wie   in   einer   anderen   Welt.   Danke   fuer   den   feinen   Tipp."
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Dr",
+                                          "ActionType":   "All",
+                                          "SolvedMessage":
+                                                "Ohje,   Frau   Miller,   was   machen   wir   denn   da?   Es   gibt   keine   Geister.   Sie   muessen   sich   auf   jeden   Fall   stationaer   behandeln   lassen!",
+                                          "FailedMessage":
+                                                "Ach   Frau   Miller,   das   freut   mich   sehr!   Machen   Sie   doch   heute   Abend   damit   weiter,   es   gibt   so   viele   Buecher   auf   der   Welt.   Das   verbessert   Ihre   Situation   auf   jeden   Fall   weiter."
+                                    }
+                              ]
+                        },
+                        {
+                              "Name":   "Leyla   Taylor",
+                              "Alias":   "Nutte",
+                              "Age":   25,
+                              "Finished":   false,
+                              "Unlocked":   false,
+                              "SpritePathInResources":   "Characters/Anni_trans_big",
+                              "EvilAction":   [
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "ObjectOfInterest":   "Drugs",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "push",
+                                          "Identifier":   "push_01",
+                                          "ObjectOfInterest":   "Hammering",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "push",
+                                          "Identifier":   "push_02",
+                                          "ObjectOfInterest":   "Cat",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    }
+                              ],
+                              "SolvedActions":   [],
+                              "TherapyStory":   [
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Halli   Hallo,   hier   sind   Sie   nun   also...   was   haben   Sie   denn   fuer   Probleme?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":   "Ohje,   da   weiß   ich   nicht   genau,   wo   ich   anfangen   soll.   Vielleicht   ganz   von   vorne.   Als   damals   meine   Mutter   starb,   wurde   mein   beschissener   Vater   zum   Alkoholiker   und   schlug   mich   jedes   Mal,   wenn   er   besoffen   heimkam.   Ich   bin   dann   mit   17   von   zu   Hause   abgehauen   und   auf   der   Straße   gelandet."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "   Erzaehlen   Sie   mir   mehr…"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "push",
+                                          "Actor":   "Patient",
+                                          "Message":   "Naja,   ich   habe   angefangen,   Pillen   zu   schmeißen.   Und   um   diese   zu   finanzieren   hab   ich   halt   Maenner   gefickt."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Also   sind   Sie   Prostituierte?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "push",
+                                          "Actor":   "Patient",
+                                          "Message":   "Ja.   Die   Drogen   habe   ich   inzwischen   im   Griff.   Jetzt   hab   ich   aber   eine   Wohnung,   die   ich   bezahlen   muss,   deshalb   kann   ich   das   noch   nicht   aufgeben.   So   schnell   verdient   man   nirgends   anders   Geld"
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Und   wie   geht   es   Ihnen   damit?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "push",
+                                          "Actor":   "Patient",
+                                          "Message":   "Ich   hasse   meine   Freier   und   mich   selbst   so   sehr   dafuer,   aber   ich   kann   einfach   nicht   aufhoeren.   Ich   klaue   ihnen   dauernd   Kleinigkeiten,   um   mich   besser   zu   fuehlen"
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Sie   wollen   sich   das   Stueck,   was   die   Freier   Ihnen   nehmen   wieder   zurueckholen,   ich   verstehe...Gibt   es   denn   einen   Mann   oder   Freunde   in   Ihrem   Leben?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "push",
+                                          "Actor":   "Patient",
+                                          "Message":   "Hmm…   als   ich   einmal   im   Drogenrausch   in   einer   Seitengasse   lag,   hat   mich   dort   ein   Muellmann   aufgesammelt.   Mit   dem   gehe   ich   immer   fruehstuecken.   Er   ist   ein   bisschen   komisch   und   stottert.   Aber   Fynn   ist   einer   meiner   einzigen   Freunde.   Eine   Katze   habe   ich   noch,   die   liebe   ich   wie   verrueckt,   das   kleine   olle   Ding.   Jedenfalls   moechte   ich   gerne   mein   Leben   wieder   auf   die   Reihe   kriegen...ich   fange   gerade   erst   an,   das   mit   meinem   beschissenen   Vater   zu   verarbeiten"
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Das   ist   ja   interessant.   Sie   sollten   sich   heute   Abend   darauf   konzentrieren,   sich   zu   entspannen   und   in   Ruhe   ueber   alles   nachzudenken.   Nehmen   Sie   am   besten   ein   Bad."
+                                    }
+                              ],
+                              "ReviewStory":   [
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Wie   geht   es   Ihnen   heute?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "SolvedMessage":   "Dr.   Goodwill!   Ich   raste   aus!!   Wirklich,   diese   scheiß   Drogen,   ich   weiß   nicht   mehr,   was   war!!   Ich   bin   letzte   Nacht   total   ausgeflippt,   aber   ich   glaube,   ich   habe   gar   keine   Drogen   genommen.",
+                                          "FailedMessage":   "Danke   Dr.   Goodwill!   Ich   habe   gestern   Abend   nicht   gearbeitet   und   mich   einfach   mal   in   die   Badewanne   gelegt   und   alles   um   mich   herum   ausgeblendet.   Das   hat   mir   sehr   geholfen."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Haben   Sie   sonst   etwas   seltsames   bemerkt?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "push",
+                                          "Identifier":   "push_01",
+                                          "SolvedMessage":   "Dr.   Goodwill!   Ich   raste   aus!!   Wirklich,   ich   dachte   letzte   Nacht,   mein   beschissener   Scheißvater   steht   vor   der   Tuer,   aber   das   kann   gar   nicht   sein,   der   lebt   am   anderen   Ende   der   Welt.   Ich   drehe   wirklich   durch...",
+                                          "FailedMessage":   "Danke   Dr.   Goodwill!   Ich   habe   gestern   Abend   nicht   gearbeitet   und   mich   einfach   mal   in   die   Badewanne   gelegt   und   alles   um   mich   herum   ausgeblendet.   Das   hat   mir   sehr   geholfen."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Letztes   mal   sagten   Sie   etwas   ueber   ihre   Angst   vor   Bombenschuessen..."
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "push",
+                                          "Identifier":   "push_02",
+                                          "SolvedMessage":   "Dr.   Goodwill!   Ich   raste   aus!!   Wirklich,   ich   weiß   nicht   mehr,   was   war!!   Ich   bin   letzte   Nacht   total   ausgeflippt   und   ich   glaube,   ich   habe   meine   Katze   umgebracht…",
+                                          "FailedMessage":   "Danke   Dr.   Goodwill!   Ich   habe   gestern   Abend   nicht   gearbeitet   und   mich   einfach   mal   in   die   Badewanne   gelegt   und   alles   um   mich   herum   ausgeblendet.   Das   hat   mir   sehr   geholfen."
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Dr",
+                                          "ActionType":   "All",
+                                          "SolvedMessage":   "Miss   Taylor!   Wir   muessen   so   schnell   wie   moeglich   reagieren   und   Sie   einweisen.   Sie   stellen   eine   Gefahr   fuer   sich   und   andere   dar!",
+                                          "FailedMessage":   "Das   ist   doch   super!   Machen   Sie   noch   einen   Tag   Pause,   dann   wird   es   Ihnen   sicher   noch   besser   gehen."
+                                    }
+                              ]
+                        },
+                        {
+                              "Name":   "Fynn   Jones",
+                              "Alias":   "Muellmann   ",
+                              "Age":   40,
+                              "Finished":   false,
+                              "Unlocked":   false,
+                              "SpritePathInResources":   "Characters/Papa_trans_big",
+                              "EvilAction":   [
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "ObjectOfInterest":   "SmuggleDrugs",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "swipe",
+                                          "Identifier":   "swipe_01",
+                                          "ObjectOfInterest":   "Relocate",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    }
+                              ],
+                              "SolvedActions":   [],
+                              "TherapyStory":   [
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Halli   Hallo,   hier   sind   Sie   nun   also...   was   haben   Sie   denn   fuer   Probleme?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "touch",
+                                          "Actor":   "Patient",
+                                          "Message":   "Also   ich   aeh,   ja   also,   warum   ich   hier   bin,   aeh,   ich   aeh,   h-habe   Angst   davor,   dass   meine   Mama   mich   rausschmeißt,   w-weil   i-ich   bin   schon   40.   Ohoh.   A-aber   ich   glaube,   d-das   wuerde   sie   nicht   tun...außer,   i-ich   nehme   D-Drogen   oder   so,   hahaha,   a-aber   das   ist   ja   absurd."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "   Sie   wirken   nervoes.   Sind   Sie   immer   so   nervoes?"
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "swipe",
+                                          "Actor":   "Patient",
+                                          "Message":   "J-ja,   i-ich   weiß   nicht.   Auf   I-Ihrem   Tisch   liegt   der   Stift   falsch.   D-der   muss   parallel   zu   dem   Block   liegen.   B-bitte   aendern   Sie   das,   ich   kann   mich   s-sonst   nicht   konzentrieren."
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Aber   das   muessen   Sie   lernen,   Fynn!   Haben   Sie   schon   einmal   eine   Freundin   gehabt?   Ich   glaube,   eine   Frau   wuerde   Ihnen   gut   tun."
+                                    },
+                                    {
+                                          "DialogeType":   "Action",
+                                          "ActionType":   "swipe",
+                                          "Actor":   "Patient",
+                                          "Message":   "Oh...Ohnein.   I-ich   hatte   noch   nie   eine   aeh...   Freundin.   G-glauben   Sie,   dass   i-ich   das   schaffen   koennte,   irgendwann   e-eine   zu   bekommen?"
+                                    },
+                                    {
+                                          "DialogeType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Auf   jeden   Fall.   Gehen   Sie   nach   Hause   und   schauen   Sie   Liebesfilme.   Ich   glaube,   daraus   koennen   Sie   etwas   lernen."
+                                    }
+                              ],
+                              "ReviewStory":   [
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Wie   geht   es   Ihnen   heute?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_01",
+                                          "SolvedMessage":   "Herr   Doktor!!   Meine   M-M-Mama   hat   mich   heute   morgen   vor   die   Tuer   gesetzt!!   Sie   hat   Drogen   gefunden,   a-aber   ich   hatte   doch   gar   k-keine.   Ich   weiß   nicht,   was   passiert   ist.   I-ich   g-glaube   ich   drehe   durch!!",
+                                          "FailedMessage":   "H-Herr   Doktor!!   Ich   bin   g-ganz   aufgeregt.   Meine   Mama   h-hat   gesagt,   i-ich   kann   ewig   bei   ihr   wohnen.   Ich   h-hatte   doch   so   Angst,   dass   ich   aeh   bald   ausziehen   muss."
+                                    },
+                                    {
+                                          "DialogType":   "Story",
+                                          "Actor":   "Dr",
+                                          "Message":   "Haben   Sie   sonst   etwas   seltsames   bemerkt?"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Patient",
+                                          "ActionType":   "swipe",
+                                          "Identifier":   "swipe_01",
+                                          "SolvedMessage":   "Herr   Doktor!!   Ich   weiß   nicht,   was   passiert   ist.   I-ich   g-glaube   ich   drehe   durch,   i-ich   h-habe   die   ganze   Wohnung   u-umgeraeumt   aber   ich   aeh,   k-kann   mich   gar   n-nicht   daran   erinnern…",
+                                          "FailedMessage":   "H-Herr   Doktor!!   Ich   bin   g-ganz   aufgeregt.   I-ich   habe   aeh...gestern   ein   paar   Sachen   a-auf..aeh...meinem   Schreibtisch   sch-schief   hingestellt.   Und   es   h-hat   mich   gar   nicht   gestoert!   D-Danke   Dr.   G-Goodwill!"
+                                    },
+                                    {
+                                          "DialogType":   "ActionStatus",
+                                          "Actor":   "Dr",
+                                          "ActionType":   "All",
+                                          "SolvedMessage":   "Ach   herrje,   Fynn!   Das   hoert   sich   gar   nicht   gut   an!   Ich   glaube,   es   ist   das   Beste,   wenn   wir   Sie   einweisen…",
+                                          "FailedMessage":   "Super,   Fynn!   Aber   machen   Sie   langsam.   Schauen   Sie   sich   noch   ein   paar   Filme   an,   um   sich   wirklich   sicher   zu   sein,   dass   Sie   dann   das   Richtige   tun,   wenn   Sie   eine   Frau   ansprechen   wollen."
+                                    }
+                              ]
+                        }
+                        
+                  ]
             }
-          ],
-          "SolvedActions": [],
-          "TherapyStory": [
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "voice",
-              "Actor": "Patient",
-              "Message":
-                "Ach herrje, der Krieg hat alles in mir zerbombt. Mein bester Freund wurde im Krieg getötet und andauernd hab ich diese Geräusche im Kopf. Ich dreh schon halb durch deswegen."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Ohje, Sie Armer. Gibt es noch mehr, was Sie belastet?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "swipe",
-              "Actor": "Patient",
-              "Message":
-                "Ja, meine Frau hat mich verlassen und hat meine Tochter mitgenommen, weil sie sagt, ich bin nicht zurechnungsfähig und erschrecke meine Tochter, wenn ich nachts schreiend aufwache. Meine Tochter fehlt mir wie verrückt..."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Erzählen Sie mir mehr..."
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message":
-                "Naja, ich kann halt nicht schlafen, weil ich dauernd die Bomben und Schüsse höre. Seit dem Krieg ist das so, da habe ich mich auch nicht getraut, einzuschlafen, weil ich Angst hatte, im Schlaf zu sterben, wenn ich nicht aufpasse. "
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message":
-                "Das ist ja schlimm. Sie müssen mir berichten, ob es besser wird. Mein Rat für heute wäre: Gehen Sie nach Hause und machen Sie sich einen ruhigen Abend. Versuchen Sie zu entspannen und morgen berichten Sie, ob es dadurch besser wurde."
-            }
-          ],
-          "ReviewStory": [
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Geht es Ihnen heute besser?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "voice",
-              "Identifier": "voice_01",
-              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich kriege den Lärm einfach nicht aus dem Kopf!",
-              "FailedMessage": "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Geht es Ihnen heute besser?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "swipe",
-              "Identifier": "swipe_01",
-              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich glaube, ich habe das Spielzeug meiner Tochter umgestellt, aber ich kann mich nicht daran erinnern!",
-              "FailedMessage": "Vielen Dank Dr. Goodwill. Mir geht es schon viel besser, Ihr Tipp mit dem Entspannen hat mir sehr geholfen. Vielleicht sehe ich meine Tochter ja bald wieder"
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Geht es Ihnen heute besser?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "swipe",
-              "Identifier": "swipe_02",
-              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Das Bild meines Freundes lag heute morgen auf dem Boden, aber ich würde es nie umwerfen!",
-              "FailedMessage": "Ich habe mir Fotos von früher angeschaut, als mein Freund noch lebte. Ich finde, wir hatten eine tolle Zeit und ich glaube, ich kann jetzt mehr daran denken, als an den Anschlag, der ihn getötet hat."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Wie geht es Ihnen heute?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "SolvedMessage": "Dr. Goodwill!!! Ich weiß nicht, was ich machen soll, ich glaube, ich drehe komplett hohl, bitte tun Sie etwas! Ich habe letzte Nacht Geräusche vom Wasserhahn gehört, aber kann es mir nicht erklären, ich drehe ihn immer fest zu!",
-              "FailedMessage": "Ich konnte mich gestern wirklich gut entspannen und habe endlich mal geschlafen wie ein Stein, mir geht es heute schon besser."
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Dr",
-              "ActionType": "All",
-              "SolvedMessage": "Hmm...ich glaube, es bleibt uns nichts anderes übrig, als Sie einzuweisen.",
-              "FailedMessage": "Das ist super! Das sollten Sie gleich heute Abend noch einmal wiederholen"
-            }
-          ]
-        },
-        {
-          "Name": "Hildegard Miller",
-          "Alias": "Oma",
-          "Age": 76,
-          "Finished": false,
-          "Unlocked": false,
-          "SpritePathInResources": "Characters/Mama_trans_big",
-          "EvilAction": [
-            {
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "ObjectOfInterest": "Television",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "touch",
-              "Identifier": "touch_02",
-              "ObjectOfInterest": "WaterTap",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "touch",
-              "Identifier": "voice_03",
-              "ObjectOfInterest": "Light",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            }
-          ],
-          "SolvedActions": [],
-          "TherapyStory": [
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message":
-                "Oh Herr Doktor, ich bin so alleine. Wissen Sie, das Leben als alte Frau ist sehr schwer für mich. Ich habe niemanden mehr. Mein Mann ist seit zehn Jahren tot und fast alle meine Freunde auch."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Haben Sie Angst, zu sterben?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message":
-                "Ja, das ist fast meine größte Angst. Es gibt aber noch etwas anderes, das ist mir fast schon peinlich."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Warum? Erzählen Sie mir doch noch mehr über Ihre Ängste"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message":
-                "Hmm...naja, also es ist so. Ich glaube, die Geister meiner verstorbenen Freunde und meines Mannes tummeln sich in meinem Haus, weil sie wissen, dass sie mich bald abholen müssen. Ich weiß einfach nicht, was ich machen soll."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message":
-                "Das kann ich verstehen. Ich denke, es ist das Beste, wenn Sie sich einen gemütlichen Abend zu Hause machen und ein Buch lesen. Versuchen Sie, sich zu entspannen."
-            }
-          ],
-          "ReviewStory": [
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Wie geht es Ihnen heute?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Fernseher die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_02",
-              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Wasserhahn die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_03",
-              "SolvedMessage": "Oh Herr Doktor, ich bin mir jetzt sicher, es gibt Geister!! Letzte Nacht ist mein Licht die ganze Zeit an und aus gegangen, das kann kein Zufall sein!",
-              "FailedMessage": "Oh Herr Doktor. Ich habe ein ganzes Buch gelesen gestern Abend. Das hat sehr geholfen. Ich war wie in einer anderen Welt. Danke für den feinen Tipp."
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Dr",
-              "ActionType": "All",
-              "SolvedMessage":
-                "Ohje, Frau Miller, was machen wir denn da? Es gibt keine Geister. Sie müssen sich auf jeden Fall stationär behandeln lassen!",
-              "FailedMessage":
-                "Ach Frau Miller, das freut mich sehr! Machen Sie doch heute Abend damit weiter, es gibt so viele Bücher auf der Welt. Das verbessert Ihre Situation auf jeden Fall weiter."
-            }
-          ]
-        },
-        {
-          "Name": "Leyla Taylor",
-          "Alias": "Nutte",
-          "Age": 25,
-          "Finished": false,
-          "Unlocked": false,
-          "SpritePathInResources": "Characters/Anni_trans_big",
-          "EvilAction": [
-            {
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "ObjectOfInterest": "Drugs",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "push",
-              "Identifier": "push_01",
-              "ObjectOfInterest": "Hammering",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "push",
-              "Identifier": "push_02",
-              "ObjectOfInterest": "Cat",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            }
-          ],
-          "SolvedActions": [],
-          "TherapyStory": [
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message": "Ohje, da weiß ich nicht genau, wo ich anfangen soll. Vielleicht ganz von vorne. Als damals meine Mutter starb, wurde mein beschissener Vater zum Alkoholiker und schlug mich jedes Mal, wenn er besoffen heimkam. Ich bin dann mit 17 von zu Hause abgehauen und auf der Straße gelandet."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": " Erzählen Sie mir mehr…"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "push",
-              "Actor": "Patient",
-              "Message": "Naja, ich habe angefangen, Pillen zu schmeißen. Und um diese zu finanzieren hab ich halt Männer gefickt."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Also sind Sie Prostituierte?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "push",
-              "Actor": "Patient",
-              "Message": "Ja. Die Drogen habe ich inzwischen im Griff. Jetzt hab ich aber eine Wohnung, die ich bezahlen muss, deshalb kann ich das noch nicht aufgeben. So schnell verdient man nirgends anders Geld"
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Und wie geht es Ihnen damit?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "push",
-              "Actor": "Patient",
-              "Message": "Ich hasse meine Freier und mich selbst so sehr dafür, aber ich kann einfach nicht aufhören. Ich klaue ihnen dauernd Kleinigkeiten, um mich besser zu fühlen"
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Sie wollen sich das Stück, was die Freier Ihnen nehmen wieder zurückholen, ich verstehe...Gibt es denn einen Mann oder Freunde in Ihrem Leben?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "push",
-              "Actor": "Patient",
-              "Message": "Hmm… als ich einmal im Drogenrausch in einer Seitengasse lag, hat mich dort ein Müllmann aufgesammelt. Mit dem gehe ich immer frühstücken. Er ist ein bisschen komisch und stottert. Aber Fynn ist einer meiner einzigen Freunde. Eine Katze habe ich noch, die liebe ich wie verrückt, das kleine olle Ding. Jedenfalls möchte ich gerne mein Leben wieder auf die Reihe kriegen...ich fange gerade erst an, das mit meinem beschissenen Vater zu verarbeiten"
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Das ist ja interessant. Sie sollten sich heute Abend darauf konzentrieren, sich zu entspannen und in Ruhe über alles nachzudenken. Nehmen Sie am besten ein Bad."
-            }
-          ],
-          "ReviewStory": [
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Wie geht es Ihnen heute?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, diese scheiß Drogen, ich weiß nicht mehr, was war!! Ich bin letzte Nacht total ausgeflippt, aber ich glaube, ich habe gar keine Drogen genommen.",
-              "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "push",
-              "Identifier": "push_01",
-              "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, ich dachte letzte Nacht, mein beschissener Scheißvater steht vor der Tür, aber das kann gar nicht sein, der lebt am anderen Ende der Welt. Ich drehe wirklich durch...",
-              "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Letztes mal sagten Sie etwas über ihre Angst vor Bombenschüssen..."
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "push",
-              "Identifier": "push_02",
-              "SolvedMessage": "Dr. Goodwill! Ich raste aus!! Wirklich, ich weiß nicht mehr, was war!! Ich bin letzte Nacht total ausgeflippt und ich glaube, ich habe meine Katze umgebracht…",
-              "FailedMessage": "Danke Dr. Goodwill! Ich habe gestern Abend nicht gearbeitet und mich einfach mal in die Badewanne gelegt und alles um mich herum ausgeblendet. Das hat mir sehr geholfen."
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Dr",
-              "ActionType": "All",
-              "SolvedMessage": "Miss Taylor! Wir müssen so schnell wie möglich reagieren und Sie einweisen. Sie stellen eine Gefahr für sich und andere dar!",
-              "FailedMessage": "Das ist doch super! Machen Sie noch einen Tag Pause, dann wird es Ihnen sicher noch besser gehen."
-            }
-          ]
-        },
-        {
-          "Name": "Fynn Jones",
-          "Alias": "Müllmann ",
-          "Age": 40,
-          "Finished": false,
-          "Unlocked": false,
-          "SpritePathInResources": "Characters/Papa_trans_big",
-          "EvilAction": [
-            {
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "ObjectOfInterest": "SmuggleDrugs",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            },
-            {
-              "ActionType": "swipe",
-              "Identifier": "swipe_01",
-              "ObjectOfInterest": "Relocate",
-              "PlacementTarget": "Floor",
-              "details": "whatever"
-            }
-          ],
-          "SolvedActions": [],
-          "TherapyStory": [
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Halli Hallo, hier sind Sie nun also... was haben Sie denn für Probleme?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "touch",
-              "Actor": "Patient",
-              "Message": "Also ich äh, ja also, warum ich hier bin, äh, ich äh, h-habe Angst davor, dass meine Mama mich rausschmeißt, w-weil i-ich bin schon 40. Ohoh. A-aber ich glaube, d-das würde sie nicht tun...außer, i-ich nehme D-Drogen oder so, hahaha, a-aber das ist ja absurd."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": " Sie wirken nervös. Sind Sie immer so nervös?"
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "swipe",
-              "Actor": "Patient",
-              "Message": "J-ja, i-ich weiß nicht. Auf I-Ihrem Tisch liegt der Stift falsch. D-der muss parallel zu dem Block liegen. B-bitte ändern Sie das, ich kann mich s-sonst nicht konzentrieren."
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Aber das müssen Sie lernen, Fynn! Haben Sie schon einmal eine Freundin gehabt? Ich glaube, eine Frau würde Ihnen gut tun."
-            },
-            {
-              "DialogeType": "Action",
-              "ActionType": "swipe",
-              "Actor": "Patient",
-              "Message": "Oh...Ohnein. I-ich hatte noch nie eine äh... Freundin. G-glauben Sie, dass i-ich das schaffen könnte, irgendwann e-eine zu bekommen?"
-            },
-            {
-              "DialogeType": "Story",
-              "Actor": "Dr",
-              "Message": "Auf jeden Fall. Gehen Sie nach Hause und schauen Sie Liebesfilme. Ich glaube, daraus können Sie etwas lernen."
-            }
-          ],
-          "ReviewStory": [
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Wie geht es Ihnen heute?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "touch",
-              "Identifier": "touch_01",
-              "SolvedMessage": "Herr Doktor!! Meine M-M-Mama hat mich heute morgen vor die Tür gesetzt!! Sie hat Drogen gefunden, a-aber ich hatte doch gar k-keine. Ich weiß nicht, was passiert ist. I-ich g-glaube ich drehe durch!!",
-              "FailedMessage": "H-Herr Doktor!! Ich bin g-ganz aufgeregt. Meine Mama h-hat gesagt, i-ich kann ewig bei ihr wohnen. Ich h-hatte doch so Angst, dass ich äh bald ausziehen muss."
-            },
-            {
-              "DialogType": "Story",
-              "Actor": "Dr",
-              "Message": "Haben Sie sonst etwas seltsames bemerkt?"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Patient",
-              "ActionType": "swipe",
-              "Identifier": "swipe_01",
-              "SolvedMessage": "Herr Doktor!! Ich weiß nicht, was passiert ist. I-ich g-glaube ich drehe durch, i-ich h-habe die ganze Wohnung u-umgeräumt aber ich äh, k-kann mich gar n-nicht daran erinnern…",
-              "FailedMessage": "H-Herr Doktor!! Ich bin g-ganz aufgeregt. I-ich habe äh...gestern ein paar Sachen a-auf..äh...meinem Schreibtisch sch-schief hingestellt. Und es h-hat mich gar nicht gestört! D-Danke Dr. G-Goodwill!"
-            },
-            {
-              "DialogType": "ActionStatus",
-              "Actor": "Dr",
-              "ActionType": "All",
-              "SolvedMessage": "Ach herrje, Fynn! Das hört sich gar nicht gut an! Ich glaube, es ist das Beste, wenn wir Sie einweisen…",
-              "FailedMessage": "Super, Fynn! Aber machen Sie langsam. Schauen Sie sich noch ein paar Filme an, um sich wirklich sicher zu sein, dass Sie dann das Richtige tun, wenn Sie eine Frau ansprechen wollen."
-            }
-          ]
-        }
-        
       ]
-    }
-  ]
 }

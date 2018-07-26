@@ -23,14 +23,13 @@ public class DialogPlayer : MonoBehaviour
     private int dialogIndex;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         _gameState = GameState.instance;
     }
 
     public void PlayStory(Person person)
     {
-        Debug.Log("PlayReviewStory started!");
         // 0. activate therapyscreen
         TherapyScreenGameObject.SetActive(true);
 
@@ -51,10 +50,11 @@ public class DialogPlayer : MonoBehaviour
         {
             NextDialogButton.onClick.AddListener(ShowSolvedDialog);
             ShowSolvedDialog();
-        }else if (solvedActions == 0) // nothing solved at all! just show TherapyStory
+        }
+        else if (solvedActions == 0) // nothing solved at all! just show TherapyStory
         {
             NextDialogButton.onClick.AddListener(ShowTherapieDialog);
-            ShowTherapieDialog();
+            ShowPartiallySolvedDialog();
         }
         // Show PartiallSolved Story
         else if (evilActions != 0 && solvedActions != 0)
@@ -116,7 +116,7 @@ public class DialogPlayer : MonoBehaviour
 
     public IEnumerator DialogueWriter(string displayText)
     {
-        
+
         int subStringLength = 0;
         while (subStringLength < displayText.Length)
         {
@@ -128,18 +128,25 @@ public class DialogPlayer : MonoBehaviour
 
     public void ShowSolvedDialog()
     {
-        dialogIndex++;
-        if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+        string message = null;
+        while (message == null)
         {
-            EndDialog();
-            ScreenViewHandler.instance.EnterMiniMapMenu();
-            //später MiniMap ZUrück
+            dialogIndex++;
+            if (dialogIndex >= _gameState.CurrentPerson.ReviewStory.Count)
+            {
+                EndDialog();
+                ScreenViewHandler.instance.EnterMiniMapMenu();
+            }
+            else
+            {
+                ReviewStory reviewStory = _gameState.CurrentPerson.ReviewStory[dialogIndex];
+                message = reviewStory.DialogType.Equals("Story") ? reviewStory.Message : reviewStory.SolvedMessage;
+                UpdateActor(reviewStory.Actor);
+                StartCoroutine(DialogueWriter(message));
+            }
         }
-        else
-        {
-            UpdateActor(_gameState.CurrentPerson.ReviewStory[dialogIndex].Actor);
-            dialogFieldtext.text = _gameState.CurrentPerson.ReviewStory[dialogIndex].DialogType.Equals("Story") ? (_gameState.CurrentPerson.ReviewStory[dialogIndex].Message) : (_gameState.CurrentPerson.ReviewStory[dialogIndex].SolvedMessage);
-        }
+
+        
     }
 
     public void ShowPartiallySolvedDialog()

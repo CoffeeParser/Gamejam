@@ -15,6 +15,7 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
     public bool isTriggered;
     public float holdingTime;
     public float holdingTimeThreshold;
+    public GameObject actionObject;
 
     private void Start()
     {
