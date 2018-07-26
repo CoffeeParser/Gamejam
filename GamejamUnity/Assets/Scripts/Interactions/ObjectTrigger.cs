@@ -10,6 +10,7 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
     public EvilAction actionTrigger;
     public float triggerCompleteTime;
     public Animation anim;
+    public AudioClip SuccessAudioClip;
     public bool isSolved;
     public bool isTriggered;
     public float holdingTime;
@@ -33,6 +34,11 @@ public class ObjectTrigger : MonoBehaviour, InteractionTrigger {
         {
             isTriggered = true;
             yield return new WaitForSeconds(triggerCompleteTime);
+            if (SuccessAudioClip != null)
+            {
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.PlayOneShot(SuccessAudioClip);
+            }
             CompleteCallback(actionTrigger);
         }
     }
