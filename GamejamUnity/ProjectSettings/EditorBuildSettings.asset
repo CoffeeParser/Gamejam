@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PsychoTerrorRoom3D.unity
     guid: 4fb623934742ae042962d289b9ff2130
+  - enabled: 1
+    path: Assets/Scenes/ZimmerTerror.unity
+    guid: 19528bddd81eb2443849548d44592969
   m_configObjects: {}

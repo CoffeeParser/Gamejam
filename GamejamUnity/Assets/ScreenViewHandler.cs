@@ -31,7 +31,7 @@ public class ScreenViewHandler : MonoBehaviour
     private GameState _gameState;
     public Button SkipNightScreenBtn;
 
-    public string LoadLevelString = "GyroTestScene";
+    private string LoadLevelString = "ZimmerTerror";
 
     private bool acc;
 
