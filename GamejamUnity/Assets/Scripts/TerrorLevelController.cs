@@ -75,6 +75,7 @@ public class TerrorLevelController : MonoBehaviour
         ObjectTrigger objTrigger = tempGo.AddComponent<ObjectTrigger>();
         objTrigger.actionTrigger = voiceEvilAction;
         objTrigger.holdingTimeThreshold = .1f;
+        objTrigger.triggerCompleteTime = 2f;
         objTrigger.isSolved = false;
         voiceActionObjs.Add(objTrigger);
     }
@@ -235,11 +236,17 @@ public class TerrorLevelController : MonoBehaviour
 
     void CompleteAction(EvilAction action)
     {
+        StartCoroutine(CompleteActionWithDelay(action));
+    }
+
+    IEnumerator CompleteActionWithDelay(EvilAction action)
+    {
         if (GameState.instance.SolveAction(action))
         {
             Debug.Log("ACTION SOLVED: " + action.ActionType + " <> " + GameState.instance.CurrentPerson.EvilAction.Count + " left!");
             if (GameState.instance.CurrentPerson.EvilAction.Count <= 0)
             {
+                yield return new WaitForSeconds(3f);
                 ScreenViewHandler.instance.FinalizeLevel(true);
             }
         }
