@@ -153,6 +153,7 @@ public class ScreenViewHandler : MonoBehaviour
     {
         NightScreen.SetActive(false);
         OnSceneStateChanged();
+        TerrorLevelController.instance.Init();
     }
 
 

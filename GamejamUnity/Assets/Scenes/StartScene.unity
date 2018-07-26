@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4856,8 +4856,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
-  m_SizeDelta: {x: 480.00003, y: 480.00003}
+  m_AnchoredPosition: {x: 0, y: -960}
+  m_SizeDelta: {x: 1152, y: 1152}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &728372635
 MonoBehaviour:
@@ -6043,8 +6043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 499.59055, y: 824}
+  m_AnchoredPosition: {x: 0, y: 960}
+  m_SizeDelta: {x: 1199.0173, y: 1977.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &905762870
 MonoBehaviour:
@@ -8119,11 +8119,7 @@ MonoBehaviour:
   _sampleWindow: 16
   thresholdTriggers:
   - level: 0
-    amount: -50
-  - level: 1
     amount: -30
-  - level: 2
-    amount: -10
   debugging: 0
   devices: []
   deviceName: 
@@ -9876,8 +9872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 0, y: -400}
+  m_AnchoredPosition: {x: 0, y: 96}
+  m_SizeDelta: {x: 0, y: -960}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1858249239
 MonoBehaviour:
@@ -9900,7 +9896,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: d952036b009872746851f68b3cb825c0, type: 3}
-    m_FontSize: 48
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 31
@@ -9910,7 +9906,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2.1166666
   m_Text: PRESS   TO   START
 --- !u!222 &1858249240
 CanvasRenderer:
@@ -10258,8 +10254,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: -46.45163, y: 224}
+  m_AnchoredPosition: {x: 0, y: -96}
+  m_SizeDelta: {x: -39.48401, y: 537.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1919174595
 MonoBehaviour:

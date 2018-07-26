@@ -37,7 +37,7 @@ public class TerrorLevelController : MonoBehaviour
         scratchActions = new List<ObjectTrigger>();
     }
 
-    private void Start()
+    public void Init()
     {
         touchInput = MobileInput.instance.touch;
         micInput = MobileInput.instance.mic;
@@ -49,6 +49,11 @@ public class TerrorLevelController : MonoBehaviour
         touchInput.OnMove.AddListener(OnUserSwipe);
         touchInput.OnMultiMove.AddListener(OnUserScratch);
         touchInput.OnMultiMoveUp.AddListener(OnUserScratchEnded);
+    }
+
+    private void Start()
+    {
+
 
         attemptTime = failAttemptWaitTime;
         gyroCam = FindObjectOfType<GyroCamera>().GetComponent<Camera>();

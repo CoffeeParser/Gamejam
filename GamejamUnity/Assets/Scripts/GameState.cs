@@ -55,6 +55,10 @@ public class GameState : MonoBehaviour {
     {
         int index = CurrentWorld.Persons.IndexOf(person);
         person = rawData.Persons[index];
+        foreach (EvilAction action in person.SolvedActions) {
+            person.EvilAction.Add(action);
+        }
+        person.SolvedActions.Clear();
     }
 
     public bool SolveAction(EvilAction action)
