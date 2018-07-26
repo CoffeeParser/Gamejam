@@ -29,6 +29,9 @@ public class TerrorLevelController : MonoBehaviour
         {
             instance = this;
         }
+
+        voiceActionObjs = new List<ObjectTrigger>();
+        scratchActions = new List<ObjectTrigger>();
     }
 
     private void Start()
@@ -69,6 +72,7 @@ public class TerrorLevelController : MonoBehaviour
         GameObject tempGo = new GameObject();
         ObjectTrigger objTrigger = tempGo.AddComponent<ObjectTrigger>();
         objTrigger.actionTrigger = voiceEvilAction;
+        objTrigger.holdingTimeThreshold = 1.0f;
         voiceActionObjs.Add(objTrigger);
     }
 
@@ -103,13 +107,19 @@ public class TerrorLevelController : MonoBehaviour
                 voiceObjTrigger.holdingTime += Time.deltaTime;
                 if (voiceObjTrigger.holdingTime >= voiceObjTrigger.holdingTimeThreshold)
                 {
+                    voiceObjTrigger.isSolved = true;
                     voiceObjTrigger.TriggerAction(CompleteAction);
+                    voiceObjTrigger.holdingTime = 0.0f;
                 }
             }
             else
             {
-                voiceObjTrigger.holdingTime = 0;
-                TriggerFailAttempt();
+                if (!voiceObjTrigger.isSolved)
+                {
+                    voiceObjTrigger.holdingTime = 0;
+                    TriggerFailAttempt();
+                }
+                
             }
         }
     }
