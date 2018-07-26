@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evilActionID: 0
-  EvilActionIdentifier: 
+  EvilActionIdentifier: swipe_glas
   triggerCompleteTime: 0
   anim: {fileID: 0}
   isSolved: 0
@@ -1418,14 +1418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFailAttempts: 3
   failAttemptWaitTime: 1.5
-  voiceActionObjs:
-  - {fileID: 0}
-  scratchActions:
-  - {fileID: 1014527473}
-  - {fileID: 52086424}
-  - {fileID: 1981025231}
-  - {fileID: 477995124}
-  - {fileID: 1236192886}
   hasUserSwiped: 0
 --- !u!4 &460004389
 Transform:

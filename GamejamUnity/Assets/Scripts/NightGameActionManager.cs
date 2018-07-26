@@ -6,6 +6,7 @@ public class NightGameActionManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InitializeObjectTriggersOnRoomObjects();
+        InitializeGlobalObjectTriggersOnController();
 	}
 
     void InitializeObjectTriggersOnRoomObjects()
@@ -27,6 +28,23 @@ public class NightGameActionManager : MonoBehaviour {
                         objectTrigger.actionTrigger = matchingIdentifierEvilAction;
                     }
                 }
+            }
+        }
+    }
+
+    void InitializeGlobalObjectTriggersOnController()
+    {
+        var evilActions = GameState.instance.CurrentPerson.EvilAction;
+        foreach (EvilAction evilAction in evilActions)
+        {
+            // this evilAtions are global!
+            if (evilAction.ActionType.Equals("voice"))
+            {
+                TerrorLevelController.instance.AddVoiceAction(evilAction);
+            }
+            if (evilAction.ActionType.Equals("scratch"))
+            {
+                TerrorLevelController.instance.AddScratchAction(evilAction);
             }
         }
     }
