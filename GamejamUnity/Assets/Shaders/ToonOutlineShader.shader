@@ -1,63 +1,113 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Mobile/Toon Shader Vertex Color"
-{
-	Properties
-	{
-		[NoScaleOffset] _MainTex("Texture", 2D) = "white" {}
-	[NoScaleOffset] _Gradient("Gradient", 2D) = "white" {}
+Shader "Outlined/Diffuse" {
+	Properties{
+		_Color("Main Color", Color) = (.5,.5,.5,1)
+		_OutlineColor("Outline Color", Color) = (0,0,0,1)
+		_Outline("Outline width", Range(.000, 0.03)) = .005
+		_MainTex("Base (RGB)", 2D) = "white" { }
 	}
-		SubShader
-	{
-		Lighting Off Fog{ Mode Off }
-		Pass
-	{
-		Tags{ "LightMode" = "ForwardBase" }
 
-		CGPROGRAM
-		// use "vert" function as the vertex shader
-#pragma vertex vert
-		// use "frag" function as the pixel (fragment) shader
-#pragma fragment frag
-
+		CGINCLUDE
 #include "UnityCG.cginc"
 
-		// vertex shader inputs
-		struct appdata
-	{
+		struct appdata {
 		float4 vertex : POSITION;
-		float4 normal : NORMAL;
-		float2 uv : TEXCOORD0;
+		float3 normal : NORMAL;
 	};
 
-	// vertex shader outputs ("vertex to fragment")
-	struct v2f
-	{
-		float2 uv : TEXCOORD0;
-		float4 vertex : SV_POSITION;
-		fixed4 color : COLOR;
+	struct v2f {
+		float4 pos : POSITION;
+		float4 color : COLOR;
 	};
 
-	sampler2D _MainTex;
-	sampler2D _Gradient;
+	uniform float _Outline;
+	uniform float4 _OutlineColor;
 
-	float4 _MainTex_ST;
-
-	// vertex shader
-	v2f vert(appdata v)
-	{
+	v2f vert(appdata v) {
+		// just make a copy of incoming vertex data but scaled according to normal direction
 		v2f o;
-		o.vertex = UnityObjectToClipPos(v.vertex);
-		o.uv = TRANSFORM_TEX(v.uv,_MainTex);
-		o.color = dot(v.normal, _WorldSpaceLightPos0.xyz);
+		o.pos = UnityObjectToClipPos(v.vertex);
+
+		float3 norm = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
+		float2 offset = TransformViewToProjection(norm.xy);
+
+		o.pos.xy += offset * o.pos.z * _Outline;
+		o.color = _OutlineColor;
 		return o;
 	}
+	ENDCG
 
-	fixed4 frag(v2f i) : SV_Target
-	{
-		return tex2D(_Gradient, i.color.rg) * tex2D(_MainTex, i.uv);
+		SubShader{
+		//Tags {"Queue" = "Geometry+100" }
+		CGPROGRAM
+#pragma surface surf Lambert
+
+		sampler2D _MainTex;
+	fixed4 _Color;
+
+	struct Input {
+		float2 uv_MainTex;
+	};
+
+	void surf(Input IN, inout SurfaceOutput o) {
+		fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+		o.Albedo = c.rgb;
+		o.Alpha = c.a;
 	}
+	ENDCG
+
+		// note that a vertex shader is specified here but its using the one above
+		Pass{
+		Name "OUTLINE"
+		Tags{ "LightMode" = "Always" }
+		Cull Front
+		ZWrite On
+		ColorMask RGB
+		Blend SrcAlpha OneMinusSrcAlpha
+		//Offset 50,50
+
+		CGPROGRAM
+#pragma vertex vert
+#pragma fragment frag
+		half4 frag(v2f i) :COLOR{ return i.color; }
 		ENDCG
 	}
 	}
+
+		SubShader{
+		CGPROGRAM
+#pragma surface surf Lambert
+
+		sampler2D _MainTex;
+	fixed4 _Color;
+
+	struct Input {
+		float2 uv_MainTex;
+	};
+
+	void surf(Input IN, inout SurfaceOutput o) {
+		fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+		o.Albedo = c.rgb;
+		o.Alpha = c.a;
+	}
+	ENDCG
+
+		Pass{
+		Name "OUTLINE"
+		Tags{ "LightMode" = "Always" }
+		Cull Front
+		ZWrite On
+		ColorMask RGB
+		Blend SrcAlpha OneMinusSrcAlpha
+
+		CGPROGRAM
+#pragma vertex vert
+#pragma exclude_renderers gles xbox360 ps3
+		ENDCG
+		SetTexture[_MainTex]{ combine primary }
+	}
+	}
+
+		Fallback "Diffuse"
 }
