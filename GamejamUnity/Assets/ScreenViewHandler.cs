@@ -19,10 +19,10 @@ public class ScreenViewHandler : MonoBehaviour
 
     public GameObject NightScreen;
 
-    public GameObject LeaveFinishScreen;
+    public GameObject LevelAccomplishedScreen;
     public Button LeaveFinishVBtn;
 
-    public GameObject LeaveUnFinishScreen;
+    public GameObject LevelFailedScreen;
     public Button LeaveUnFinishVBtn;
 
     //public GameObject achievementScreen;
@@ -79,8 +79,8 @@ public class ScreenViewHandler : MonoBehaviour
     // Second Entry Point After Night Scene -> Play ReviewStory
     void NightEnded()
     {
-        LeaveFinishScreen.SetActive(false);
-        LeaveUnFinishScreen.SetActive(false);
+        LevelAccomplishedScreen.SetActive(false);
+        LevelFailedScreen.SetActive(false);
         DialogPlayer.PlayStory(_gameState.CurrentPerson);
     }
 
@@ -100,13 +100,10 @@ public class ScreenViewHandler : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneString, LoadSceneMode.Additive);
 
-        Debug.Log("LoadLevel");
-
         NightScreen.SetActive(true);
 
         while (!operation.isDone)
         {
-            Debug.Log(".");
             SkipNightScreenBtn.enabled = false;
             yield return null;
         }
@@ -117,23 +114,23 @@ public class ScreenViewHandler : MonoBehaviour
     }
 
     // Für robert, spaeter weg
-    public void isLevelAccomplished(bool isAccomplished)
+    public void IsLevelAccomplished(bool isAccomplished)
     {
         // UnLoadlevel after ever Session
         SceneManager.UnloadSceneAsync(LoadLevelString);
-
 
         // Obsolet maybe for alternativ loadScreen
         if (isAccomplished)
         {
             // Finish leave Screen, only skipable when Level is Unload      
-            LeaveFinishScreen.SetActive(true);
+            LevelAccomplishedScreen.SetActive(true);
             LeaveFinishVBtn.onClick.AddListener(NightEnded);
+            GameState.instance.AccomplishActualLevel();
         }
         else 
         {
             // Unfinsih LeaveScreen Only Skipable wenn Level is unloaded 
-            LeaveUnFinishScreen.SetActive(true);
+            LevelFailedScreen.SetActive(true);
             LeaveUnFinishVBtn.onClick.AddListener(NightEnded);
         }
     }

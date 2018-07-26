@@ -35,7 +35,7 @@ public class LevelAccomplishTest : MonoBehaviour {
     void AddEventListener()
     {
         //Debug.Log("CALL IT FUCKING BITCH!!!");
-        test.onClick.AddListener(delegate () { ScreenViewHandler.instance.isLevelAccomplished(true); });
+        test.onClick.AddListener(delegate () { ScreenViewHandler.instance.IsLevelAccomplished(true); });
 
     }
 

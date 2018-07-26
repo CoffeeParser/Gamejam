@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour {
     /// <summary>
     /// Finished the CurrentPerson and Unlocks the next Person in the CurrentWorld
     /// </summary>
-    public void FinishPerson()
+    public void AccomplishActualLevel()
     {
         CurrentPerson.Finished = true;
         int currentIndex = CurrentWorld.Persons.IndexOf(CurrentPerson);
@@ -57,24 +57,5 @@ public class GameState : MonoBehaviour {
             return true;
         }
         return false;
-        //bool actionfound = false;
-        //EvilAction evilAction = null;
-        //foreach(var action in CurrentPerson.EvilAction)
-        //{
-        //    if (action.ActionType.Equals(action))
-        //    {
-        //        evilAction = action;
-        //        actionfound = true;
-        //        break;
-        //    }
-        //}
-        //if (actionfound)
-        //{
-        //    CurrentPerson.SolvedActions.Add(evilAction);
-        //    CurrentPerson.EvilAction.Remove(evilAction);
-        //    return true;
-        //}
-        //return false;
-        //if(CurrentPerson.EvilAction.Contains(EvilAction))
     }
 }

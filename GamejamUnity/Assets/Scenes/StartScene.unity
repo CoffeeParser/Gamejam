@@ -3823,9 +3823,9 @@ MonoBehaviour:
   DayScreenGameObject: {fileID: 308206083}
   AnimateEnterTherapyAfterMap: {fileID: 134404368}
   NightScreen: {fileID: 1482801994}
-  LeaveFinishScreen: {fileID: 1776546841}
+  LevelAccomplishedScreen: {fileID: 1776546841}
   LeaveFinishVBtn: {fileID: 1284705558}
-  LeaveUnFinishScreen: {fileID: 1230150180}
+  LevelFailedScreen: {fileID: 1230150180}
   LeaveUnFinishVBtn: {fileID: 441983337}
   SkipNightScreenBtn: {fileID: 655500391}
   LoadLevelString: PsychoTerrorRoom3D
@@ -6699,7 +6699,7 @@ GameObject:
   - component: {fileID: 1230150183}
   - component: {fileID: 1230150182}
   m_Layer: 5
-  m_Name: LeaveUnFinish
+  m_Name: LevelFailedScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9007,7 +9007,7 @@ GameObject:
   - component: {fileID: 1776546844}
   - component: {fileID: 1776546843}
   m_Layer: 5
-  m_Name: LeaveFinish
+  m_Name: LevelAccomplishedScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

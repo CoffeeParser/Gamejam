@@ -14,20 +14,20 @@
                               "SpritePathInResources":   "Characters/Robs_trans",
                               "EvilAction":   [
                                     {
-                                          "ActionType":   "voice",
+                                          "ActionType":   "touch",
                                           "Identifier":   "voice_01",   
                                           "Peaks":      3,
                                           "Decibel":   60
                                     },
                                     {
-                                          "ActionType":   "swipe",
+                                          "ActionType":   "touch",
                                           "Identifier":   "swipe_01",
                                           "ObjectOfInterest":   "Toy",
                                           "PlacementTarget":   "Floor",
                                           "details":   "whatever"
                                     },
                                     {
-                                          "ActionType":   "swipe",
+                                          "ActionType":   "touch",
                                           "Identifier":   "swipe_02",
                                           "ObjectOfInterest":   "Picture",
                                           "PlacementTarget":   "Floor",
@@ -36,6 +36,13 @@
                                     {
                                           "ActionType":   "touch",
                                           "Identifier":   "touch_01",
+                                          "ObjectOfInterest":   "WaterTap",
+                                          "PlacementTarget":   "Floor",
+                                          "details":   "whatever"
+                                    },
+                                    {
+                                          "ActionType":   "touch",
+                                          "Identifier":   "touch_02",
                                           "ObjectOfInterest":   "WaterTap",
                                           "PlacementTarget":   "Floor",
                                           "details":   "whatever"
@@ -97,53 +104,34 @@
                                           "Actor":   "Patient",
                                           "ActionType":   "voice",
                                           "Identifier":   "voice_01",
-                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
-                                          "FailedMessage":   "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen."
-                                    },
-                                    {
-                                          "DialogType":   "Story",
-                                          "Actor":   "Dr",
-                                          "Message":   "Geht   es   Ihnen   heute   besser?"
+                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   doch   etwas!   Ich   kriege   den   Laerm   einfach   nicht   aus   dem   Kopf!",
+                                          "FailedMessage":   "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen!"
                                     },
                                     {
                                           "DialogType":   "ActionStatus",
                                           "Actor":   "Patient",
                                           "ActionType":   "swipe",
                                           "Identifier":   "swipe_01",
-                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Ich   glaube,   ich   habe   das   Spielzeug   meiner   Tochter   umgestellt,   aber   ich   kann   mich   nicht   daran   erinnern!",
-                                          "FailedMessage":   "Vielen   Dank   Dr.   Goodwill.   Mir   geht   es   schon   viel   besser,   Ihr   Tipp   mit   dem   Entspannen   hat   mir   sehr   geholfen.   Vielleicht   sehe   ich   meine   Tochter   ja   bald   wieder"
-                                    },
-                                    {
-                                          "DialogType":   "Story",
-                                          "Actor":   "Dr",
-                                          "Message":   "Geht   es   Ihnen   heute   besser?"
+                                          "FailedMessage":   "Vielleicht   sehe   ich   meine   Tochter   ja   bald   wieder"
                                     },
                                     {
                                           "DialogType":   "ActionStatus",
                                           "Actor":   "Patient",
                                           "ActionType":   "swipe",
                                           "Identifier":   "swipe_02",
-                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Das   Bild   meines   Freundes   lag   heute   morgen   auf   dem   Boden,   aber   ich   wuerde   es   nie   umwerfen!",
                                           "FailedMessage":   "Ich   habe   mir   Fotos   von   frueher   angeschaut,   als   mein   Freund   noch   lebte.   Ich   finde,   wir   hatten   eine   tolle   Zeit   und   ich   glaube,   ich   kann   jetzt   mehr   daran   denken,   als   an   den   Anschlag,   der   ihn   getoetet   hat."
-                                    },
-                                    {
-                                          "DialogType":   "Story",
-                                          "Actor":   "Dr",
-                                          "Message":   "Wie   geht   es   Ihnen   heute?"
                                     },
                                     {
                                           "DialogType":   "ActionStatus",
                                           "Actor":   "Patient",
                                           "ActionType":   "touch",
                                           "Identifier":   "touch_01",
-                                          "SolvedMessage":   "Dr.   Goodwill!!!   Ich   weiß   nicht,   was   ich   machen   soll,   ich   glaube,   ich   drehe   komplett   hohl,   bitte   tun   Sie   etwas!   Ich   habe   letzte   Nacht   Geraeusche   vom   Wasserhahn   gehoert,   aber   kann   es   mir   nicht   erklaeren,   ich   drehe   ihn   immer   fest   zu!",
                                           "FailedMessage":   "Ich   konnte   mich   gestern   wirklich   gut   entspannen   und   habe   endlich   mal   geschlafen   wie   ein   Stein,   mir   geht   es   heute   schon   besser."
                                     },
                                     {
-                                          "DialogType":   "ActionStatus",
+                                          "DialogType":   "Story",
                                           "Actor":   "Dr",
-                                          "ActionType":   "All",
-                                          "SolvedMessage":   "Hmm...ich   glaube,   es   bleibt   uns   nichts   anderes   uebrig,   als   Sie   einzuweisen.",
+										  "SolvedMessage": "Hah... Da sind sie wohl ein Fall für die Klapse!!!",
                                           "FailedMessage":   "Das   ist   super!   Das   sollten   Sie   gleich   heute   Abend   noch   einmal   wiederholen"
                                     }
                               ]
