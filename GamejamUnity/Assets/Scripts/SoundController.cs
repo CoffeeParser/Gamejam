@@ -27,6 +27,7 @@ public class SoundController : MonoBehaviour {
     [Header("InGameSound")]
     public AudioClip doorOpen;
 
+    public AudioSource voiceLoop;
     public AudioSource voice;
     public AudioSource musik;
 
@@ -38,42 +39,61 @@ public class SoundController : MonoBehaviour {
         // Disable when TerroScene!!!
         audioListener.enabled = true;
 
-        PlayLaughSound();
-        PlayStartMusic();
+        //PlayLaughSound();
+        //PlayStartMusic();
     }
 
 
-    public void PlayLaughSound()
+    // PlayVoidLoop
+    public void PlayVoiceLoop(AudioClip audioClip)
     {
-        voice.clip = DrEvilLaugh;
+        voiceLoop.loop = true;
+        voiceLoop.clip = audioClip;
+        voiceLoop.Play();
+    }
+
+    public void StopVoiceLoop(AudioClip audioClip)
+    {
+        voiceLoop.Stop();
+    }
+
+    //PlayVoice 1x
+    public void PlayVoice(AudioClip audioClip)
+    {
+        voice.clip = audioClip;
         voice.Play();
     }
 
-    public void StopLaughSound()
+    //PlayMusic
+    public void PlayMusicLoop(AudioClip audioClip)
     {
-        Debug.Log("Stopt");
-        //StopCoroutine(PlayLaughIterator());
-        voice.Stop();
+        voiceLoop.loop = true;
+        musik.clip = audioClip;
+        musik.Play();
+    }
+
+    public void StopMusicLoop(AudioClip audioClip)
+    {
+        musik.Stop();
     }
 
     /*
-    public void StartPlayLaughIterator()
+    // DrEvilLaugh
+
+    public void PlayLaughSoundLoop()
     {
-        StartCoroutine(PlayLaughIterator());
+        voiceLoop.clip = DrEvilLaugh;
+        voiceLoop.Play();
     }
 
-    private IEnumerator PlayLaughIterator()
+    public void StopLaughSoundLoop()
     {
-        while (true)
-        {
-            voice.clip = DrEvilLaugh;
-            voice.Play();
-            yield return new WaitForSeconds(2);
-        }
-
+        Debug.Log("Stopt");
+        //StopCoroutine(PlayLaughIterator());
+        voiceLoop.Stop();
     }
-    */
 
+    // 
     public void PlayDayScreenMusic()
     {
         musik.clip = DialogMusik;
@@ -95,4 +115,5 @@ public class SoundController : MonoBehaviour {
         musik.clip = StartScreenMusik;
         musik.Stop();
     }
+    */
 }
