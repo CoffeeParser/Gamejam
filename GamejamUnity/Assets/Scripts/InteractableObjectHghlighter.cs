@@ -10,11 +10,15 @@ public class InteractableObjectHghlighter : MonoBehaviour
     public Camera GyroCam;
     
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	    Vector2 screenCenter = GyroCam.pixelRect.center;
 	    GameObject hitGameObject = MobileInput.instance.CastRayHitFromCam(screenCenter, GyroCam, _interactableLayer);
 	    if (hitGameObject != null && hitGameObject != currentlyHighlightedGameObject)
 	    {
+	        if (currentlyHighlightedGameObject != null)
+	        {
+	            currentlyHighlightedGameObject.GetComponent<HighightableObject>().DisableHighlight(); // disable old highlighted object
+	        }
             Debug.Log("hitting interactable obj!!!");
 	        currentlyHighlightedGameObject = hitGameObject;
             currentlyHighlightedGameObject.GetComponent<HighightableObject>().EnableHighlight();
@@ -24,6 +28,7 @@ public class InteractableObjectHghlighter : MonoBehaviour
 	        currentlyHighlightedGameObject.GetComponent<HighightableObject>().DisableHighlight();
 	        currentlyHighlightedGameObject = null;
 	    }
-
 	}
+
+    
 }

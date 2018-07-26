@@ -330,6 +330,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!54 &52086425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -412,6 +413,7 @@ GameObject:
   - component: {fileID: 101918245}
   - component: {fileID: 101918244}
   - component: {fileID: 101918249}
+  - component: {fileID: 101918250}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: GyroCam
@@ -505,6 +507,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GyroCam: {fileID: 101918247}
+--- !u!65 &101918250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101918243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &104459757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1192,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!1 &373166989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1465,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!54 &477995125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2482,6 +2498,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!54 &1014527474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2962,6 +2979,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 1
+  actionObject: {fileID: 0}
 --- !u!54 &1236192887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4326,8 +4344,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.63, z: 0}
+  m_Size: {x: 0.73, y: 1.09, z: 0.82}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &1901557596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,6 +4755,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!54 &1981025232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4972,6 +4991,7 @@ MonoBehaviour:
   isTriggered: 0
   holdingTime: 0
   holdingTimeThreshold: 0
+  actionObject: {fileID: 0}
 --- !u!114 &2118489866
 MonoBehaviour:
   m_ObjectHideFlags: 0
