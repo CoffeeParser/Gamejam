@@ -8,7 +8,6 @@ public class SoundController : MonoBehaviour {
 
     [Header("DrEvilSpeak")]
     public AudioClip DrEvilLaugh;
-    public bool LaughTooPlay;
     public AudioClip DrEvilTalk;
     public AudioClip DrEvilUnSolved;
 
