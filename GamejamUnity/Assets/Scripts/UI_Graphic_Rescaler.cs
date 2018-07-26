@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class UI_Graphic_Rescaler : MonoBehaviour
 {
@@ -107,7 +109,7 @@ public class UI_Graphic_Rescaler : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(UI_Graphic_Rescaler))]
 public class UI_Graphic_Rescaler_customEditor : Editor
 {
@@ -137,3 +139,4 @@ public class UI_Graphic_Rescaler_customEditor : Editor
         }
     }
 }
+#endif
