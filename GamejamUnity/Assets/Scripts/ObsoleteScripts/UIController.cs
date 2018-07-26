@@ -8,6 +8,15 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
+
+    /// <summary>
+    /// Obsolete Script
+    /// </summary>
+
+    /// <summary>
+    /// Hold all Menu UI without ScreenGroup
+    /// </summary>
+
     [Header("MAIN MENU")]
     public GameObject MainMenu;
     public Button OpenMenu;
@@ -170,6 +179,7 @@ public class UIController : MonoBehaviour {
 
         // With LoadingScreen
         StartCoroutine(LevelManager.instance.LoadAsynchonusly(1));
+        //StartCoroutine(ScreenViewHandler.instance.LoadAsynchonusly("StartSceen"));
 
         MenuisActive = false;
     }
@@ -215,10 +225,6 @@ public class UIController : MonoBehaviour {
         Application.Quit();
 #endif
     }
-
-    /// <summary>
-    /// OptionsMenu Functions
-    /// </summary>
 
     // Audio
     public void SetMasterVolume()
@@ -327,12 +333,6 @@ public class UIController : MonoBehaviour {
         PopUpMenuIsActive = false;
 
     }
-
-
-
-    /// <summary>
-    /// Hier Eventuell noch eien Json oder csv. importer Implementerien und die PopUps automatisch erzeugen!!!
-    /// </summary>
     public struct PopUp
     {
         public string name;

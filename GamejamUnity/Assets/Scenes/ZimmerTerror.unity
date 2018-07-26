@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.002
+  OutlineMax: 0.062
   OutlineMaterial: {fileID: 2100000, guid: 946b03f675e352445903101568d243fd, type: 2}
 --- !u!114 &263075847
 MonoBehaviour:
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.039
+  OutlineMax: 0.405
   OutlineMaterial: {fileID: 2100000, guid: 05eaa048e7a5a46469104e440b306b98, type: 2}
 --- !u!114 &495153952
 MonoBehaviour:
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.046
+  OutlineMax: 0.464
   OutlineMaterial: {fileID: 2100000, guid: 347d5017ac77e3d419d73558b6acb38f, type: 2}
 --- !u!65 &910349290
 BoxCollider:
@@ -3122,7 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.249
+  OutlineMax: 0.04
   OutlineMaterial: {fileID: 2100000, guid: d94407559bb5d814085be24a849ce21b, type: 2}
 --- !u!114 &1228469634
 MonoBehaviour:
@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.007
+  OutlineMax: 0.99
   OutlineMaterial: {fileID: 2100000, guid: 66e05910075b08e4da9dc1560d9cb4e8, type: 2}
 --- !u!114 &1686626072
 MonoBehaviour:
@@ -4738,7 +4738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.055
+  OutlineMax: 0.99
   OutlineMaterial: {fileID: 2100000, guid: 11a57994ed9b37c47a11c71b842c854e, type: 2}
 --- !u!114 &1901557597
 MonoBehaviour:
@@ -5037,7 +5037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.268
+  OutlineMax: 0.052
   OutlineMaterial: {fileID: 2100000, guid: 55a0a2fef934c3d479ff7381fb24b9c4, type: 2}
 --- !u!114 &1910189322
 MonoBehaviour:
@@ -5605,7 +5605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutLineMin: 0
-  OutlineMax: 0.035
+  OutlineMax: 0.5
   OutlineMaterial: {fileID: 2100000, guid: 21e3b71e1000d6148ad83767b57440d6, type: 2}
 --- !u!54 &2118489867
 Rigidbody:

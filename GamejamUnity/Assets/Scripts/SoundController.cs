@@ -5,7 +5,10 @@ using UnityEngine;
 public class SoundController : MonoBehaviour {
 
     //public GameObject Camera;
-
+    /// <summary>
+    /// Hold all Voice an Music for Screenplay
+    /// Let Play & Stop all AudioSource
+    /// </summary>
     [Header("DrEvilSpeak")]
     public AudioClip DrEvilLaugh;
     public AudioClip DrEvilTalk;
@@ -49,6 +52,11 @@ public class SoundController : MonoBehaviour {
         musik.Stop();
     }
 
+    /// <summary>
+    ///  Play AudioSource Voice and let Loop
+    /// </summary>
+    /// <param name="audioClip"></param>
+
     // PlayVoidLoop
     public void PlayVoiceLoop(AudioClip audioClip)
     {
@@ -57,17 +65,32 @@ public class SoundController : MonoBehaviour {
         voiceLoop.Play();
     }
 
+    /// <summary>
+    ///  Stop AudioSource VoiceLoop 
+    /// </summary>
+    /// <param name="audioClip"></param>
+
     public void StopVoiceLoop(AudioClip audioClip)
     {
         voiceLoop.Stop();
     }
 
+
+    /// <summary>
+    /// Play AudioSource voice 1x
+    /// </summary>
+    /// <param name="audioClip"></param>
     //PlayVoice 1x
     public void PlayVoice(AudioClip audioClip)
     {
         voice.clip = audioClip;
         voice.Play();
     }
+
+    /// <summary>
+    /// Play AudioSource Music in Loop
+    /// </summary>
+    /// <param name="audioClip"></param>
 
     //PlayMusic
     public void PlayMusicLoop(AudioClip audioClip)
@@ -77,48 +100,14 @@ public class SoundController : MonoBehaviour {
         musik.Play();
     }
 
+    /// <summary>
+    ///  Stop AudioSource Music Loop
+    /// </summary>
+    /// <param name="audioClip"></param>
+
     public void StopMusicLoop(AudioClip audioClip)
     {
         musik.Stop();
     }
 
-    /*
-    // DrEvilLaugh
-
-    public void PlayLaughSoundLoop()
-    {
-        voiceLoop.clip = DrEvilLaugh;
-        voiceLoop.Play();
-    }
-
-    public void StopLaughSoundLoop()
-    {
-        Debug.Log("Stopt");
-        //StopCoroutine(PlayLaughIterator());
-        voiceLoop.Stop();
-    }
-
-    // 
-    public void PlayDayScreenMusic()
-    {
-        musik.clip = DialogMusik;
-        musik.Play();
-    }
-    public void StopDayScreenMusic()
-    {
-        musik.clip = DialogMusik;
-        musik.Stop();
-    }
-
-    public void PlayStartMusic()
-    {
-        musik.clip = StartScreenMusik;
-        musik.Play();
-    }
-    public void StopStartMusic()
-    {
-        musik.clip = StartScreenMusik;
-        musik.Stop();
-    }
-    */
 }
