@@ -1,22 +1,35 @@
 ﻿using UnityEngine;
 
-public class HighightableObject : MonoBehaviour
+namespace DrEvil.Visuals
 {
-    public float OutLineMin = 0.0f;
-
-    public float OutlineMax = 0.05f;
-
-    public Material OutlineMaterial;
-	// Use this for initialization
-    public void EnableHighlight()
+    /// <summary>
+    /// Simple class to highlight aimed objects
+    /// </summary>
+    public class HighightableObject : MonoBehaviour
     {
-        OutlineMaterial.SetFloat("_Outline", OutlineMax);
-    }
+        public float OutLineMin = 0.0f;
 
-    public void DisableHighlight()
-    {
-        OutlineMaterial.SetFloat("_Outline", OutLineMin);
-    }
-	
+        public float OutlineMax = 0.05f;
 
+        public Material OutlineMaterial;
+        // Use this for initialization
+
+            /// <summary>
+            /// Highlight object
+            /// </summary>
+        public void EnableHighlight()
+        {
+            OutlineMaterial.SetFloat("_Outline", OutlineMax);
+        }
+
+        /// <summary>
+        /// Dehighlight object
+        /// </summary>
+        public void DisableHighlight()
+        {
+            OutlineMaterial.SetFloat("_Outline", OutLineMin);
+        }
+
+
+    }
 }

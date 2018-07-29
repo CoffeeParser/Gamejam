@@ -1,0 +1,114 @@
+\hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller}{}\section{Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller Class Reference}
+\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller}\index{Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller@{Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller}}
+
+
+This Class handles whole mechanics of the terror room  
+
+
+Inheritance diagram for Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dr_evil_1_1_mechanics_1_1_terror_level_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7e2676666d6e8bf3a853ebafc694f31e}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7e2676666d6e8bf3a853ebafc694f31e}} 
+void {\bfseries Init} ()
+\item 
+void \mbox{\hyperlink{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a8d383e0849fbd683b2032658a751a783}{Add\+Scratch\+Action}} (\mbox{\hyperlink{class_evil_action}{Evil\+Action}} scratch\+Evil\+Action)
+\begin{DoxyCompactList}\small\item\em Add a scratch event to the game if it is defined in the game\+Data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a4c48f71b3f4881fd082d2a823aa19464}{Add\+Voice\+Action}} (\mbox{\hyperlink{class_evil_action}{Evil\+Action}} voice\+Evil\+Action)
+\begin{DoxyCompactList}\small\item\em Add a voice event to the game if it is defined in the game\+Data \end{DoxyCompactList}\item 
+I\+Enumerator \mbox{\hyperlink{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a0ababae78433f3aed00a7a871f3526fc}{Play\+Failed\+Sound}} ()
+\begin{DoxyCompactList}\small\item\em Play a failed sound feedback from the patient \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a3f346e3b9e677f38dff3a6c33576526b}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a3f346e3b9e677f38dff3a6c33576526b}} 
+int {\bfseries max\+Fail\+Attempts} = 5
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a6c98e3c7c3c2b93c82b4dee5bb3594b4}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a6c98e3c7c3c2b93c82b4dee5bb3594b4}} 
+float {\bfseries fail\+Attempt\+Wait\+Time} = 1.\+5f
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_afb66ad1d935e72eeee1b3161f2938a7a}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_afb66ad1d935e72eeee1b3161f2938a7a}} 
+bool {\bfseries has\+User\+Swiped}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a6897cd0203f2ef41ef46fa2a7ac22faa}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a6897cd0203f2ef41ef46fa2a7ac22faa}} 
+Audio\+Source {\bfseries level\+Audio\+Source}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7d96119b3e69dfcfd4b05c5cc4d98659}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7d96119b3e69dfcfd4b05c5cc4d98659}} 
+Audio\+Source {\bfseries Voice\+Audio\+Source}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a433abcb89175595b9e621de20347a59a}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a433abcb89175595b9e621de20347a59a}} 
+Audio\+Clip {\bfseries Voice\+Audio\+Clip}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_aeab14cd3a88b08612f84bae4edb0cdbc}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_aeab14cd3a88b08612f84bae4edb0cdbc}} 
+List$<$ Audio\+Clip $>$ {\bfseries Failed\+Clips}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a11e7a2308c6085d21928d71cac93cc92}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a11e7a2308c6085d21928d71cac93cc92}} 
+int {\bfseries failed\+Clip\+Index} = -\/1
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7291cb2b49c2e1153262c70e09915d45}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a7291cb2b49c2e1153262c70e09915d45}} 
+static \mbox{\hyperlink{class_dr_evil_1_1_mechanics_1_1_terror_level_controller}{Terror\+Level\+Controller}} {\bfseries instance}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Class handles whole mechanics of the terror room 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a8d383e0849fbd683b2032658a751a783}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a8d383e0849fbd683b2032658a751a783}} 
+\index{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}!Add\+Scratch\+Action@{Add\+Scratch\+Action}}
+\index{Add\+Scratch\+Action@{Add\+Scratch\+Action}!Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}}
+\subsubsection{\texorpdfstring{Add\+Scratch\+Action()}{AddScratchAction()}}
+{\footnotesize\ttfamily void Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller.\+Add\+Scratch\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_evil_action}{Evil\+Action}}}]{scratch\+Evil\+Action }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a scratch event to the game if it is defined in the game\+Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scratch\+Evil\+Action} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a4c48f71b3f4881fd082d2a823aa19464}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a4c48f71b3f4881fd082d2a823aa19464}} 
+\index{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}!Add\+Voice\+Action@{Add\+Voice\+Action}}
+\index{Add\+Voice\+Action@{Add\+Voice\+Action}!Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}}
+\subsubsection{\texorpdfstring{Add\+Voice\+Action()}{AddVoiceAction()}}
+{\footnotesize\ttfamily void Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller.\+Add\+Voice\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_evil_action}{Evil\+Action}}}]{voice\+Evil\+Action }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a voice event to the game if it is defined in the game\+Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em voice\+Evil\+Action} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a0ababae78433f3aed00a7a871f3526fc}\label{class_dr_evil_1_1_mechanics_1_1_terror_level_controller_a0ababae78433f3aed00a7a871f3526fc}} 
+\index{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}!Play\+Failed\+Sound@{Play\+Failed\+Sound}}
+\index{Play\+Failed\+Sound@{Play\+Failed\+Sound}!Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller@{Dr\+Evil\+::\+Mechanics\+::\+Terror\+Level\+Controller}}
+\subsubsection{\texorpdfstring{Play\+Failed\+Sound()}{PlayFailedSound()}}
+{\footnotesize\ttfamily I\+Enumerator Dr\+Evil.\+Mechanics.\+Terror\+Level\+Controller.\+Play\+Failed\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Play a failed sound feedback from the patient 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gamejam\+Unity/\+Assets/\+Scripts/Terror\+Level\+Controller.\+cs\end{DoxyCompactItemize}

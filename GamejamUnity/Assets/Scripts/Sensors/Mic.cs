@@ -2,139 +2,162 @@
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Collections;
-
-/// <summary>
-/// The Class Mic will allow the developer to acces a camera.
-/// </summary>
-public class Mic : MonoBehaviour
+namespace MobileSensors
 {
 
     /// <summary>
-    /// Index of device which will be accessed.
+    /// The Class Mic will allow the developer to acces a camera.
     /// </summary>
-    public int deviceID = 0;
-
-    /// <summary>
-    /// The current microphone level.
-    /// </summary>
-    public float micLevel;
-
-    /// <summary>
-    /// The current microphone level in dB.
-    /// </summary>
-    public float micLevelinDb;
-
-    /// <summary>
-    /// The amount of samples which will be iteratet to find the highest peak.
-    /// </summary>
-    public int _sampleWindow = 4;
-
-    public List<Threshold> thresholdTriggers;
-
-    public bool debugging;
-
-    public string[] devices;
-    public string deviceName;
-    private AudioClip recClip;
-
-    public EventThresholdLevel OnThresholdExceeded;
-
-    // Use this for initialization
-    void Awake()
+    public class Mic : MonoBehaviour
     {
-        StartCoroutine(WaitForDevice());
 
-        if (OnThresholdExceeded == null)
-            OnThresholdExceeded = new EventThresholdLevel();
-    }
+        /// <summary>
+        /// Index of device which will be accessed.
+        /// </summary>
+        public int deviceID = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        devices = Microphone.devices;
-        if (!string.IsNullOrEmpty(deviceName))
+        /// <summary>
+        /// The current microphone level.
+        /// </summary>
+        public float micLevel;
+
+        /// <summary>
+        /// The current microphone level in dB.
+        /// </summary>
+        public float micLevelinDb;
+
+        /// <summary>
+        /// The amount of samples which will be iteratet to find the highest peak.
+        /// </summary>
+        public int _sampleWindow = 4;
+
+        /// <summary>
+        /// List of independet thresholds to trigger
+        /// </summary>
+        public List<Threshold> thresholdTriggers;
+
+        public bool debugging;
+
+        /// <summary>
+        /// List all mic devices
+        /// </summary>
+        public string[] devices;
+        public string deviceName;
+        private AudioClip recClip;
+
+        /// <summary>
+        /// Listen to this event for getting microphone level threshold exceeded
+        /// </summary>
+        public EventThresholdLevel OnThresholdExceeded;
+
+        // Use this for initialization
+        void Awake()
         {
-            if (Microphone.IsRecording(deviceName))
-            {
-                micLevel = GetMaxLevel();
-                micLevelinDb = GetDbFromLevel(micLevel);
+            StartCoroutine(WaitForDevice());
 
-                for (int i = 0; i < thresholdTriggers.Count; i++)
+            if (OnThresholdExceeded == null)
+                OnThresholdExceeded = new EventThresholdLevel();
+        }
+
+        void Update()
+        {
+            devices = Microphone.devices;
+            if (!string.IsNullOrEmpty(deviceName))
+            {
+                if (Microphone.IsRecording(deviceName))
                 {
-                    if (micLevelinDb >= thresholdTriggers[i].amount)
-                        OnThresholdExceeded.Invoke(thresholdTriggers[i].level);
+                    micLevel = GetMaxLevel();
+                    micLevelinDb = GetDbFromLevel(micLevel);
+
+                    for (int i = 0; i < thresholdTriggers.Count; i++)
+                    {
+                        if (micLevelinDb >= thresholdTriggers[i].amount)
+                            OnThresholdExceeded.Invoke(thresholdTriggers[i].level);
+                    }
                 }
             }
         }
-    }
 
-    private IEnumerator WaitForDevice()
-    {
-        int waitingAttempts = 5;
-        while (waitingAttempts >= 0)
+        /// <summary>
+        /// Wait for Microphone Device 
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator WaitForDevice()
         {
-            if (debugging)
-                Debug.Log("Waiting for Mic-Device!");
-
-            if (deviceID < Microphone.devices.Length)
+            int waitingAttempts = 5;
+            while (waitingAttempts >= 0)
             {
-                deviceName = Microphone.devices[deviceID];
-
                 if (debugging)
-                    Debug.Log("Microphone Device" + deviceName + "Found!");
+                    Debug.Log("Waiting for Mic-Device!");
 
-                recClip = Microphone.Start(deviceName, true, 999, 44100);
+                if (deviceID < Microphone.devices.Length)
+                {
+                    deviceName = Microphone.devices[deviceID];
 
-                yield break;
+                    if (debugging)
+                        Debug.Log("Microphone Device" + deviceName + "Found!");
+
+                    recClip = Microphone.Start(deviceName, true, 999, 44100);
+
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(0.5f);
+
+                waitingAttempts--;
             }
 
-            yield return new WaitForSeconds(0.5f);
-
-            waitingAttempts--;
+            if (Microphone.devices == null || Microphone.devices.Length <= 0)
+            {
+                if (debugging)
+                    Debug.LogWarning("No Microphone Devices detected!");
+            }
+            else if (debugging)
+            {
+                Debug.LogWarning("No Microphone with ID " + deviceID + " found!");
+            }
         }
 
-        if (Microphone.devices == null || Microphone.devices.Length <= 0)
+        private void StopMic()
         {
-            if (debugging)
-                Debug.LogWarning("No Microphone Devices detected!");
-        } else if (debugging)
+            Microphone.End(deviceName);
+        }
+
+        /// <summary>
+        /// get max level from mic
+        /// </summary>
+        /// <returns></returns>
+        float GetMaxLevel()
         {
-            Debug.LogWarning("No Microphone with ID " + deviceID + " found!");
+            float levelMax = 0;
+            float[] waveData = new float[_sampleWindow];
+            int micPosition = Microphone.GetPosition(null) - (_sampleWindow + 1);
+
+            if (micPosition < 0) return 0;
+
+            recClip.GetData(waveData, micPosition);
+
+            // Getting a peak on the last samples in sampleWindow
+            for (int i = 0; i < _sampleWindow; i++)
+            {
+                float wavePeak = waveData[i] * waveData[i];
+
+                //Cache higher peaks into levelMax
+                if (levelMax < wavePeak)
+                    levelMax = wavePeak;
+            }
+            return levelMax;
+        }
+
+        /// <summary>
+        /// mic loudness to decibel
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        float GetDbFromLevel(float level)
+        {
+            return 20 * Mathf.Log10(Mathf.Abs(level));
         }
     }
 
-    private void StopMic()
-    {
-        Microphone.End(deviceName);
-    }
-
-    //get max level from mic
-    float GetMaxLevel()
-    {
-        float levelMax = 0;
-        float[] waveData = new float[_sampleWindow];
-        int micPosition = Microphone.GetPosition(null) - (_sampleWindow + 1);
-
-        if (micPosition < 0) return 0;
-
-        recClip.GetData(waveData, micPosition);
-
-        // Getting a peak on the last samples in sampleWindow
-        for (int i = 0; i < _sampleWindow; i++)
-        {
-            float wavePeak = waveData[i] * waveData[i];
-
-            //Cache higher peaks into levelMax
-            if (levelMax < wavePeak)
-                levelMax = wavePeak;
-        }
-        return levelMax;
-    }
-
-    //mic loudness to decibel
-    float GetDbFromLevel(float level)
-    {
-        return 20 * Mathf.Log10(Mathf.Abs(level));
-    }
 }
-

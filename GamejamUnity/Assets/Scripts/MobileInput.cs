@@ -4,19 +4,17 @@ using UnityEngine.Events;
 
 namespace MobileSensors
 {
+    /// <summary>
+    /// This class handles ALL mobile inputs. This class can be accessed from everywhere
+    /// </summary>
     public class MobileInput : MonoBehaviour
     {
         public static MobileInput instance;
 
         public TouchInput touch;
-        //public Pinch pinch;
         public Mic mic;
         public Accelerate accel;
         public Gyro gyro;
-        //public Compass compass;
-        //public MobileCamera camMain;
-        //public MobileCamera camFront;
-        //public Location location;
 
         public UnityEvent OnUnityRemoteStarted;
 
@@ -53,6 +51,13 @@ namespace MobileSensors
             }
         }
 
+        /// <summary>
+        /// Helper method to raycast and hit from a cam to a layer
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <param name="cam"></param>
+        /// <param name="layerMask"></param>
+        /// <returns></returns>
         public GameObject CastRayHitFromCam(Vector2 pos, Camera cam, int layerMask = 8)
         {
             RaycastHit hit;

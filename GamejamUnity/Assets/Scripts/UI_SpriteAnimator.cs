@@ -3,63 +3,74 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class UI_SpriteAnimator : MonoBehaviour {
-
-    private Image image;
-    public Sprite[] sprites;
-    public float animationSpeed;
-
-    public bool PlayOnce = false;
-    public bool PlayOnEnable = true;
-
-    public IEnumerator StartAnimate()
+namespace DrEvil.Visuals
+{
+    /// <summary>
+    /// Simple class for handling animations in UI-Canvas
+    /// </summary>
+    [RequireComponent(typeof(Image))]
+    public class UI_SpriteAnimator : MonoBehaviour
     {
-        if (!PlayOnce)
+
+        private Image image;
+        public Sprite[] sprites;
+        public float animationSpeed;
+
+        public bool PlayOnce = false;
+        public bool PlayOnEnable = true;
+
+        /// <summary>
+        /// Start to animate the sprite
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator StartAnimate()
         {
-            while (true)
+            if (!PlayOnce)
+            {
+                while (true)
+                {
+                    for (int i = 0; i < sprites.Length; i++)
+                    {
+                        yield return new WaitForSeconds(animationSpeed);
+                        image.sprite = sprites[i];
+                    }
+                }
+            }
+            else
             {
                 for (int i = 0; i < sprites.Length; i++)
                 {
                     yield return new WaitForSeconds(animationSpeed);
                     image.sprite = sprites[i];
                 }
+                yield return new WaitForSeconds(animationSpeed); // wait last frame again until its over to show current state
             }
         }
-        else
+
+        private IEnumerator AnimateWithCallback(Action callbackAction)
         {
-            for (int i = 0; i < sprites.Length; i++)
+            yield return StartAnimate();
+            callbackAction.Invoke();
+        }
+
+        private void OnEnable()
+        {
+            if (PlayOnEnable)
             {
-                yield return new WaitForSeconds(animationSpeed);
-                image.sprite = sprites[i];
+                image = GetComponent<Image>();
+                StartCoroutine(StartAnimate());
             }
-            yield return new WaitForSeconds(animationSpeed); // wait last frame again until its over to show current state
         }
-    }
 
-    private IEnumerator AnimateWithCallback(Action callbackAction)
-    {
-        yield return StartAnimate();
-        callbackAction.Invoke();
-    }
-
-    private void OnEnable()
-    {
-        if (PlayOnEnable)
+        /// <summary>
+        /// Play Animation once and then Invoke calBackAction
+        /// </summary>
+        /// <param name="callbackAction"></param>
+        public void PlayOneBurstWithCallback(Action callbackAction)
         {
+            PlayOnce = true;
             image = GetComponent<Image>();
-            StartCoroutine(StartAnimate());
+            StartCoroutine(AnimateWithCallback(callbackAction));
         }
-    }
-
-    /// <summary>
-    /// Play Animation once and then Invoke calBackAction
-    /// </summary>
-    /// <param name="callbackAction"></param>
-    public void PlayOneBurstWithCallback(Action callbackAction)
-    {
-        PlayOnce = true;
-        image = GetComponent<Image>();
-        StartCoroutine(AnimateWithCallback(callbackAction));
     }
 }

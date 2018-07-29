@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Just a Testing Script 
+/// </summary>
 public class EventTestScript : MonoBehaviour {
 
 	// Use this for initialization
